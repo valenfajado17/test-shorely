@@ -1,0 +1,796 @@
+body{
+    margin: 0;
+    background-color: #FFF0BA;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* ABOUT-US SECTION */
+.about-us{
+    display: flex;   
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    text-align: center;
+    background-color: #FFF0BA;
+    color: #2B66BD;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+    z-index: 0;
+}
+
+.logo {
+    transform: scale(0);
+    opacity: 0;
+}
+
+.logo h1{
+    font-size: 5rem !important;
+    font-weight: bold;
+}
+
+.tagline{
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+    transform: translateY(80px);
+    opacity: 0;
+    z-index: 2;
+    max-width: 600px;
+
+}
+
+.wave-bg{
+    position: absolute;
+    top: 90vh;
+    width: 100%;
+    height: 396%;
+    background-image: url('../assets/images/waves/waves-home.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+    opacity: 0;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.tagline h2{
+    font-size: 2rem !important;
+}
+
+.description {
+    width: 620px;
+}
+
+@media (max-width: 768px) {
+    .about-us {
+        padding: 2rem 1rem;
+        height: auto;
+    }
+
+    .tagline {
+        font-size: 1.25rem;
+        padding: 0 1rem;
+        max-width: 90vw;
+    }
+
+    .description {
+        width: 305.50px;
+        text-align: center;
+    }
+    .logo h1{
+        font-size: 4rem;
+    }
+    .logo{
+        padding-top: 20px;
+    }
+}
+/* END ABOUT-US SECTION  */
+
+/* CREATURES SECTION */
+
+.sea-creatures {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.creature{
+    position: relative; 
+    cursor: pointer ;
+}
+
+.creature img {
+    position: absolute;
+    transition: transform 0.3s ease;
+
+}
+
+.normal {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.squish {
+    display: none;
+    pointer-events: none;
+}
+
+.pop-in {
+  animation: popIn 0.4s ease-out;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.floating {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {transform: translateY(0);}
+    50% {transform: translateY(-10px);}
+}
+
+.shell img {
+    bottom: 79vh;
+    right: 44vh;
+    width: 81px;
+}
+
+.octopus img {
+    bottom: 75vh;
+    left: 66vh;
+    width: 94px;
+}   
+/* eyes creatures */
+.eye{
+    width: 8px;
+    height: 8px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 2;
+    transition: transform  0.1s ease;
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
+}
+
+.left-eye-shell{
+    bottom: 80vh;
+    right: 52vh;
+}
+
+.right-eye-shell {
+    bottom: 80vh;
+    right: 48vh;
+}
+
+.left-eye-octopus{
+    bottom: 80vh;
+    left: 71vh;
+}
+
+.right-eye-octopus{
+    bottom: 80vh;
+    left: 74vh;
+}
+
+/* Carab */
+.crab-container {
+    position: absolute;
+    opacity: 0;
+    z-index: 10;
+    transition: transform 0.1s ease;
+    right: 80vh;
+}
+
+.crab-body {
+    width: 112px;
+}
+
+.left-eye-crab{
+    bottom: 7vh;
+    right: 11vh;
+    opacity: 1 !important;
+}
+.right-eye-crab{
+    bottom: 7vh;
+    right: 6vh;
+    opacity: 1 !important;
+}
+
+.leg {
+    width: 20px;
+    position: absolute;
+    top: 10px;
+}
+
+.ll-1 {
+    top: 47px;
+    left: 16px;
+}
+.ll-2 {
+    top: 47px;
+    left: 7px;
+}
+.lr-1 {
+    top: 47px;
+    right: 13px;
+}
+.lr-2 {
+    top: 47px;
+    right: 3px;
+} 
+
+@media (max-width: 768px) {
+    .octopus img {
+        bottom: 88vh;
+        left: 11vh;
+        width: 80px;
+    }
+
+    .shell img {
+        bottom: 17vh;
+        right: 7vh;
+        width: 75px;
+    }
+
+    .crab-container{
+        bottom: -20vh;
+        left: 38vh;
+    }
+
+    .left-eye-octopus {
+        bottom: 91.5vh;
+        left: 15vh;
+    }
+
+    .right-eye-octopus{
+        bottom: 91.5vh;
+        left: 17.5vh;
+    }
+
+    .left-eye-shell {
+        bottom: 18vh;
+        right: 13.5vh;
+    }
+
+    .right-eye-shell {
+        bottom: 18vh;
+        right: 10.5vh;
+    }
+}
+/* END CREATURES SECTION */
+
+.bubble-container{
+    position: absolute;
+    bottom: 0;
+    left: -72%;
+    height: 200px;
+    width: 200px;
+    transform: translateX(-50%);
+    pointer-events: auto;
+}
+
+.speech-bubble {
+    position: absolute;
+    bottom: 9vh;
+    left: 50%;
+    width: 196px;
+    opacity: 0;
+    transform: translateX(-50%) scale(0);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: auto;
+}
+
+.bf {
+  opacity: 1;
+  z-index: 2;
+}
+
+.af {
+    opacity: 0;
+    z-index: 3;
+    left: 0%;
+}
+
+.bubble-container:hover .bf{
+    opacity: 0;
+}
+ 
+.bubble-container:hover .af{
+    opacity: 1;
+    transform: scale(1.08);
+} 
+/* SPEECh BUBBLE  CRAB */
+
+
+/* INDUSTRY SECTION */
+.industries-section{
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    background-color: #2B66BD;
+}
+
+.industries-title{
+    padding-bottom: 17vh;
+}
+
+.industries-title h1 {
+    color: #FFF0BA;
+    position: absolute;
+    font-size: 2.5rem;
+    margin-bottom: 5vh;
+    z-index: 3;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.4s, transform 0.4s;
+}
+
+.industry-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.industry-shape {
+    position: absolute;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+.industry-shape img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease-in-out;
+    pointer-events: none;
+}
+
+.industry-text {
+    position: absolute;
+    text-align: center;
+    color: #FFF0BA;
+    top: 27%;
+    left: 21%;
+    width: 200px;
+}
+
+.industry-shape.hovered{
+    transform: scale(1.2);
+    z-index: 2;
+}
+.industry-shape.dimmed:not(.hovered){
+    transform: scale(0.9);
+    opacity: 0.7;
+}
+/* Posicionamiento  */
+.snail { top: 10%; left: 9%; width: 318px;}
+.circle { top: 53%; left: 9%; width: 326px; }
+.seashell { top: 20%; left: 37%; width: 358px; }
+.jellyfish { top: 12%; left: 68%;width: 354px; }
+.starfish { top: 54%;left: 67%;width: 332px;}
+
+/* Shapes text */
+.soccer {
+    top: 23%;
+    width: 202px;
+}
+
+
+@media (max-width: 768px) {
+    .industries-section{
+        padding: 4vh 4vw;
+        text-align: center;
+    }
+
+    .industries-title{
+        padding-bottom: 18px;
+        margin-bottom: 0;
+    }
+
+    .industries-title h1 {
+        position: static !important;
+        display: block !important;
+        text-align: center !important;
+        font-size: 1.4rem !important;
+        margin-bottom: 0 auto 26px auto !important;
+        padding: 0 2vw !important; 
+        opacity: 1 !important;
+        transform: none !important;
+        line-height: 1.2 !important;
+    }
+
+    .industry-container {
+        position: static !important;
+        height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 26px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 auto !important;
+        z-index: 2;
+    }
+    
+    .industry-shape {
+        position: relative !important;
+        width: 76vw !important;
+        max-width: 325px !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .industry-shape img {
+        width: 100% !important;
+        height: auto !important;
+        margin-bottom: 0.7em;
+        display: block;
+    }
+
+    .industry-text {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        color: #FFF0BA !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        pointer-events: none !important; 
+        font-size: 1.01rem !important;
+        z-index: 2 !important;
+        padding: 0 10px !important;
+        background: none !important;
+        text-align: center !important;
+    }
+
+    .industry-shape:hover img,
+    .industry-container:hover .industry-shape img {
+        transform: none !important;
+    }
+
+    .snail { top: 0; left: 0;}
+    .circle { top: 0; left: 0;}
+    .seashell { top: 0; left: 0;}
+    .jellyfish { top: 0; left: 0;}
+    .starfish { top: 0; left: 0;}
+
+}
+
+/* END INDUSTRY SECTION */
+
+/* BOAT SECTION */
+.boat-section {
+    position: relative;
+    min-height: 460px;
+}
+
+.wave-darkblue-bg{
+    position: absolute;
+    width: 100%;
+    height: 153%;
+    background-image: url('../assets/images/waves/waves-darkblue.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+    z-index: 3; 
+    top: 98vh;
+    transition: transform 0.3s ease;
+}
+
+.boat-content, .boat-title, .arrow-icons{
+    position: relative;
+
+}
+
+.boat-title {
+    padding: 20vh 0 30vh 0;
+    z-index: 3;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.4s, transform 0.4s;
+    text-align: center;
+}
+
+.boat-title h1 {
+    color: #FFF0BA;
+    font-size: 2rem;
+    padding: 0 59vh 0 59vh; 
+}
+
+.boat-title p {
+    color: #FFF0BA;
+    font-size: 1.5rem;
+}
+
+.boat-content {
+    position: relative;
+    max-width: 939px;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    bottom: 56vh;
+    right: 19vh;
+    opacity: 0;
+    transform: translateX(-100vw) translateY(50%);
+    transition: none;
+}
+
+.boat-img{
+    width: 100%;
+    display: block;
+}
+
+
+.company-info {
+    position: absolute;
+    color: #19417B;
+    text-align: center;
+}
+
+.logo-company {
+    position: absolute;
+    bottom: 20vh;
+    right: 40vh;
+}
+
+.name-company {
+    font-weight: 700;
+    position: absolute;
+    bottom: 19vh;
+    right: 8vh;
+}
+
+.description-company {
+  font-size: 1rem;
+  opacity: 0.88;
+}
+
+.arrow-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2.2em;
+  margin: 10px 0 0 0;
+}
+
+.arrow {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+}
+
+.arrow-base {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow-hover {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow:hover .arrow-base { display: none; }
+.arrow:hover .arrow-hover { display: block; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .boat-section {
+    background-color: #2B66BD;
+  }
+
+  .boat-title {
+        padding: 39px 6vw !important;
+        opacity: 1 !important;
+        transform: none !important;
+        line-height: 1.2 !important;
+    }
+
+    .boat-title h1 {
+        font-size: 1.7rem;
+         padding: 0;
+    }
+    
+    .boat-content{
+        bottom: 2vh;
+        right: 7vh;
+        max-width: 427vw !important;
+    }
+    
+    .wave-darkblue-bg{
+        top: 62vh;
+    }
+}
+
+/* PORTFOLIO SECTION */
+
+.portfolio-title {
+    color: #FFF0BA;
+    position: relative;
+    text-align: center;
+    bottom: 35vh;
+    z-index: 3;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.4s, transform 0.4s;
+}
+
+.domain-marquee {
+  position: relative;
+  z-index: 3;
+  width: 100vw;
+  overflow: hidden;
+  padding: 24px 0 24px 0;
+  bottom: 8vh;
+} 
+
+.domain-bar {
+    background-color: #2B66BD;
+    color: #FFF0BA;
+    border-radius: 32px;
+    padding: 13px 40px;
+    margin: 0 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.23s, color 0.22s, box-shadow 0.22s;
+    box-shadow: 0 2px 18px 0 rgb(0,0,0,0.5);
+    display: inline-block;
+}
+
+.domain-bar:hover{
+    background-color: black;
+    color: #FFF0BA;
+    box-shadow: 0 2px 18px 0 rgb(0,0,0,0.5);
+}
+
+.marquee-inner {
+    display: flex;
+    gap: 48px;
+    white-space: nowrap;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .portfolio-title{
+        bottom: 3vh;
+    }
+
+    .domain-marquee {
+        bottom: -12vh;
+    }
+
+    .marquee-inner{
+        gap: 1px;
+    }
+}
+
+/* END PORTFOLIO SECTION */
+
+/* FOUNDER SECTION */
+.founder-section {
+  position: relative;
+  padding: 80px 0 0 0;
+  overflow: hidden;
+  min-height: 700px;
+}
+
+.wave-black-bg {
+    position: absolute;
+    bottom: 78vh;
+    width: 100%;
+    height: 596px;
+    background: url('../assets/images/waves/waves-black.png');
+    background-repeat: repeat;
+    background-size: contain;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.founder-title h3{
+    z-index: 3;
+    position: relative;
+    text-align: center;
+    color: #FFF0BA;
+    margin-bottom: 48px;
+    bottom: 11vh;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.founder-visual {
+    position: relative;
+    z-index: 3;
+    width: 35%;
+    height: 10%;
+    bottom: 10vh;
+    left: 35vh;
+}
+
+.founder-visual img{
+    max-width: 351px;
+    width: 41%;
+}
+
+.silhouette {
+  width: 100%;
+  display: block;
+}
+
+.eyes {
+  position: absolute;
+  width: 8px; height: 8px;
+  background: black;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px #0002;
+  z-index: 4;
+}
+
+.left-eye-founder { left: 16vh; top: 7.5vh; }
+.right-eye-founder { left: 20vh; top: 7.5vh; }
+
+.dilaog-content {
+  max-width: 570px;
+}
+
+.dialog-founder {
+    position: relative;
+    z-index: 4;
+    bottom: 127vh;
+    left: 59vh;
+    width: 123%;
+    animation: pop-bubble 1s cubic-bezier(.55,1.55,.38,1.08);
+    opacity: 0;
+    transform: scale(0.7);
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+}
+
+.text-content {
+    position: relative;
+    text-align: justify;
+    color: black;
+    bottom: 180vh;
+    z-index: 4;
+    left: 80vh;
+    padding: 25px;
+    font-weight: bold;
+}
+
+@keyframes pop-bubble {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+    .founder-section {
+        background-color: #19417B;
+    }
+
+    .founder-title h4 {
+        bottom: -7vh;
+    }
+
+    
+}
+
+/* END FOUNDER SECTION */

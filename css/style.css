@@ -519,7 +519,7 @@ body{
     justify-content: center;
     align-items: center;
     z-index: 2;
-    bottom: 56vh;
+    bottom: 26vh;
     right: 19vh;
     opacity: 0;
     transform: translateX(-100vw) translateY(50%);
@@ -616,7 +616,7 @@ body{
     }
     
     .wave-darkblue-bg{
-        top: 62vh;
+        top: 51vh;
     }
 }
 

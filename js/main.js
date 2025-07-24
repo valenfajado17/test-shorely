@@ -7,6 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
   animateBoatSection();  
   scrollFromBoat();
   animateFounderSection();
+  seaCreaturesFormEyes();
 });
 
 
@@ -70,15 +71,15 @@ function animateSeaCreatures(){
     transform: "translateX(-50%)"
   });
 
-  // Crab enter walking
-  tl.to(".crab-container", {
-    x: 0,
-    opacity: 1,
-    duration: 2.5,
-    ease: "power2.out",
-    onStart: animateCrabLegs,
-    onComplete:  stopCrabLegs
-  }, "-=0.5");
+  // // Crab enter walking
+  // tl.to(".crab-container", {
+  //   x: 0,
+  //   opacity: 1,
+  //   duration: 2.5,
+  //   ease: "power2.out",
+  //   onStart: animateCrabLegs,
+  //   onComplete:  stopCrabLegs
+  // }, "-=0.5");
 }
 
 function animateCrabLegs(){
@@ -432,6 +433,23 @@ function animateFounderSection(){
     }
   });
 
+  gsap.fromTo('.dialog-text', {
+    opacity: 0,
+    scale: 0.7
+  },{
+    opacity: 1,
+    scale: 1,
+    duration: 1.2,
+    ease: "back.out(1.7)",
+    scrollTrigger: {
+      trigger: ".founder-section",
+      start: "top 80%",
+      end: "top 50%",
+      toggleActions: "play none none reverse"
+    }
+  },"-=0.7");
+
+
   gsap.fromTo('.silhouette', {
     opacity: 0, y: 60
   },{
@@ -453,7 +471,61 @@ function animateFounderSection(){
 }
 
 
+function seaCreaturesFormEyes(){
+  const eyes = document.querySelectorAll('.sea-creatures-form .eye');
+  
+  document.addEventListener('mousemoce', e => {
+    eyes.forEach(eye => {
+      const rect = eye.getBoundingClientRect();
+      const eyeX = rect.left + rect.width /2;
+      const eyeY = rect.top + rect.height /2;
+      const angle = Math.atan2(e.clientY - eyeY, e.clientX - eyeX);
+      const offset = 2.5;
+      const x = Math.cos(angle) * offset;
+      const y = Math.sin(angle) * offset;
 
+      eye.style.transform = 'translate(${x}px,${y}px)';
+    });
+  });
+
+  seaCreaturesFormSquish();
+}
+
+function seaCreaturesFormSquish(){ 
+  document.querySelectorAll('.sea-creatures-form .creature')
+    .forEach(c => {
+      const normal = c.querySelector('.normal');
+      const squish = c.querySelector('.squish');
+      const eyes = c.querySelectorAll('.eye');
+
+      c.addEventListener('click', () => {
+        normal.style.display = 'none';
+        eyes.forEach(e => e.style.display = 'none');
+        squish.style.display = 'block';
+
+        setTimeout(() => {
+          squish.style.display = 'none';
+          normal.style.display = 'block';
+          eyes.forEach(e => e.style.display = 'block');
+        }, 400);
+      })
+    })
+}
+
+function scrollFromFounder(){
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to('.wave-black-bg', {
+    backgroundPositionX: "-50vw",
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".founder-section",
+      start: "buttom buttom",
+      end: "+=100%",
+      scrub: true
+    }
+  });
+}
 
 function cargarData(){
   const companies = [

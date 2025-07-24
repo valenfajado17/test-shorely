@@ -1,6 +1,6 @@
 body{
     margin: 0;
-    background-color: #FFF0BA;
+    /* background-color: #FFF0BA; */
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -17,7 +17,6 @@ body{
     background-color: #FFF0BA;
     color: #2B66BD;
     padding: 4rem 2rem;
-    min-height: 100vh;
     z-index: 0;
 }
 
@@ -33,7 +32,7 @@ body{
 
 .tagline{
     margin-top: 6rem;
-    margin-bottom: 3rem;
+    /* margin-bottom: 3rem; */
     font-size: 1.2rem;
     transform: translateY(80px);
     opacity: 0;
@@ -46,10 +45,10 @@ body{
     position: absolute;
     top: 90vh;
     width: 100%;
-    height: 396%;
+    height: 100%;
     background-image: url('../assets/images/waves/waves-home.png');
     background-repeat: repeat-x;
-    background-size: contain;
+    background-size: cover;
     opacity: 0;
     z-index: 1;
     transition: transform 0.3s ease;
@@ -327,7 +326,7 @@ body{
     color: #FFF0BA;
     position: absolute;
     font-size: 2.5rem;
-    margin-bottom: 5vh;
+    /* margin-bottom: 5vh; */
     z-index: 3;
     opacity: 0;
     transform: translateY(50px);
@@ -400,7 +399,7 @@ body{
         display: block !important;
         text-align: center !important;
         font-size: 1.4rem !important;
-        margin-bottom: 0 auto 26px auto !important;
+        /* margin-bottom: 0 auto 26px auto !important; */
         padding: 0 2vw !important; 
         opacity: 1 !important;
         transform: none !important;
@@ -432,7 +431,7 @@ body{
     .industry-shape img {
         width: 100% !important;
         height: auto !important;
-        margin-bottom: 0.7em;
+        /* margin-bottom: 0.7em; */
         display: block;
     }
 
@@ -472,16 +471,16 @@ body{
 /* BOAT SECTION */
 .boat-section {
     position: relative;
-    min-height: 460px;
+    background-color:#2B66BD;
 }
 
 .wave-darkblue-bg{
     position: absolute;
     width: 100%;
-    height: 153%;
+    height: 100%;
     background-image: url('../assets/images/waves/waves-darkblue.png');
     background-repeat: repeat-x;
-    background-size: contain;
+    background-size: cover;
     z-index: 3; 
     top: 98vh;
     transition: transform 0.3s ease;
@@ -519,7 +518,7 @@ body{
     justify-content: center;
     align-items: center;
     z-index: 2;
-    bottom: 26vh;
+    bottom: 56vh; /* 26vh; for the ec2*/
     right: 19vh;
     opacity: 0;
     transform: translateX(-100vw) translateY(50%);
@@ -593,10 +592,6 @@ body{
 
 /* Responsive */
 @media (max-width: 768px) {
-  .boat-section {
-    background-color: #2B66BD;
-  }
-
   .boat-title {
         padding: 39px 6vw !important;
         opacity: 1 !important;
@@ -686,22 +681,21 @@ body{
 
 /* FOUNDER SECTION */
 .founder-section {
-  position: relative;
-  padding: 80px 0 0 0;
-  overflow: hidden;
-  min-height: 700px;
+    position: relative;
+    background-color: #19417B;
 }
 
 .wave-black-bg {
     position: absolute;
-    bottom: 78vh;
     width: 100%;
-    height: 596px;
-    background: url('../assets/images/waves/waves-black.png');
-    background-repeat: repeat;
-    background-size: contain;
+    height: 100%;
+    background-image: url('../assets/images/waves/waves-black.png');
+    background-repeat: repeat-x;
+    background-size: cover;
+    opacity: 1;
     z-index: 4;
-    pointer-events: none;
+    transition: transform 0.3s ease;
+    top: 86vh;
 }
 
 .founder-title h3{
@@ -709,8 +703,6 @@ body{
     position: relative;
     text-align: center;
     color: #FFF0BA;
-    margin-bottom: 48px;
-    bottom: 11vh;
     transform: scale(0);
     opacity: 0;
 }
@@ -720,12 +712,12 @@ body{
     z-index: 3;
     width: 35%;
     height: 10%;
-    bottom: 10vh;
+    bottom: -4vh;
     left: 35vh;
 }
 
 .founder-visual img{
-    max-width: 351px;
+    max-width: 351px;  /*Check */
     width: 41%;
 }
 
@@ -746,31 +738,22 @@ body{
 .left-eye-founder { left: 16vh; top: 7.5vh; }
 .right-eye-founder { left: 20vh; top: 7.5vh; }
 
-.dilaog-content {
-  max-width: 570px;
-}
-
-.dialog-founder {
+.dialog-content img{
     position: relative;
     z-index: 4;
-    bottom: 127vh;
-    left: 59vh;
-    width: 123%;
-    animation: pop-bubble 1s cubic-bezier(.55,1.55,.38,1.08);
-    opacity: 0;
-    transform: scale(0.7);
-    animation-fill-mode: forwards;
-    animation-delay: 0.5s;
+    height: 47ch;
+    bottom: 115vh;
+    left: 57vh;
 }
 
-.text-content {
+.dialog-text{
     position: relative;
     text-align: justify;
     color: black;
     bottom: 180vh;
     z-index: 4;
-    left: 80vh;
-    padding: 25px;
+    left: 187px;
+    padding: 0 58vh;
     font-weight: bold;
 }
 
@@ -788,9 +771,167 @@ body{
 
     .founder-title h4 {
         bottom: -7vh;
-    }
+    }    
+}
+/* END FOUNDER SECTION */
 
-    
+/* CONTACT-FORM SECTION */
+
+.contact-form {
+    width: 100%;
+    background-color: black;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
 }
 
-/* END FOUNDER SECTION */
+.contact-title h2{
+    font-size: 2rem;
+    color: white;
+    animation: fadeInUp 1s both 0.7s;
+    bottom: 2vh;
+    position: relative;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    animation: fadeInUp 1s both 0.7s;
+}
+
+input, textarea{
+    border: none;
+    background-color: #313131;
+    border-radius: 16px;
+    padding: 1rem 1.2rem;
+    font-size: 1.1rem;
+    color: #b3b5b8;
+    box-shadow: 0 2px 8px #0001;
+    outline: none;
+    resize: none;
+    transition: box-shadow .2s;
+
+}
+
+input:focus, text:focus{
+    box-shadow: 0 2px 20px #2B66BD22
+}
+
+textarea{
+    min-height: 263px;
+}
+
+.send-btn {
+    background: #b3b6bb;
+    color: #747679;
+    border:none;
+    border-radius: 50px;
+    padding: 0.8rem 2.2rem;
+    font-size: 1.18rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, coolor 0.2s, transform 0.15s cubic-bezier(.23,1.15,.81,1.12);
+    height: 51px;
+    width: 135px;
+    position: relative;
+    bottom: 15vh;
+    left: 80vh;
+}
+
+.send-btn:hover, .send-btn:focus{
+    background: black;
+    color: white;
+    transform: scale(1.07);
+}
+
+.sea-creatures-form {
+    position: relative;
+    display: flex;
+    justify-content: space-between; /*center*/
+    align-items: flex-end;
+    z-index: 5;
+}
+
+.eye-form{
+    width: 8px;
+    height: 8px;
+}
+.shell-form img{
+    bottom: 64vh;
+    right: 12vh;
+    width: 15vh;
+}
+
+.left-eye-shell-form{
+    bottom: 65.5vh;
+    right: 21vh;
+}
+
+.right-eye-shell-form{
+    bottom: 65.5vh;
+    right: 17vh;
+}
+
+.snail-form img{
+    bottom: 31vh;
+    width: 15vh;
+    right: 64vh;
+}
+
+.left-eye-snail-form {
+    right: 73vh;
+    bottom: 41vh;
+}
+
+.right-eye-snail-form {
+    right: 69vh;
+    bottom: 41vh;
+}
+
+.star-form img{
+    width: 16vh;
+    bottom: 74vh;
+    left: 49vh;
+}
+
+.left-eye-star-form {
+    bottom: 84vh;
+    right: -55vh;
+}
+
+.right-eye-star-form {
+    bottom: 84vh;
+    right: -58vh;
+}
+
+.octopus-form img {
+    bottom: 36vh;
+    width: 15vh;
+    left: -4vh;
+}
+
+.right-eye-octopus-form {
+    bottom: 40.3vh;
+    left: 1.5vh;
+}
+
+.left-eye-octopus-form {
+    bottom: 40.3vh;
+    left: 4.7vh;
+}
+/* END CONTACT-FORM SECTION */
+
+/* FOOTER */
+.footer p{
+    color: white !important;
+    font-size: 1.2rem;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 0;
+}
+.footer{
+    background-color: black;
+}

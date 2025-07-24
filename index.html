@@ -57,13 +57,13 @@
 	</section>
 	<section class="sea-creatures">
 		<div class="creature shell floating delay-0">
-			<img src="assets/images/shell.svg" alt="Shell" class="normal"/>
+			<img src="assets/images/sea-creatures/shell.svg" alt="Shell" class="normal"/>
 			<div class="eye left-eye-shell"></div>
 			<div class="eye right-eye-shell"></div>
 			<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
 		</div>
 		<div class="creature octopus floating delay-1">
-			<img src="assets/images/octopus.svg" alt="Baby octopus"  class="normal"/>
+			<img src="assets/images/sea-creatures/octopus.svg" alt="Baby octopus"  class="normal"/>
 			<div class="eye left-eye-octopus"></div>
 			<div class="eye right-eye-octopus"></div>
 			<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
@@ -173,40 +173,72 @@
 	</section>
 	<section class="founder-section">
 		<div class="wave-black-bg"></div>
-		 <div class="founder-title">
+		<div class="founder-title">
 			<h3>Shorely is a solo fund. No layers. No noise. <br>
 				Just one person who sees potential clearly and acts with conviction.
 			</h3>
 		</div>
 		<div class="founder-visual">
-			<img src="assets/images/founder/silhouette-man.svg" alt="Silhouette Man" class="solhouette">
+			<img src="assets/images/founder/silhouette-man.svg" alt="Silhouette Man" class="silhouette">
 			<div class="eyes left-eye-founder"></div>
 			<div class="eyes right-eye-founder"></div>
 		</div>
-		<div class="dilaog-content">
+		<div class="dialog-content">
 			<img src="assets/images/founder/dilaog.svg" alt="dialog form" class="dialog-founder">
-			<div class="text-content">
-				<p> I'm Felix Römer — the founder behind Shorely. With over a decade spent building and backing digital ventures, I’ve watched ideas drift, collide, and break through. I’ve learned that what matters most is execution — and the right support at the right time. My journey began in the online video game marketplace, starting with RuneScape, where I built tools and tracked real-time item prices to optimize trades. What began as trading virtual assets evolved into a deep sense for strategy — and marked the start of my investing path. Since then, I’ve backed multiple companies, always staying close to the action and stepping in when it matters most. I believe the best ideas grow when you’re close enough to get your hands dirty.</p>
+			<div class="dialog-text">
+				<p> I'm Felix Römer — the founder behind Shorely. With over a decade spent building and backing digital ventures, I’ve watched ideas drift, collide, and break through. I’ve learned that what matters most is execution — and the right support at the right time.
+					<br> My journey began in the online video game marketplace, starting with RuneScape, where I built tools and tracked real-time item prices to optimize trades. What began as trading virtual assets evolved into a deep sense for strategy — and marked the start of my investing path.
+					<br>Over the years, I also spent a significant amount of time pioneering products in the iGaming space — building platforms, scaling teams, and navigating a fast-paced, highly regulated environment. That experience sharpened my ability to move quickly and execute under pressure, and it laid the groundwork for expanding into other industries.
+					<br>Since then, I’ve backed multiple companies, always staying close to the action and stepping in when it matters most. I believe the best ideas grow when you’re close enough to get your hands dirty.
+				</p>
 			</div>
 		</div>
 	</section>
-	<!-- <section class="contact-form">
-		<div>
-			<div><h2>You have reach the core. Now it's your move</h2></div>
+	<section class="contact-form">
+		<div class="contact-content">
+			<div class="contact-title">
+				<h2>You have reach the core. Now it's your move</h2>
+			</div>
 			<form>
-				<input placeholder="Name" class="name">
-				<input placeholder="E-mail" class="email">
-				<input placeholder="Message" class="message">
-				<button>Send →</button> 
+				<input name="name" type="text" placeholder="Name" class="name" autocomplete="off" required>
+				<input name="email" type="email" placeholder="E-mail" class="email" autocomplete="off" required>
+				<textarea name="message" placeholder="Message" class="message" required></textarea>
+				<button type="submit" class="send-btn">Send →</button> 
 			</form>
+			<div class="sea-creatures-form ">
+				<div class="creature shell-form floating">
+					<img src="assets/images/sea-creatures/shell.svg" alt="Shell" class="normal"/>
+					<div class="eye left-eye-shell-form eye-form"></div>
+					<div class="eye right-eye-shell-form eye-form"></div>
+					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
+				</div>
+				<div class="creature snail-form floating">
+					<img src="assets/images/sea-creatures/snail.svg" alt="Snail" class="normal"/>
+					<div class="eye left-eye-snail-form eye-form"></div>
+					<div class="eye right-eye-snail-form eye-form"></div>
+					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
+				</div>
+				<div class="creature star-form floating">
+					<img src="assets/images/sea-creatures/star.svg" alt="Start" class="normal"/>
+					<div class="eye left-eye-star-form eye-form"></div>
+					<div class="eye right-eye-star-form eye-form"></div>
+					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
+				</div>
+				<div class="creature octopus-form floating">
+					<img src="assets/images/sea-creatures/octopus.svg" alt="Baby octopus"  class="normal"/>
+					<div class="eye left-eye-octopus-form eye-form"></div>
+					<div class="eye right-eye-octopus-form eye-form"></div>
+					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
+				</div>
+			</div>
 		</div>
 	</section>
-	<div class="footer-right">
-		<p class="copy">
-			Shorely Investment Fund
-			<br> 2025 © Copyright | Terms & Conditions
+	<footer class="footer">
+		<p > <br>
+			Shorely Investment Fund <br>
+			 2025 © Copyright | Terms & Conditions
 		</p>
-	</div> -->
+	</footer>
 <script type="speculationrules">
 	{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/hx6n\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>

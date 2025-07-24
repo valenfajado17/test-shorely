@@ -519,7 +519,7 @@ body{
     align-items: center;
     z-index: 2;
      /* 26vh; for the ec2     56vh for the ec2*/ 
-    bottom: 26vh;
+    bottom: 56vh;
     right: 19vh;
     opacity: 0;
     transform: translateX(-100vw) translateY(50%);

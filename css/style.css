@@ -16,7 +16,7 @@ body{
     text-align: center;
     background-color: #FFF0BA;
     color: #2B66BD;
-    padding: 4rem 2rem;
+    padding: 0 4vw 0 4vw;
     z-index: 0;
 }
 
@@ -26,18 +26,19 @@ body{
 }
 
 .logo h1{
-    font-size: 5rem !important;
+    /* font-size: 5rem !important; */
+    font-size: 4.2rem; /*checks if it needs the important*/
+    letter-spacing: 1.5px;
     font-weight: bold;
 }
 
 .tagline{
     margin-top: 6rem;
-    /* margin-bottom: 3rem; */
     font-size: 1.2rem;
     transform: translateY(80px);
     opacity: 0;
     z-index: 2;
-    max-width: 600px;
+    /* max-width: 600px; */
 
 }
 
@@ -606,8 +607,8 @@ body{
     }
     
     .boat-content{
-        bottom: 2vh;
-        right: 7vh;
+        bottom: 11vh;
+        right: 2vh;
         max-width: 427vw !important;
     }
     
@@ -777,11 +778,35 @@ body{
     .founder-title h4 {
         bottom: -7vh;
     }    
+
+    .silhouette{
+        opacity: 1;
+    }
+
+    .founder-viual{
+        width: 41%;
+        left: 0;
+    }
+
+    .left-eye-founder {
+        left: 7vh;
+        top: 12.5vh;
+    }
+
+    .right-eye-founder {
+        left: 9vh;
+        top: 12.5vh;
+    }
+
+    .contact-title {
+        text-align: center !important;
+    }
 }
+
 /* END FOUNDER SECTION */
 
-/* CONTACT-FORM SECTION */
 
+/* CONTACT-FORM SECTION */
 .contact-form {
     width: 100%;
     background-color: black;

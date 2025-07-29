@@ -1,3 +1,5 @@
+const { random } = require("gsap");
+
 window.addEventListener("DOMContentLoaded", () => {
   animateAboutUsSection();
   animateSeaCreatures();
@@ -554,3 +556,22 @@ function cargarData(){
 
 }
  
+function seaCreaturesRamdomReapears(){
+  const sc = document.getElementById('sea-creatures');
+
+  // current size of the screen
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  const elementWidth = sc.offsetWidth;
+  const elementHeight = sc.offsetHeight;
+
+  const maxLeft = width - elementWidth;
+  const maxTop = height - elementHeight;
+
+  const ramdomLeft = Math.max(0, Math.floor(Math.ramdom() * maxLeft));
+  const ramdomTop = Math.max(0, Math.floor(Math.ramdom() * maxTop));
+
+  sc.style.left = `${ramdomLeft}px`;
+  sc.style.top = `${ramdomLeft}px`;
+}

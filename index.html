@@ -83,7 +83,7 @@
 				<!-- speech bubble -->
 				<div class="bubble-container">
 					<img src="assets/images/shapes/dialog-bef.svg" class="speech-bubble bf"> 
-					<img src="assets/images/shapes/dialog-af.svg" class="speech-bubble af"> 
+					<a href="#form-section"><img src="assets/images/shapes/dialog-af.svg" class="speech-bubble af"> </a>
 				</div>
 			</div>
 		</section>
@@ -197,31 +197,55 @@
 			</div>
 		</div>
 	</section>
-	<section class="contact-form">
+	<section class="contact-form" id="form-section">
 		<div class="contact-content">
 			<div class="contact-title">
 				<h2>You have reach the core. Now it's your move</h2>
 			</div>
-			<form id="contact-form"
-				action="https://formsubmit.co/tininabravo@gmail.com"
-				method="POST" novalidate>
+			<!-- Change test email to "felix@shorely.com" once testing is done -->
+			<form id="contact-formsubmit"
+				action="https://formsubmit.co/valenfajardo17@gmail.com"
+				method="POST" accept-charset="UTF-8" novalidate>
+
 				<input name="name" type="text" placeholder="Name" class="name" autocomplete="off" required>
 				<input name="email" type="email" placeholder="E-mail" class="email" autocomplete="off" required>
 				<textarea name="message" placeholder="Message" class="message" required></textarea>
 
-				<!-- Config de Formsubmit -->
-				<input type="hidden" name="_subject" value="New message from shorely site">
+				<!-- anti spam (honeypot) -->
+				<input type="text" name="_honey" style="display: none;" tabindex="-1" autocomplete="off">
+				<!-- disable built-in captcha. in case of use remove -->
+				<input type="hidden" name="_captcha" value="false">
+
+				<!-- subject + neat table layout -->
+				<input type="hidden" name="_subject" value="Shorely - New message contact form">
 				<input type="hidden" name="_template" value="table">
-				<input type="hidden" name="captcha" value="false">
-
-				<input type="hidden" name="_autoresponde" value="Thanks for your message! We’ll get back to you shortly. — Shorely">
-
-				<!-- anti-spam -->
-				<input type="text" name="_honey" style="display: none;">
-
+				
+				<!-- autoresponde to the sender  -->
+				<input type="hidden" name="_autoresponse" value="
+					Thanks for reaching out to Shorely  👋
+      
+					We’ve received your message.
+      
+					What happens next?
+					→ Your inquiry is currently being directed to the appropriate team member.
+					→ If we find your request interesting, you can expect a response within 48 to 72 hours.
+      
+					We appreciate your patience and look forward to assisting you.</p>
+      				— Shorely 🌊">
 				<button type="submit" class="send-btn">Send →</button> 
-				<p id="form-status" style="margin-top: 10px;display: none;"></p>
+				<p id="form-status"></p>
+				<!-- redirect after submit | check if they want to use-->
+				<!-- <input type="hidden" name="_next" value="https://shorely.com/"> -->
 			</form>
+			<!-- Lightweight modal -->
+			<div id="sent-modal" class="sent-modal" aria-hidden="true">
+				<div class="sent-modal__backdrop"></div>
+				<div class="sent-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="sent-title">
+					<h3 id="sent-title">Sent — thanks!</h3>
+					<p>We’ve received your message and will reach out soon.</p>
+					<button class="sent-modal__close" aria-label="Close">Close</button>
+				</div>
+			</div>
 			<div class="sea-creatures-form ">
 				<div class="creature shell-form floating" id="sc">
 					<img src="assets/images/sea-creatures/shell.svg" alt="Shell" class="normal"/>

@@ -1,41 +1,51 @@
-(function () {
-    const form = document.getElementById('contact-form');
-    if(!form) return;
 
-    const status = document.getElementById('form-status');
+const form = document.getElementById("contact-formsubmit");
+const modal = document.getElementById("sent-modal");
+const closeBtn = modal.querySelector(".sent-modal__close");
+const backdrop = modal.querySelector(".sent-modal__backdrop");
+const statusEl = document.getElementById("form-status");
 
-    function showStatus(msg, ok = true){
-        status.style.display = 'block';
-        status.textContent = msg;
-        status.style.color = ok ? '#ffffffff' : '#eb0606ff';
-    }
+function openModal() {
+    modal.setAttribute('aria-hidden', 'flase');
+}
+function closeModal(){
+    modal.setAttribute('aria-hidden', 'true');
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+    window.addEventListener('keydown', (e) => {if (e.key === 'Escape') closeModal();});
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        if(!form.reportValidity()) return;
+        
+        const btn = form.querySelector('button[type="submit"');
+        btn.disabled = true; btn.style.opacity = .7;
 
-        const btn = form.querySelector('button[type=submit]');
-        btn.disabled = true; btn.textContent = 'Sending...';
-
-        try {
-            const fd = new FormData(form);
+        const fd = new FormData(form);
+        try{
             const res = await fetch(form.action, {
-                method: POST, 
+                method: 'POST',
                 headers: {'Accept': 'application/json'},
                 body: fd
             });
 
-            if (res.ok) {
-                showStatus('Thanks for your message! We’ll get back to you shortly.');
-                form.reset();
-            } else {
-                showStatus('Oops, something went wrong. Please try again.', false);
-            }
-        } catch {
-      showStatus('Network error. Please try again.', false);
-    } finally {
-      btn.disabled = false; btn.textContent = 'Send →';
-    }
+            if(!res.ok) throw new Error('Network Error');
 
+            //Success
+            form.reset();
+            openModal();
+
+            statusEl.hidden = false;
+            statusEl.textContent = 'Thanks! Your message has been sent.';
+            statusEl.style.color = '#4caf50';
+        } catch(err) {
+            statusEl.hidden = false;
+            statusEl.textContent = 'Oops, something went wrong. Please try again.';
+            statusEl.style.color = '#f44336';
+        } finally {
+            btn.disabled = false; btn.style.opacity = 1;
+        }
     });
-})();
+});

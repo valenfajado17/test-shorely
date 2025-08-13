@@ -1,8 +1,47 @@
-body{
-    margin: 0;
-    /* background-color: #FFF0BA; */
-    overflow-x: hidden;
-    overflow-y: auto;
+:root{
+  /* brand */
+  --c-sand: #FFF0BA;
+  --c-sea:  #2B66BD;
+  --c-deep: #19417B;
+  --c-ink:  #000;
+
+  /* type scale (fluid) */
+  --fs-100: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+  --fs-200: clamp(1rem, 0.95rem + 0.5vw, 1.125rem);
+  --fs-300: clamp(1.125rem, 1rem + 0.9vw, 1.25rem);
+  --fs-400: clamp(1.35rem, 1.1rem + 1.4vw, 1.6rem);
+  --fs-500: clamp(1.6rem, 1.25rem + 2vw, 2rem);
+  --fs-600: clamp(1.9rem, 1.6rem + 2.6vw, 2.6rem);
+
+  /* spacing */
+  --sp-1: 0.5rem; --sp-2: 0.75rem; --sp-3: 1rem; --sp-4: 1.5rem; 
+  --sp-5: 2rem;   --sp-6: 3rem;    --sp-7: 4rem;  --sp-8: 6rem;
+
+  /* layout */
+  --container: min(1100px, 92vw);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
+
+.section{
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: var(--sp-7) 0;
+}
+
+.container{
+  width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--sp-3);
+}
+
+.main-section{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
 }
 
 /* ABOUT-US SECTION */
@@ -14,9 +53,9 @@ body{
     min-height: 100vh;
     position: relative;
     text-align: center;
-    background-color: #FFF0BA;
-    color: #2B66BD;
-    padding: 0 4vw 0 4vw;
+    background-color: var(--c-sand);
+    color: var(--c-sea);
+    padding: 0 4vw;
     z-index: 0;
 }
 
@@ -26,7 +65,6 @@ body{
 }
 
 .logo h1{
-    /* font-size: 5rem !important; */
     font-size: 4.2rem; /*checks if it needs the important*/
     letter-spacing: 1.5px;
     font-weight: bold;
@@ -38,29 +76,35 @@ body{
     transform: translateY(80px);
     opacity: 0;
     z-index: 2;
-    /* max-width: 600px; */
 
 }
 
-.wave-bg{
-    position: absolute;
-    top: 90vh;
+.wave-bg {
+    top: 82vh;
     width: 100%;
     height: 100%;
     background-image: url('../assets/images/waves/waves-home.png');
     background-repeat: repeat-x;
     background-size: cover;
     opacity: 0;
+    position: absolute; 
     z-index: 1;
     transition: transform 0.3s ease;
 }
 
-.tagline h2{
-    font-size: 2rem !important;
-}
+/* .tagline h2{font-size: 2rem !important;} */
+.tagline h2{ font-size: var(--fs-500) !important; }
 
-.description {
-    width: 620px;
+.description{
+  width: 100%;    
+  max-width: 60ch;
+  margin: var(--sp-3) auto 0;
+  font-size: var(--fs-200);
+  padding-inline: var(--sp-3);
+}
+/* Table devices */
+@media (max-width: 900px) {
+    .about-us{ padding: 3vh 2vw;}
 }
 
 @media (max-width: 768px) {
@@ -83,7 +127,10 @@ body{
         font-size: 4rem;
     }
     .logo{
-        padding-top: 20px;
+        padding-top: 5px;
+    }
+    .wave-bg {
+        top: 91vh;
     }
 }
 /* END ABOUT-US SECTION  */
@@ -95,15 +142,27 @@ body{
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    width: 100%;
+}
+
+.creatures-row{
+    display: flex;
+    flex-direction: row;
+    gap: 6vw;
+    justify-content: center;
+    width: 100%;
 }
 
 .creature{
     position: relative; 
-    cursor: pointer ;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
 }
 
 .creature img {
-    position: absolute;
+    position: relative; /*it was absolute, lets try*/
+    width: clamp(50px, 20vw, 100px);
     transition: transform 0.3s ease;
 
 }
@@ -118,9 +177,6 @@ body{
     pointer-events: none;
 }
 
-.pop-in {
-  animation: popIn 0.4s ease-out;
-}
 
 @keyframes popIn {
   0% { transform: scale(0.5); opacity: 0; }
@@ -172,37 +228,44 @@ body{
 }
 
 .left-eye-octopus{
-    bottom: 80vh;
-    left: 71vh;
+    bottom: 83vh;
+    left: 71.3vh;
 }
 
 .right-eye-octopus{
-    bottom: 80vh;
-    left: 74vh;
+    bottom: 83vh;
+    left: 74.8vh;
 }
 
 /* Carab */
 .crab-container {
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* center baseline inside about-us */
     opacity: 0;
     z-index: 10;
-    transition: transform 0.1s ease;
-    right: 80vh;
+    bottom: 12vh;
 }
+
+.crab-container img {display: block;}
 
 .crab-body {
     width: 112px;
 }
 
+.left-eye-crab, .right-eye-crab {
+  position: absolute;
+  z-index: 11;
+  opacity: 1 !important;
+}
+
 .left-eye-crab{
     bottom: 7vh;
     right: 11vh;
-    opacity: 1 !important;
 }
 .right-eye-crab{
     bottom: 7vh;
     right: 6vh;
-    opacity: 1 !important;
 }
 
 .leg {
@@ -228,42 +291,67 @@ body{
     right: 3px;
 } 
 
+
+/* Table devices */
+@media (max-width: 900px) {
+    .octopus img {
+        bottom: 82vh;
+        left: 37vh;
+    }
+
+     .left-eye-octopus {
+        bottom: 90.8vh;
+        left: 42vh;
+    }
+
+    .right-eye-octopus{
+        bottom: 90.8vh;
+        left: 47.3vh;
+    }
+
+}
+
 @media (max-width: 768px) {
     .octopus img {
-        bottom: 88vh;
+        bottom: 92vh;
         left: 11vh;
         width: 80px;
     }
 
     .shell img {
-        bottom: 17vh;
+        bottom: 26vh;
         right: 7vh;
         width: 75px;
     }
 
     .crab-container{
-        bottom: -20vh;
-        left: 38vh;
+        position: fixed;
+        right: 183px;
+        bottom: 122vw;
     }
 
     .left-eye-octopus {
-        bottom: 91.5vh;
+        bottom: 98.7vh;
         left: 15vh;
     }
 
     .right-eye-octopus{
-        bottom: 91.5vh;
-        left: 17.5vh;
+        bottom: 98.7vh;
+        left: 18vh;
     }
 
     .left-eye-shell {
-        bottom: 18vh;
+        bottom: 27vh;
         right: 13.5vh;
     }
 
     .right-eye-shell {
-        bottom: 18vh;
+        bottom: 27vh;
         right: 10.5vh;
+    }
+
+    .crab-container{
+        visibility:  hidden;
     }
 }
 /* END CREATURES SECTION */
@@ -316,7 +404,7 @@ body{
     text-align: center;
     position: relative;
     z-index: 2;
-    background-color: #2B66BD;
+    background-color: var(--c-sea);
 }
 
 .industries-title{
@@ -324,7 +412,7 @@ body{
 }
 
 .industries-title h1 {
-    color: #FFF0BA;
+    color: var(--c-sand);
     position: absolute;
     font-size: 2.5rem;
     /* margin-bottom: 5vh; */
@@ -356,7 +444,7 @@ body{
 .industry-text {
     position: absolute;
     text-align: center;
-    color: #FFF0BA;
+    color: var(--c-sand);
     top: 27%;
     left: 21%;
     width: 200px;
@@ -441,7 +529,7 @@ body{
         inset: 0 !important;
         width: 100% !important;
         height: 100% !important;
-        color: #FFF0BA !important;
+        color: var(--c-sand) !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
@@ -465,6 +553,9 @@ body{
     .jellyfish { top: 0; left: 0;}
     .starfish { top: 0; left: 0;}
 
+    .industry-text h3 { font-size: var(--fs-300) !important; margin: 0 0 .35rem; }
+    .industry-text p  { font-size: var(--fs-200) !important; margin: 0; max-width: 30ch; }
+    .industry-shape   { will-change: transform; } /* smoother hover scaling */
 }
 
 /* END INDUSTRY SECTION */
@@ -472,7 +563,7 @@ body{
 /* BOAT SECTION */
 .boat-section {
     position: relative;
-    background-color:#2B66BD;
+    background-color:var(--c-sea);
 }
 
 .wave-darkblue-bg{
@@ -502,60 +593,56 @@ body{
 }
 
 .boat-title h1 {
-    color: #FFF0BA;
+    color: var(--c-sand);
     font-size: 2rem;
-    padding: 0 59vh 0 59vh; 
+    padding: 0 5vw; 
 }
 
 .boat-title p {
-    color: #FFF0BA;
+    color: var(--c-sand);
     font-size: 1.5rem;
 }
 
+
 .boat-content {
     position: relative;
-    max-width: 939px;;
+    margin: 0 auto;
+    bottom: auto;
+    right: auto;
+    max-width: 939px;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 2;
-     /* 26vh; for the ec2     56vh for the ec2*/ 
-    bottom: 26vh;
-    right: 19vh;
     opacity: 0;
-    transform: translateX(-100vw) translateY(50%);
+    transform: translate(-28vw, -99px);
     transition: none;
 }
 
 .boat-img{
     width: 100%;
     display: block;
+    height: auto;
 }
 
 
-.company-info {
-    position: absolute;
-    color: #19417B;
-    text-align: center;
+/* Make the info overlay use the boat as its canvas */
+.company-info{
+  position: absolute;
+  inset: 0;                        /* fill the boat image area */
+  display: grid;
+  align-content: center;           /* vertical placement */
+  justify-items: start;            /* text left-aligned */
+  gap: 6px;
+  padding: clamp(8px, 2vw, 16px) clamp(12px, 3vw, 24px);
+  color: var(--c-deep);
+  pointer-events: none;            /* arrows remain clickable */
 }
 
-.logo-company {
-    position: absolute;
-    bottom: 20vh;
-    right: 40vh;
-}
-
-.name-company {
-    font-weight: 700;
-    position: absolute;
-    bottom: 19vh;
-    right: 8vh;
-}
-
-.description-company {
-  font-size: 1rem;
-  opacity: 0.88;
-}
+/* Text styles */
+.logo-company img{ height: 32px; width: auto; display: block; }
+.name-company{ font-weight: 700; font-size: clamp(18px, 1.4vw, 22px); }
+.description-company{ font-size: clamp(14px, 1.05vw, 16px); opacity: .9; max-width: 42ch; }
 
 .arrow-icons {
   display: flex;
@@ -607,20 +694,27 @@ body{
     }
     
     .boat-content{
-        bottom: 11vh;
-        right: 2vh;
+        bottom: -13vh;
+        right: -44vh;
         max-width: 427vw !important;
     }
     
     .wave-darkblue-bg{
         top: 51vh;
     }
+
+    .company-info{
+        justify-items: center;
+        text-align: center;
+        gap: 8px;
+    }
+
 }
 
 /* PORTFOLIO SECTION */
 
 .portfolio-title {
-    color: #FFF0BA;
+    color: var(--c-sand);
     position: relative;
     text-align: center;
     bottom: 35vh;
@@ -640,8 +734,8 @@ body{
 } 
 
 .domain-bar {
-    background-color: #2B66BD;
-    color: #FFF0BA;
+    background-color: var(--c-sea);
+    color: var(--c-sand);
     border-radius: 32px;
     padding: 13px 40px;
     margin: 0 10px;
@@ -654,7 +748,7 @@ body{
 
 .domain-bar:hover{
     background-color: black;
-    color: #FFF0BA;
+    color: var(--c-sand);
     box-shadow: 0 2px 18px 0 rgb(0,0,0,0.5);
 }
 
@@ -672,6 +766,7 @@ body{
 
     .domain-marquee {
         bottom: -12vh;
+        padding: 0;
     }
 
     .marquee-inner{
@@ -684,7 +779,7 @@ body{
 /* FOUNDER SECTION */
 .founder-section {
     position: relative;
-    background-color: #19417B;
+    background-color: var(--c-deep);
 }
 
 .wave-black-bg {
@@ -704,7 +799,7 @@ body{
     z-index: 3;
     position: relative;
     text-align: center;
-    color: #FFF0BA;
+    color: var(--c-sand);
     transform: scale(0);
     opacity: 0;
 }
@@ -755,12 +850,17 @@ body{
     position: relative;
     text-align: justify;
     color: black;
-    bottom: 116vh;
+    bottom: 116vh !important;
     z-index: 4;
-    left: 331px;
-    /* padding: 0 58vh; */
+    left: 331px !important;
     font-weight: bold;
-    width: 99vh;
+    width: 102vh !important;
+    max-width: 701px;
+    margin: 0 auto;
+}
+
+.dialog-founder-mobile {
+    display: none;
 }
 
 @keyframes pop-bubble {
@@ -770,39 +870,125 @@ body{
   }
 }
 
+/* ---------- Founder: mobile layout ---------- */
 @media (max-width: 768px) {
-    .founder-section {
-        background-color: #19417B;
-    }
+  /* Section padding so the title/bubble/silhouette breathe */
+  .founder-section {
+    background-color: var(--c-deep);
+    padding: 24px 0 24px;
+  }
 
-    .founder-title h4 {
-        bottom: -7vh;
-    }    
+  /* Title: visible, readable */
+  .founder-title h3 {
+    transform: none !important;
+    opacity: 1 !important;
+    font-size: clamp(1.11rem, 2.8vw, 1.25rem);
+    line-height: 1.25;
+    padding: 0 16px;
+    margin: 0 0 16px;
+    text-align: center;
+    color: var(--c-sand);
+    bottom: 98px;
+  }
 
-    .silhouette{
-        opacity: 1;
-    }
+  /* Wave divider must sit at the bottom on mobile (no overlap) */
+  .wave-black-bg {
+    position: relative !important;
+    top: auto !important;
+    bottom: -184vh !important;
+    height: 197px; /* adjust to match your art */
+    margin-top: 8px;
+  }
 
-    .founder-viual{
-        width: 41%;
-        left: 0;
-    }
+  /* Visual stack: bubble (with text) above silhouette */
+  .founder-visual {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    left: 0;      /* undo desktop left:35vh */
+    bottom: 0;    /* undo desktop bottom:-4vh */
+    height: auto; /* let content define height */
+    display: grid;
+    grid-template-rows: auto auto;
+    row-gap: 12px;
+    justify-items: center;
+    padding: 0 12px;
+  }
 
-    .left-eye-founder {
-        left: 7vh;
-        top: 12.5vh;
-    }
+  /* Bubble container turns into a positioned wrapper */
+  .dialog-content {
+    position: relative;
+    width: 100%;
+    height: auto;
+    bottom: 53vh;
+  }
 
-    .right-eye-founder {
-        left: 9vh;
-        top: 12.5vh;
-    }
+  /* Desktop bubble hidden on mobile */
+  .dialog-founder {
+    display: none !important;
+    visibility: hidden !important;
+  }
 
-    .contact-title {
-        text-align: center !important;
-    }
+  /* Show the mobile bubble image */
+  .dialog-founder-mobile {
+    display: block !important;
+    width: 100%;
+    max-width: 360px;
+    height: 592px;
+    margin: 0 auto;
+    bottom: 246px;
+    position: relative;
+  }
+
+  /* Text sits inside the mobile bubble art */
+  .dialog-text {
+    position: absolute !important;
+    inset: 0;                 /* fill bubble area */
+    display: block;
+    padding: 6% 3.2% 22% 3.2%;
+    color: #000;
+    text-align: justify;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.25;
+    margin: 0;
+    width: auto !important;
+    max-width: none !important;
+    left: auto !important;
+  }
+
+  .dialog-text p {
+    position: relative;
+    bottom: 31vh;
+  }
+
+  /* Silhouette centered & scaled */
+  .silhouette {
+    width: min(38%, 260px) !important;
+    max-width: 260px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    top: 82vh;
+  }
+
+  /* Founder visual */
+  .eyes { display: block !important; }
+  .left-eye-founder, .right-eye-founder {
+    position: absolute;
+    /* Place relative to founder-visual box; tune these */
+    top: 53.01%;
+    left: 50%;
+    width: 7px; height: 7px;
+  }
+  .right-eye-founder { left: 54%; }
+
+  /* Clean up any stray desktop offsets */
+  .founder-visual img { max-width: 100%; width: auto; }
 }
-
 /* END FOUNDER SECTION */
 
 
@@ -812,8 +998,10 @@ body{
     background-color: black;
     z-index: 4;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* align-items: flex-start; */
     position: relative;
 }
 
@@ -866,9 +1054,11 @@ textarea{
     transition: background 0.2s, coolor 0.2s, transform 0.15s cubic-bezier(.23,1.15,.81,1.12);
     height: 51px;
     width: 135px;
-    position: relative;
-    bottom: 15vh;
-    left: 80vh;
+    position: static;
+    /* bottom: 15vh;
+    left: 80vh; */
+    /* left: auto;
+    bottom: auto; */
 }
 
 .send-btn:hover, .send-btn:focus{
@@ -952,6 +1142,102 @@ textarea{
     bottom: 40.3vh;
     left: 4.7vh;
 }
+
+/* ---------------- Contact form — Mobile only ---------------- */
+@media (max-width: 768px){
+  .contact-form{
+    background:#000;
+    padding: 16px 0 24px;
+  }
+
+  .contact-content{
+    width: min(520px, 92vw);
+    margin: 0 auto;
+    padding: 0 12px;
+    position: relative;
+  }
+
+  .contact-title h2{
+    font-size: clamp(1.2rem, 3.8vw, 1.5rem);
+    line-height: 1.25;
+    color:#fff;
+    text-align: center;
+    margin: 8px 0 14px;
+    bottom: 5vh;
+  }
+
+  /* Form block */
+  .contact-content form{
+    display: grid;
+    gap: 12px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .contact-content input,
+  .contact-content textarea{
+    width: 100%;
+    font-size: 0.95rem;
+    border-radius: 14px;
+    padding: 12px 14px;
+    background:#313131;
+    color:#b3b5b8;
+  }
+
+  .contact-content textarea{
+    min-height: 220px;       /* comfy typing area */
+  }
+
+  .send-btn{
+    position: static;        /* kill absolute left/bottom from desktop */
+    display: block;
+    margin: 8px auto 0;
+    width: min(220px, 70%);
+    height: 46px;
+    border-radius: 999px;
+  }
+
+  /* Sea creatures: anchor decor safely inside the section */
+  .sea-creatures-form{
+    position: relative;
+    width: 100%;
+    height: 0;               /* let them sit over the form/footer area */
+    pointer-events: none;
+  }
+  .sea-creatures-form .creature{
+    position: absolute;
+    transform-origin: center;
+    /* eyes are decorative; hide on small screens */
+  }
+  .sea-creatures-form .eye-form{ display:none !important; }
+
+  /* Place the little icons like in the mock
+     (tweak the numbers slightly if your assets differ) */
+  .shell-form{ left: -11px;  bottom: 41px; transform: scale(.70); }
+  .snail-form{ right: 33vh; bottom: 83vh; transform: scale(.70); }
+  .star-form{  right: 28px; bottom: -6px;  transform: scale(.78); }
+  .octopus-form{ left: 33vh; bottom: 81vh; transform: scale(.60); }
+
+  /* Ensure the images themselves don't try to use old absolute rules */
+  .sea-creatures-form .creature img.normal{
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 64px;         /* keeps them small & cute */
+  }
+
+  /* Footer spacing under the form */
+  .footer{
+    padding: 18px 0 26px;
+  }
+  .footer p{
+    font-size: .9rem;
+  }
+}
+
 /* END CONTACT-FORM SECTION */
 
 /* FOOTER */

@@ -27,7 +27,6 @@
 	
 	<link rel="icon" href="assets/images/shorely-logo.png" />
     
-
 	<!-- CHECK THIS GOOGLE LINKS  -->
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -45,47 +44,50 @@
 
 
 <body class="bg-th tc-d"  data-barba="wrapper">
-	<section class="about-us">
-		<div class="logo"><h1>Shorely</h1></div>
-		<div class="tagline">
-			<h2 >Where Innovation Meets the Shore</h2>
-		  	<p class="description">
-				Shorely is an investment fund focused on empowering visionary companies which shape the future. We strive to ensure our capital meets those building the digital assets of tomorrow.
-		  	</p>
-		</div>
-		<div class="wave-bg"> </div>
-	</section>
-	<section class="sea-creatures">
-		<div class="creature shell floating delay-0">
-			<img src="assets/images/sea-creatures/shell.svg" alt="Shell" class="normal"/>
-			<div class="eye left-eye-shell"></div>
-			<div class="eye right-eye-shell"></div>
-			<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
-		</div>
-		<div class="creature octopus floating delay-1">
-			<img src="assets/images/sea-creatures/octopus.svg" alt="Baby octopus"  class="normal"/>
-			<div class="eye left-eye-octopus"></div>
-			<div class="eye right-eye-octopus"></div>
-			<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
-		</div>
-
-		<!-- Crab container -->
-		<div class="crab-container delay-2">
-			<img src="assets/images/crab/crab-leg-left.svg" class="leg leg-left ll-1">
-			<img src="assets/images/crab/crab-leg-left.svg" class="leg leg-left ll-2">
-			<img src="assets/images/crab/crab-body.svg" class="crab-body">
-			<div class="eye left-eye-crab"></div>
-			<div class="eye right-eye-crab"></div>
-			<img src="assets/images/crab/crab-leg-right.svg" class="leg leg-right lr-1">
-			<img src="assets/images/crab/crab-leg-right.svg" class="leg leg-right lr-2"> 
-		</div>
-		<div class="bubble-container">
-			<img src="assets/images/shapes/dialog-bef.svg" class="speech-bubble bf"> 
-			<img src="assets/images/shapes/dialog-af.svg" class="speech-bubble af"> 
-		</div>
-		<!-- speech bubble -->
-		
-	</section>
+	<div class="main-section"> 
+		<section class="about-us">
+			<div class="logo"><h1>Shorely</h1></div>
+			<div class="tagline">
+				<h2 >Where Innovation Meets the Shore</h2>
+				<p class="description">
+					Shorely is an investment fund focused on empowering visionary companies which shape the future. We strive to ensure our capital meets those building the digital assets of tomorrow.
+				</p>
+			</div>
+			<div class="wave-bg"> </div>
+		</section>
+		<section class="sea-creatures">
+			<div class="creatures-row">
+				<div class="creature shell floating delay-0" id="sc">
+					<img src="assets/images/sea-creatures/shell.svg" alt="Shell" class="normal"/>
+					<div class="eye left-eye-shell eye-left"></div>
+					<div class="eye right-eye-shell eye-right"></div>
+					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
+				</div>
+				<div class="creature octopus floating delay-1" id="sc">
+					<img src="assets/images/sea-creatures/octopus.svg" alt="Baby octopus" class="normal"/>
+					<div class="eye left-eye-octopus eye-left"></div>
+					<div class="eye right-eye-octopus eye-right"></div>
+					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
+				</div>
+			</div>
+			<!-- Crab container -->
+			<div class="crab-container delay-2">
+				<img src="assets/images/crab/crab-leg-left.svg" class="leg leg-left ll-1">
+				<img src="assets/images/crab/crab-leg-left.svg" class="leg leg-left ll-2">
+				<img src="assets/images/crab/crab-body.svg" class="crab-body">
+				<div class="eye left-eye-crab"></div>
+				<div class="eye right-eye-crab"></div>
+				<img src="assets/images/crab/crab-leg-right.svg" class="leg leg-right lr-1">
+				<img src="assets/images/crab/crab-leg-right.svg" class="leg leg-right lr-2"> 
+			
+				<!-- speech bubble -->
+				<div class="bubble-container">
+					<img src="assets/images/shapes/dialog-bef.svg" class="speech-bubble bf"> 
+					<img src="assets/images/shapes/dialog-af.svg" class="speech-bubble af"> 
+				</div>
+			</div>
+		</section>
+	</div>
 	<section class="industries-section">
 		<div class="industries-title">
 			<h1 class="text-vanish">We believe great ideas emerge like creatures from the deep—ready to evolve and make waves across industries.</h1>
@@ -144,11 +146,11 @@
 			</div>
 		</div>
 		<div class="arrow-icons">
-			<button class=" arrow arrow-left" aria-label="Previous company">
+			<button class=" arrow arrow-left previous" aria-label="Previous company">
 				<img src="assets/images/boat/arrow-left-clear-blue.svg" class="arrow-base" alt="Left arrow">
 				<img src="assets/images/boat/arrow-left-dark-blue.svg" class="arrow-hover" alt="Left arrow hover">
 			</button>
-			<button class=" arrow arrow-right" aria-label="Next company">
+			<button class=" arrow arrow-right next" aria-label="Next company">
 				<img src="assets/images/boat/arrow-rigth-clear-blue.svg" class="arrow-base" alt="Right arrow">
 				<img src="assets/images/boat/arrow-rigth-dark-blue.svg" class="arrow-hover" alt="Right arrow hover">
 			</button>
@@ -180,18 +182,19 @@
 		</div>
 		<div class="founder-visual">
 			<img src="assets/images/founder/silhouette-man.svg" alt="Silhouette Man" class="silhouette">
-			<div class="eyes left-eye-founder"></div>
-			<div class="eyes right-eye-founder"></div>
+			<div class="eyes left-eye-founder eye-left"></div>
+			<div class="eyes right-eye-founder eye-right"></div>
 			<div class="dialog-content">
-			<img src="assets/images/founder/dilaog.svg" alt="dialog form" class="dialog-founder">
-			<div class="dialog-text">
-				<p> I'm Felix Römer — the founder behind Shorely. With over a decade spent building and backing digital ventures, I’ve watched ideas drift, collide, and break through. I’ve learned that what matters most is execution — and the right support at the right time.
-					<br> My journey began in the online video game marketplace, starting with RuneScape, where I built tools and tracked real-time item prices to optimize trades. What began as trading virtual assets evolved into a deep sense for strategy — and marked the start of my investing path.
-					<br>Over the years, I also spent a significant amount of time pioneering products in the iGaming space — building platforms, scaling teams, and navigating a fast-paced, highly regulated environment. That experience sharpened my ability to move quickly and execute under pressure, and it laid the groundwork for expanding into other industries.
-					<br>Since then, I’ve backed multiple companies, always staying close to the action and stepping in when it matters most. I believe the best ideas grow when you’re close enough to get your hands dirty.
-				</p>
+				<img src="assets/images/founder/dilaog.svg" alt="dialog form" class="dialog-founder">
+				<img src="assets/images/founder/dialog-mobile.png" alt="dialog form" class="dialog-founder-mobile">
+				<div class="dialog-text">
+					<p> I'm Felix Römer — the founder behind Shorely. With over a decade spent building and backing digital ventures, I’ve watched ideas drift, collide, and break through. I’ve learned that what matters most is execution — and the right support at the right time.
+						<br> My journey began in the online video game marketplace, starting with RuneScape, where I built tools and tracked real-time item prices to optimize trades. What began as trading virtual assets evolved into a deep sense for strategy — and marked the start of my investing path.
+						<br>Over the years, I also spent a significant amount of time pioneering products in the iGaming space — building platforms, scaling teams, and navigating a fast-paced, highly regulated environment. That experience sharpened my ability to move quickly and execute under pressure, and it laid the groundwork for expanding into other industries.
+						<br>Since then, I’ve backed multiple companies, always staying close to the action and stepping in when it matters most. I believe the best ideas grow when you’re close enough to get your hands dirty.
+					</p>
+				</div>
 			</div>
-		</div>
 		</div>
 	</section>
 	<section class="contact-form">
@@ -199,35 +202,49 @@
 			<div class="contact-title">
 				<h2>You have reach the core. Now it's your move</h2>
 			</div>
-			<form>
+			<form id="contact-form"
+				action="https://formsubmit.co/tininabravo@gmail.com"
+				method="POST" novalidate>
 				<input name="name" type="text" placeholder="Name" class="name" autocomplete="off" required>
 				<input name="email" type="email" placeholder="E-mail" class="email" autocomplete="off" required>
 				<textarea name="message" placeholder="Message" class="message" required></textarea>
+
+				<!-- Config de Formsubmit -->
+				<input type="hidden" name="_subject" value="New message from shorely site">
+				<input type="hidden" name="_template" value="table">
+				<input type="hidden" name="captcha" value="false">
+
+				<input type="hidden" name="_autoresponde" value="Thanks for your message! We’ll get back to you shortly. — Shorely">
+
+				<!-- anti-spam -->
+				<input type="text" name="_honey" style="display: none;">
+
 				<button type="submit" class="send-btn">Send →</button> 
+				<p id="form-status" style="margin-top: 10px;display: none;"></p>
 			</form>
 			<div class="sea-creatures-form ">
-				<div class="creature shell-form floating">
+				<div class="creature shell-form floating" id="sc">
 					<img src="assets/images/sea-creatures/shell.svg" alt="Shell" class="normal"/>
-					<div class="eye left-eye-shell-form eye-form"></div>
-					<div class="eye right-eye-shell-form eye-form"></div>
+					<div class="eye left-eye-shell-form eye-form eye-left"></div>
+					<div class="eye right-eye-shell-form eye-form eye-right"></div>
 					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
 				</div>
-				<div class="creature snail-form floating">
+				<div class="creature snail-form floating" id="sc">
 					<img src="assets/images/sea-creatures/snail.svg" alt="Snail" class="normal"/>
-					<div class="eye left-eye-snail-form eye-form"></div>
-					<div class="eye right-eye-snail-form eye-form"></div>
+					<div class="eye left-eye-snail-form eye-form eye-left"></div>
+					<div class="eye right-eye-snail-form eye-form eye-right"></div>
 					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
 				</div>
-				<div class="creature star-form floating">
+				<div class="creature star-form floating" id="sc">
 					<img src="assets/images/sea-creatures/star.svg" alt="Start" class="normal"/>
-					<div class="eye left-eye-star-form eye-form"></div>
-					<div class="eye right-eye-star-form eye-form"></div>
+					<div class="eye left-eye-star-form eye-form eye-left"></div>
+					<div class="eye right-eye-star-form eye-form eye-right"></div>
 					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
 				</div>
-				<div class="creature octopus-form floating">
+				<div class="creature octopus-form floating" id="sc">
 					<img src="assets/images/sea-creatures/octopus.svg" alt="Baby octopus"  class="normal"/>
-					<div class="eye left-eye-octopus-form eye-form"></div>
-					<div class="eye right-eye-octopus-form eye-form"></div>
+					<div class="eye left-eye-octopus-form eye-form eye-left"></div>
+					<div class="eye right-eye-octopus-form eye-form eye-right"></div>
 					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
 				</div>
 			</div>
@@ -235,7 +252,7 @@
 	</section>
 
 	<footer class="footer">
-		<p > <br>
+		<p> <br>
 			Shorely Investment Fund <br>
 			 2025 © Copyright | Terms & Conditions
 		</p>
@@ -250,6 +267,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script>gsap.registerPlugin(ScrollTrigger);</script>
 <script src="js/main.js"></script>
+<script src="js/emailReply.js"></script>
+<script src="js/crabBehavior.js"></script>
 <script type="text/javascript">
 	(function() {
 		var expirationDate = new Date();

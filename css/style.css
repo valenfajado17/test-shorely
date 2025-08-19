@@ -436,18 +436,39 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 
 .industry-shape img {
     width: 100%;
+    display: block;
     height: auto;
     transition: transform 0.4s ease-in-out;
     pointer-events: none;
 }
 
+.industry-text h3 {
+    margin: 0 0 .35rem;
+    line-height: 1.1;
+    font-size: clamp(1.15rem, 1rem + .6vw, 1.6rem);
+    color: var(--c-sand);
+}
+
+.industry-text p{
+    margin: 0;
+    line-height: 1.3;
+    font-size: clamp(.9rem, .85rem + .25vw, 1rem);
+    color: var(--c-sand);
+    opacity: .95;
+    max-width: 32ch;
+}
+
 .industry-text {
     position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
     text-align: center;
+    padding: 10% 12%;
     color: var(--c-sand);
-    top: 27%;
-    left: 21%;
-    width: 200px;
+    pointer-events: none;
+    width: 324px;
+    align-content: center;
 }
 
 .industry-shape.hovered{
@@ -467,8 +488,8 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 
 /* Shapes text */
 .soccer {
-    top: 23%;
-    width: 202px;
+    top: -24%;
+    left: 9px;
 }
 
 
@@ -556,11 +577,15 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     .industry-text h3 { font-size: var(--fs-300) !important; margin: 0 0 .35rem; }
     .industry-text p  { font-size: var(--fs-200) !important; margin: 0; max-width: 30ch; }
     .industry-shape   { will-change: transform; } /* smoother hover scaling */
+
+    .soccer { top: -9% !important;}
+    .soccer p { width: 133px !important; }
 }
 
 /* END INDUSTRY SECTION */
 
 /* BOAT SECTION */
+
 .boat-section {
     position: relative;
     background-color:var(--c-sea);
@@ -625,40 +650,82 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     height: auto;
 }
 
-
-/* Make the info overlay use the boat as its canvas */
 .company-info{
   position: absolute;
-  inset: 0;                        /* fill the boat image area */
-  display: grid;
-  align-content: center;           /* vertical placement */
-  justify-items: start;            /* text left-aligned */
-  gap: 6px;
+  inset: 0;
+  display: block;
+  align-content: center;
+  justify-items: center;
+  /* gap: 6px; */
   padding: clamp(8px, 2vw, 16px) clamp(12px, 3vw, 24px);
   color: var(--c-deep);
-  pointer-events: none;            /* arrows remain clickable */
+  pointer-events: auto;
+  align-content: center;
 }
 
-/* Text styles */
 .logo-company img{ height: 32px; width: auto; display: block; }
 .name-company{ font-weight: 700; font-size: clamp(18px, 1.4vw, 22px); }
 .description-company{ font-size: clamp(14px, 1.05vw, 16px); opacity: .9; max-width: 42ch; }
 
+/* left circular chip (24–40px in your mock) */
+.logo-chip{
+  width: 45px; height: 45px; border-radius: 999px;
+  position: relative; left: -208px; bottom: 36px;
+}
+.logo-chip img{ max-width: 70%; height: auto; display:block; }
+
+/* name pill */
+.name-pill{
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 10px 14px; border-radius: 10px;
+  color: var(--c-deep); font-weight: 700;
+  text-decoration: none;
+  position: relative;
+  font-size: 20px;
+  left: -20px;
+  bottom: 92px;
+}
+.name-pill .open-icon{ color: var(--c-deep); opacity: .8; }
+
+/* blurb on deck */
+.project-blurb{
+  margin-top: 16px;
+  color: var(--c-deep);
+  font-weight: 700;
+  max-width: 42ch;
+  position: relative;
+  left: 32px;
+  bottom: 20px;
+}
+
+/* badge row (star + label) */
+.project-badge{
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 10px;
+  color: var(--c-sea);
+  font-weight: 700;
+}
+.project-badge img{
+  width: 16px; height: 16px; display:block;
+}
+
 .arrow-icons {
-  display: flex;
-  justify-content: center;
-  gap: 2.2em;
-  margin: 10px 0 0 0;
+  display: grid; gap: 12px;
+  position: absolute; 
+  right: 6vw; top: 50%;
+  transform: translateY(-50%);
+  margin-right: 270px;
 }
 
 .arrow {
   position: relative;
-  background: none;
+  background: none; /*transparent*/
   border: none;
   padding: 0;
   cursor: pointer;
   width: 48px;
   height: 48px;
+  border-radius: 999px;
 }
 
 .arrow-base {
@@ -668,16 +735,17 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 }
 
 .arrow-hover {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  width: 48px;
+  height: 48px;
 }
 
-.arrow:hover .arrow-base { display: none; }
-.arrow:hover .arrow-hover { display: block; }
+.arrow .arrow-hover{
+    opacity: 0; position: absolute;
+    inset: 0;
+    transition: opacity .15s ease;
+}
+.arrow:hover .arrow-base { opacity: 0;; }
+.arrow:hover .arrow-hover { opacity: 1; }
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -722,6 +790,7 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.4s, transform 0.4s;
+    margin-top: 150px;
 }
 
 .domain-marquee {
@@ -777,98 +846,85 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 /* END PORTFOLIO SECTION */
 
 /* FOUNDER SECTION */
-.founder-section {
-    position: relative;
-    background-color: var(--c-deep);
+
+/* ===== Founder — Desktop FIX ===== */
+.founder-section{
+  position: relative;
+  background: var(--c-deep);
+  padding: clamp(20px, 30vw, 36px) 0;
 }
 
-.wave-black-bg {
-    position: absolute;
-    width: 100%;
-    height: 14%;
-    background-image: url('../assets/images/waves/waves-black.png');
-    background-repeat: repeat-x;
-    background-size: cover;
-    opacity: 1;
-    z-index: 4;
-    transition: transform 0.3s ease;
-    top: 87vh;
+/* wave sits at the bottom of the section */
+.wave-black-bg{
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 120px;                       /* adjust to your art if needed */
+  background: url('../assets/images/waves/waves-black.png') repeat-x; 
+  background-size: cover;
+  z-index: 4; transition: transform .3s ease;
+  opacity: 1;
+  width: 100%;
 }
 
 .founder-title h3{
-    z-index: 3;
-    position: relative;
-    text-align: center;
-    color: var(--c-sand);
-    transform: scale(0);
-    opacity: 0;
+  position: relative; z-index: 3;
+  text-align: center; color: var(--c-sand);
+  transform: 1; opacity: 1;
+  line-height: 1.22; 
+  margin: 0 0 26px; 
+  padding: 0 16px;
+  font-size: clamp(1.2rem, 0.9rem + 0.6vw, 1.6rem);
 }
 
-.founder-visual {
-    position: relative;
-    z-index: 3;
-    width: 35%;
-    height: 527px;
-    bottom: -4vh;
-    left: 35vh;
+/* two columns: [silhouette] | [bubble] */
+.founder-visual{
+  position: relative;
+  z-index: 3;
+  width: min(1200px, 92vw);
+  margin: 20px 0 0 197px;
+  display: grid;
+  grid-template-columns: minmax(142px, 0) minmax(1300px, 560px);
+  align-items: center;                 /* vertical alignment like Figma */
+  column-gap: clamp(18px, 3vw, 44px);
+  left: 0 !important; bottom: 0 !important; height: auto;
+  padding-top: 24px;
 }
 
-.founder-visual img{
-    max-width: 351px;  /*Check */
-    width: 41%;
+.silhouette{ width: 100%; height: auto; display: block; align-self: end; }
+
+/* eyes: percentages relative to the silhouette column (nudge if needed) */
+.eyes{
+  position: absolute; width: 7px; height: 7px; background:#000; border-radius:50%;
+  box-shadow: 0 2px 8px #0002; z-index: 4;
 }
+.left-eye-founder  { left: 70px; top: 10.4%; }
+.right-eye-founder { left: 87px; top: 10.4%; }
 
-.silhouette {
-  width: 100%;
-  display: block;
-}
-
-.eyes {
-  position: absolute;
-  width: 8px; height: 8px;
-  background: black;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px #0002;
-  z-index: 4;
-}
-
-.left-eye-founder { left: 16vh; top: 7.5vh; }
-.right-eye-founder { left: 20vh; top: 7.5vh; }
-
+/* bubble container (right column) */
 .dialog-content{
-    height: 0;
-}
-.dialog-founder{
-    position: absolute;
-    width: 180% !important;
-    max-width: 76vw !important;
-    left: 21vh;
-    bottom: 21vh;
+  position: relative;
+  width: 100%;
+  max-width: 850px;                    /* hard cap bubble width */
+  justify-self: start;                 /* keep near silhouette */
+  transform: translate(-71px, -81px);         /* small lift to align to face */
 }
 
+/* show desktop bubble only */
+.dialog-founder{ display:block; width: 100%; height: auto;
+  filter: drop-shadow(0 8px 26px rgba(0,0,0,.18));
+}
+.dialog-founder-mobile{ display:none; }
+
+/* text INSIDE bubble */
 .dialog-text{
-    position: relative;
-    text-align: justify;
-    color: black;
-    bottom: 116vh !important;
-    z-index: 4;
-    left: 331px !important;
-    font-weight: bold;
-    width: 102vh !important;
-    max-width: 701px;
-    margin: 0 auto;
+  position: absolute; inset: 0; margin: 0;
+  color:#000; font-weight:600; text-align:justify;
+  line-height:1.42;
+  font-size: clamp(.95rem, .8rem + .25vw, 1.05rem);
+  padding: 2% 7% 18% 24%;
+  max-width: 100%;
+  max-height: 74%;
 }
-
-.dialog-founder-mobile {
-    display: none;
-}
-
-@keyframes pop-bubble {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
+.dialog-text p{ margin:0; }
 
 /* ---------- Founder: mobile layout ---------- */
 @media (max-width: 768px) {
@@ -895,8 +951,8 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
   .wave-black-bg {
     position: relative !important;
     top: auto !important;
-    bottom: -184vh !important;
-    height: 197px; /* adjust to match your art */
+    bottom: -196vh !important;
+    height: 283px; /* adjust to match your art */
     margin-top: 8px;
   }
 
@@ -912,9 +968,10 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     height: auto; /* let content define height */
     display: grid;
     grid-template-rows: auto auto;
+    grid-template-columns: auto !important;
     row-gap: 12px;
     justify-items: center;
-    padding: 0 12px;
+    padding: 81px 87px 0 79px;
   }
 
   /* Bubble container turns into a positioned wrapper */
@@ -935,8 +992,8 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
   .dialog-founder-mobile {
     display: block !important;
     width: 100%;
-    max-width: 360px;
-    height: 592px;
+    max-width: 360px !important;
+    height: 592px !important;
     margin: 0 auto;
     bottom: 246px;
     position: relative;
@@ -972,7 +1029,9 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     margin: 0 auto;
     display: block;
     position: relative;
-    top: 82vh;
+    top: 77vh;
+    margin-right: 171px;
+    align-self: auto;
   }
 
   /* Founder visual */
@@ -980,11 +1039,11 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
   .left-eye-founder, .right-eye-founder {
     position: absolute;
     /* Place relative to founder-visual box; tune these */
-    top: 53.01%;
-    left: 50%;
+    top: 52.5%;
+    left: 53%;
     width: 7px; height: 7px;
   }
-  .right-eye-founder { left: 54%; }
+  .right-eye-founder { left: 57%; }
 
   /* Clean up any stray desktop offsets */
   .founder-visual img { max-width: 100%; width: auto; }
@@ -1254,17 +1313,17 @@ textarea{
 
 
 /* succes moda form send */
-.sent-modal {position: fixed; inset: 0; display: none; z-index: 9999;}
-.send-modal[aria-hidde="false"]{display: block;}
-.sent-modal__backdrop {position: absolute;inset: 0;background:#0009;}
-.sent-modal__dialog {
+#sent-modal {position: fixed; inset: 0; display: none; z-index: 99999;}
+#send-modal.open {display: block !important;}
+#send-modal .backdrop {position: absolute;inset: 0;background:#0009;}
+#send-modal .dialog {
     position: relative; z-index: 1;width: min(92vw, 420px);
     margin: 12vh auto 0;background: #fff; color: #111;
     border-radius: 14px; padding: 18px 16px;text-align: center;
     box-shadow: 0 12px 40px rgba(0,0,0,.25);
 }
-.sent-modal__dialog h3 {margin: 0 0 6px;}
-.sent-modal__close {
+#send-modal .dialog h3 {margin: 0 0 6px;}
+#send-modal .close {
     margin-top: 12px;padding: 10px 16px;border-radius: 999px;border: 0;
     background: var(--c-sea);color: var(--c-sand);font-weight: 700;cursor: pointer;
 }

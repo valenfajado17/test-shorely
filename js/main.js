@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", () => {
   // BoatSection
   animateBoatSection();  
   scrollFromBoat();
-  document.addEventListener("DOMContentLoaded", initBoatCarousel);
+  // document.addEventListener("DOMContentLoaded", initBoatCarousel);
   // FounderSection
   animateFounderSection();
 
@@ -90,31 +90,6 @@ function squishSeaCreature(){
         }, 400);
       })
     })
-        //Calcular screen size
-        // const width = window.innerWidth;
-        // const height = window.innerHeight;
-
-        // calcular element size
-        // const elementWidth = sc.offsetWidth;
-        // const elementHeight = sc.offsetHeight;
-
-        // Calcular max position
-        // const maxLeft = width - elementWidth;
-        // const maxTop = height - elementHeight;
-
-        // Calcular random position
-        // const randomLeft = Math.max(0, Math.floor(Math.random() * maxLeft));
-        // const randomTop = Math.max(0, Math.floor(Math.random() * maxTop));
-
-        // sc.style.left = `${randomLeft}px`;
-        // sc.style.top = `${randomTop}px`;
-
-        // gsap.to(c, {
-        //   xPercent: randomLeft / 100,
-        //   yPercent: randomTop / 100,
-        //   duration: 0.6,
-        //   ease: "power2.out"
-        // });
 }
 
 function scrollFromHome(){
@@ -205,8 +180,10 @@ function animateBoatSection(){
     opacity: 1,
     duration: 4.2,
     ease: "power2.out",
+    onComplete: () => {initBoatCarousel()}
   }, "-=0.7");
   
+  initBoatCarousel();
 }
 
 function scrollFromBoat(){
@@ -401,96 +378,120 @@ function scrollFromFounder(){
 }
 
 function initBoatCarousel(){
-  const companies = [
-    { logo: "../assets/images/boat/companies-logos/swapped-logo.png", name: "swapped.com", desc: "offers a fast and simple way to buy cryptocurrencies. Buy crypto with 40+ local payment methods." },
-    { logo: "", name: "pvp.com", desc: "" }
+  const projects = [
+    { name: "swapped.com", url: "https://swapped.com", 
+      logo: "../assets/images/boat/companies-logos/swapped-logo.png", 
+      desc: "Offers a fast and simple way to buy cryptocurrencies. Buy crypto with 40+ local payment methods.",
+      badgeIcon: "", badgeText: "Sofware" },
+    { name: "pvp.com", url: "https://pvp.com",
+      logo: "../assets/images/boat/companies-logos/pvp-logo.png", 
+      desc: "...", badgeIcon: "", badgeText: "Domains" }
   ];
 
-  const boat = document.querySelector(".boat-content");
-  if (!boat) return;
+  if(!Array.isArray(projects) || projects.length === 0) return;
 
-  const info = boat.querySelector(".company-info");
-  const logoEl = info.querySelector(".logo-company");
-  const nameEl = info.querySelector(".name-company");
-  const descEl = info.querySelector(".description-company");
+  // Load DOM
+  const boatContent = document.querySelector(".boat-content");
+  if (!boatContent) return;
 
-  const prevBtn = document.querySelector(".arrow-left, .previous");
-  const nextBtn = document.querySelector(".arrow-right, .next");
+  const info = boatContent.querySelector(".company-info");
+  const logoEl = document.getElementById("logo-company");
+  const nameEl = document.getElementById("name-company");
+  const descEl = document.getElementById("description-company");
 
+  const prevBtn = document.getElementById("arrow-left");
+  const nextBtn = document.getElementById("arrow-right");
+
+  if (!info || !logoEl || !nameEl || !descEl) return;
+  
   let idx = 0;
   let animating = false;
 
-  // a11y region for live updates
-  info.setAttribute("role", "region");
-  info.setAttribute("aria-live", "polite");
+  const wrap = (i) => {
+    const n = projects.length;
+    return ((i % n) + n) % n;
+  }
+  function render(i, animate = true, dir = 1) {
+    i = wrap(i);
+    const p = projects[i];
+    if (!p) return;
 
-  function render(i, { animate = true, dir = 1 } = {}) {
-    const c = companies[i];
+    logoEl.innerHTML = `
+      <div class="logo-chip">
+        <img src="${p.logo}" alt="${p.name} logo" loading="lazy" decoding="async">
+      </div>
+    `;
 
-    // set content
-    logoEl.innerHTML = `<img src="${c.logo}" alt="${c.name} logo" width="32" height="32" loading="lazy" decoding="async">`;
-    nameEl.textContent = c.name;
-    descEl.textContent = c.desc;
+    nameEl.innerHTML = `
+      <a class="name-pill" href="${p.url}" target="_blank" rel="noopener">
+        <span>${p.name}</span>
+        <svg class="open-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"></path>
+          <path fill="currentColor" d="M5 5h6v2H7v10h10v-4h2v6H5V5z"></path>
+        </svg>
+      </a>
+    `;
 
-    if (!animate) {
-      gsap.set([logoEl, nameEl, descEl], { opacity: 1, y: 0 });
+    descEl.innerHTML = `
+      <div class="project-blurb">${p.desc}</div>
+      <div class="project-badge">
+         ${p.badgeIcon ? `<img src="${p.badgeIcon}" alt="" aria-hidden="true">` : ""}
+         <span>${p.badgeIcon || ""}</span>
+      </div>
+    `;
+
+    if(!animate) {
+      gsap.set([logoEl, nameEl, descEl], {opacity:1, y:0});
       return;
     }
-    const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
-    tl.fromTo([logoEl, nameEl, descEl],
-      { opacity: 0, y: 16 * dir },
-      { opacity: 1, y: 0, stagger: 0.06, duration: 0.35 }
-    ).add(() => { animating = false; });
+
+    const tl = gsap.timeline({ defaults: {ease:"power2.out"}});
+    tl.fromTo([logoEl, nameEl], {opacity:0, y:18*dir}, {opacity:1, y:0, duration:.28, stagger:.06})
+      .fromTo(descEl, {opacity:0, y:12*dir}, {opacity:1, y:0, duration:.28}, "-=.12")
+      .add(() => {animating = false})
   }
 
-  function transition(to) {
-    if (animating) return;
+  function change(to) {
+    if(animating) return;
     animating = true;
+
     const dir = to > idx ? 1 : -1;
 
     gsap.to([logoEl, nameEl, descEl], {
-      opacity: 0, y: -8, stagger: 0.04, duration: 0.18, ease: "power1.in",
-      onComplete: () => { idx = to; render(idx, { dir }); }
+      opacity: 0, y: -10, duration: .18, ease: "power1.in", stagger: .40,
+      onComplete: () => {idx = (to + projects.length) % projects.length;
+      render(idx, true, dir);}
     });
   }
 
-  // Initial show when the boat is in
-  // (ties into your existing animateBoatSection entrance) 
-  ScrollTrigger.create({
-    trigger: ".boat-content",
-    start: "top 80%",
-    once: true,
-    onEnter: () => render(idx)
-  });
+  // reveal when the boat enters 
+  if(window.ScrollTrigger){
+    ScrollTrigger.create({
+      trigger: ".boat-content", 
+      start: "top 78%",
+      once: true, 
+      onEnter: () => render(idx, true, 1)
+    });
+  } else { render(idx, false, 1) }
 
-  // Controls
-  prevBtn?.addEventListener("click", () => transition((idx - 1 + companies.length) % companies.length));
-  nextBtn?.addEventListener("click", () => transition((idx + 1) % companies.length));
+  //Controls 
+  prevBtn?.addEventListener("click", () => change(idx - 1));
+  nextBtn?.addEventListener("click", () => change(idx + 1));
 
-  // Keyboard support
-  [prevBtn, nextBtn].forEach(btn => btn?.setAttribute("tabindex", "0"));
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") prevBtn?.click();
-    if (e.key === "ArrowRight") nextBtn?.click();
+    if (e.key === "ArrowRigth") nextBtn?.click();
   });
-}
- 
-function seaCreaturesrandomReapears(){
-  const sc = document.getElementById('sea-creatures');
 
-  // current size of the screen
-  const width = window.innerWidth;
-  const height = window.innerHeight;
+  let startX = null;
+  boatContent.addEventListener("touchstart", (e) => { 
+    startX = e.touches[0].clientX; }, { passive: true });
 
-  const elementWidth = sc.offsetWidth;
-  const elementHeight = sc.offsetHeight;
+  boatContent.addEventListener("touchend", (e) => {
+    if (startX == null) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) (dx < 0 ? nextBtn : prevBtn)?.click();
+    startX = null;
+  }, { passive: true });
 
-  const maxLeft = width - elementWidth;
-  const maxTop = height - elementHeight;
-
-  const randomLeft = Math.max(0, Math.floor(Math.random() * maxLeft));
-  const randomTop = Math.max(0, Math.floor(Math.random() * maxTop));
-
-  sc.style.left = `${randomLeft}px`;
-  sc.style.top = `${randomLeft}px`;
 }

@@ -726,7 +726,7 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
   width: 48px;
   height: 48px;
   border-radius: 999px;
-}
+} 
 
 .arrow-base {
   display: block;
@@ -734,21 +734,32 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
   height: 100%;
 }
 
+.arrow-base-mobile {
+    display: inline-table;
+    width: 100%;
+    height: 100%;
+}
+
 .arrow-hover {
   width: 48px;
   height: 48px;
 }
 
-.arrow .arrow-hover{
+.arrow-hover{
     opacity: 0; position: absolute;
     inset: 0;
     transition: opacity .15s ease;
 }
-.arrow:hover .arrow-base { opacity: 0;; }
-.arrow:hover .arrow-hover { opacity: 1; }
+.arrow:hover .arrow-base  { opacity: 0;; }
+.arrow:hover .arrow-hover  { opacity: 1; }
+
+.arrow-base-mobile { opacity: 0;}
 
 /* Responsive */
 @media (max-width: 768px) {
+  .boat-section {
+    height: 500px;
+  }
   .boat-title {
         padding: 39px 6vw !important;
         opacity: 1 !important;
@@ -762,13 +773,13 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     }
     
     .boat-content{
-        bottom: -13vh;
+        bottom: -26vh;
         right: -44vh;
         max-width: 427vw !important;
     }
     
     .wave-darkblue-bg{
-        top: 51vh;
+        top: 70vh;
     }
 
     .company-info{
@@ -776,7 +787,41 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
         text-align: center;
         gap: 8px;
     }
+    .boat-img{
+        width: 122%;
+    }
 
+    .project-blurb {
+        left: 22px;
+        bottom: 44px;
+        max-width: 29ch;
+        text-align: justify;
+    }
+    
+    .name-pill {
+        font-size: 16px;
+        left: -4px;
+        bottom: 52px;
+    }
+
+    .name-pill .open-icon  {
+        opacity: 0;
+    }
+
+    .arrow-icons { 
+        z-index: 6;
+        top: 100%;
+        display: flex;
+        right: 0;
+        transform: translateX(112%);
+    }
+
+    .arrow-hover{ transform: translateY(103%)}
+    .arrow-base { opacity: 0;}
+    
+    .arrow-base-mobile { opacity: 1; }
+    .arrow:hover .arrow-base-mobile { opacity: 0; } 
+    .arrow:hover .arrow-hover { opacity: 1; } 
 }
 
 /* PORTFOLIO SECTION */

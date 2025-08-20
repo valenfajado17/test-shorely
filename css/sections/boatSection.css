@@ -1,0 +1,242 @@
+
+@layer sections {
+
+.boat-section {
+    position: relative;
+    background-color:var(--c-sea);
+}
+
+.wave-darkblue-bg{
+    position: absolute;
+    width: 100%;
+    height: 76%;
+    background-image: url('../../assets/images/waves/waves-darkblue.png');
+    background-repeat: repeat-x;
+    background-size: cover;
+    z-index: 3; 
+    top: 98vh;
+    transition: transform 0.3s ease;
+}
+
+.boat-content, .boat-title, .arrow-icons{
+    position: relative;
+
+}
+
+.boat-title {
+    padding: 20vh 0 30vh 0;
+    z-index: 3;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.4s, transform 0.4s;
+    text-align: center;
+}
+
+.boat-title h1 {
+    color: var(--c-sand);
+    font-size: 2rem;
+    padding: 0 5vw; 
+}
+
+.boat-title p {
+    color: var(--c-sand);
+    font-size: 1.5rem;
+}
+
+
+.boat-content {
+    position: relative;
+    margin: 0 auto;
+    bottom: auto;
+    right: auto;
+    max-width: 939px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 0;
+    transform: translate(-28vw, -99px);
+    transition: none;
+}
+
+.boat-img{
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+.company-info{
+  position: absolute;
+  inset: 0;
+  display: block;
+  align-content: center;
+  justify-items: center;
+  /* gap: 6px; */
+  padding: clamp(8px, 2vw, 16px) clamp(12px, 3vw, 24px);
+  color: var(--c-deep);
+  pointer-events: auto;
+  align-content: center;
+}
+
+.logo-company img{ height: 32px; width: auto; display: block; }
+.name-company{ font-weight: 700; font-size: clamp(18px, 1.4vw, 22px); }
+.description-company{ font-size: clamp(14px, 1.05vw, 16px); opacity: .9; max-width: 42ch; }
+
+/* left circular chip (24–40px in your mock) */
+.logo-chip{
+  width: 45px; height: 45px; border-radius: 999px;
+  position: relative; left: -208px; bottom: 36px;
+}
+.logo-chip img{ max-width: 70%; height: auto; display:block; }
+
+/* name pill */
+.name-pill{
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 10px 14px; border-radius: 10px;
+  color: var(--c-deep); font-weight: 700;
+  text-decoration: none;
+  position: relative;
+  font-size: 20px;
+  left: -20px;
+  bottom: 92px;
+}
+.name-pill .open-icon{ color: var(--c-deep); opacity: .8; }
+
+/* blurb on deck */
+.project-blurb{
+  margin-top: 16px;
+  color: var(--c-deep);
+  font-weight: 700;
+  max-width: 42ch;
+  position: relative;
+  left: 32px;
+  bottom: 20px;
+}
+
+/* badge row (star + label) */
+.project-badge{
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 10px;
+  color: var(--c-sea);
+  font-weight: 700;
+}
+.project-badge img{
+  width: 16px; height: 16px; display:block;
+}
+
+.arrow-icons {
+  display: grid; gap: 12px;
+  position: absolute; 
+  right: 6vw; top: 50%;
+  transform: translateY(-50%);
+  margin-right: 270px;
+}
+
+.arrow {
+  position: relative;
+  background: none; /*transparent*/
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+} 
+
+.arrow-base {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow-base-mobile {
+    display: inline-table;
+    width: 100%;
+    height: 100%;
+}
+
+.arrow-hover {
+  width: 48px;
+  height: 48px;
+}
+
+.arrow-hover{
+    opacity: 0; position: absolute;
+    inset: 0;
+    transition: opacity .15s ease;
+}
+.arrow:hover .arrow-base  { opacity: 0;; }
+.arrow:hover .arrow-hover  { opacity: 1; }
+
+.arrow-base-mobile { opacity: 0;}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .boat-section {
+    height: 500px;
+  }
+  .boat-title {
+        padding: 39px 6vw !important;
+        opacity: 1 !important;
+        transform: none !important;
+        line-height: 1.2 !important;
+    }
+
+    .boat-title h1 {
+        font-size: 1.7rem;
+         padding: 0;
+    }
+    
+    .boat-content{
+        bottom: -26vh;
+        right: -44vh;
+        max-width: 427vw !important;
+    }
+    
+    .wave-darkblue-bg{
+        top: 70vh;
+    }
+
+    .company-info{
+        justify-items: center;
+        text-align: center;
+        gap: 8px;
+    }
+    .boat-img{
+        width: 122%;
+    }
+
+    .project-blurb {
+        left: 22px;
+        bottom: 44px;
+        max-width: 29ch;
+        text-align: justify;
+    }
+    
+    .name-pill {
+        font-size: 16px;
+        left: -4px;
+        bottom: 52px;
+    }
+
+    .name-pill .open-icon  {
+        opacity: 0;
+    }
+
+    .arrow-icons { 
+        z-index: 6;
+        top: 100%;
+        display: flex;
+        right: 0;
+        transform: translateX(112%);
+    }
+
+    .arrow-hover{ transform: translateY(103%)}
+    .arrow-base { opacity: 0;}
+    
+    .arrow-base-mobile { opacity: 1; }
+    .arrow:hover .arrow-base-mobile { opacity: 0; } 
+    .arrow:hover .arrow-hover { opacity: 1; } 
+}
+
+}

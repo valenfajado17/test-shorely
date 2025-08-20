@@ -1,0 +1,64 @@
+@layer sections {
+.portfolio-title {
+    color: var(--c-sand);
+    position: relative;
+    text-align: center;
+    bottom: 35vh;
+    z-index: 3;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.4s, transform 0.4s;
+    margin-top: 150px;
+}
+
+.domain-marquee {
+  position: relative;
+  z-index: 3;
+  width: 100vw;
+  overflow: hidden;
+  padding: 24px 0 24px 0;
+  bottom: 8vh;
+} 
+
+.domain-bar {
+    background-color: var(--c-sea);
+    color: var(--c-sand);
+    border-radius: 32px;
+    padding: 13px 40px;
+    margin: 0 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.23s, color 0.22s, box-shadow 0.22s;
+    box-shadow: 0 2px 18px 0 rgb(0,0,0,0.5);
+    display: inline-block;
+}
+
+.domain-bar:hover{
+    background-color: black;
+    color: var(--c-sand);
+    box-shadow: 0 2px 18px 0 rgb(0,0,0,0.5);
+}
+
+.marquee-inner {
+    display: flex;
+    gap: 48px;
+    white-space: nowrap;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .portfolio-title{
+        bottom: 3vh;
+    }
+
+    .domain-marquee {
+        bottom: -12vh;
+        padding: 0;
+    }
+
+    .marquee-inner{
+        gap: 1px;
+    }
+}
+
+}

@@ -9,9 +9,58 @@
         <li> Your inquiry is currently being directed to the appropriate team member. </li>
         <li>If we find your request interesting, you can expect a response within 48 to 72 hours.</li>
       </ul>
-      <p>We appreciate your patience and look forward to assisting you.</p>
+      <p></p>
       <br><br>
       <p style='margin:0;color:#666'>— Shorely 🌊</p>
     </div>
 </body>
 </html>
+Thanks for reaching out to Shorely  👋
+
+We’ve received your message. Your inquiry is currently being directed to the appropriate team member. 
+If we find your request interesting, you can expect a response within 48 to 72 hours.
+
+We appreciate your patience and look forward to assisting you.
+— Shorely 🌊
+
+
+
+
+
+<!--  old form with FormSubmit -->
+
+			<!-- Change test email to "felix@shorely.com" once testing is done -->
+			<form id="contact-formsubmit"
+				action="https://formsubmit.co/valenfajardo17@gmail.com"
+				method="POST" accept-charset="UTF-8" novalidate>
+
+				<input name="name" type="text" placeholder="Name" class="name" autocomplete="off" required>
+				<input name="email" type="email" placeholder="E-mail" class="email" autocomplete="off" required>
+				<textarea name="message" placeholder="Message" class="message" required></textarea>
+
+				<!-- anti spam (honeypot) -->
+				<input type="text" name="_honey" style="display: none;" tabindex="-1" autocomplete="off">
+				<!-- disable built-in captcha. in case of use remove -->
+				<input type="hidden" name="_captcha" value="false">
+
+				<!-- subject + neat table layout -->
+				<input type="hidden" name="_subject" value="Shorely - New message contact form">
+				<input type="hidden" name="_template" value="table">
+				
+				<!-- autoresponde to the sender  -->
+				<input type="hidden" name="_autoresponse" value="
+					Thanks for reaching out to Shorely  👋
+      
+					We’ve received your message.
+      
+					What happens next?
+					→ Your inquiry is currently being directed to the appropriate team member.
+					→ If we find your request interesting, you can expect a response within 48 to 72 hours.
+      
+					We appreciate your patience and look forward to assisting you.
+      				— Shorely 🌊">
+				<button type="submit" class="send-btn">Send →</button> 
+				<p id="form-status"></p>
+				<!-- redirect after submit | check if they want to use-->
+				<!-- <input type="hidden" name="_next" value="https://shorely.com/"> -->
+			</form>

@@ -1,6 +1,6 @@
 :root{
   /* brand */
-  --c-sand: #FFF0BA;
+  --c-sand: #FFF0BA; 
   --c-sea:  #2B66BD;
   --c-deep: #19417B;
   --c-ink:  #000;
@@ -43,7 +43,6 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     flex-direction: column;
     width: 100vw;
 }
-
 /* ABOUT-US SECTION */
 .about-us{
     display: flex;   
@@ -1356,7 +1355,6 @@ textarea{
     background-color: black;
 }
 
-
 /* succes moda form send */
 #sent-modal {position: fixed; inset: 0; display: none; z-index: 99999;}
 #send-modal.open {display: block !important;}
@@ -1371,4 +1369,7 @@ textarea{
 #send-modal .close {
     margin-top: 12px;padding: 10px 16px;border-radius: 999px;border: 0;
     background: var(--c-sea);color: var(--c-sand);font-weight: 700;cursor: pointer;
+}
+#send-modal[aria-hidden="false"] {
+    display:  block !important;
 }

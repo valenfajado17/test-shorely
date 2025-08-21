@@ -36,8 +36,7 @@ module.exports = async (req, res) => {
 
     // 1) Send owner email
     await transporter.sendMail({
-        // <no-reply@shorely.com>
-      from: '"Shorely Website" <valenfajardo17@gmail.com>',
+      from: '"Shorely Website" <no-reply@shorely.com>',
       to: CONTACT_TO,
       subject: 'Shorely — New message from website',
       html: `
@@ -51,16 +50,16 @@ module.exports = async (req, res) => {
 
     // 2) Auto‑reply 
     await transporter.sendMail({
-        // <no-reply@shorely.com>
-      from: '"Shorely" <valenfajardo17@gmail.com>',
+      from: '"Shorely" <no-reply@shorely.com>',
       to: email,
       subject: 'Thanks for reaching out to Shorely',
       text:
-        `Thanks for reaching out to Shorely!
+        `Thanks for reaching out to Shorely  👋
+      
+        We’ve received your message. Your inquiry is currently being directed to the appropriate team member.
+        If we find your request interesting, you can expect a response within 48 to 72 hours.
 
-        We’ve received your message and will get back to you soon.
-        If you’d like to add anything, just reply to this email.
-
+        We appreciate your patience and look forward to assisting you.
         — Shorely 🌊`
     });
 

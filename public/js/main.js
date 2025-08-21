@@ -332,6 +332,14 @@ function animateFounderSection(){
     }
   });
 
+    // gsap.fromTo(crab, {
+    //   opacity: 1, scale: 1
+    // }, {
+    //   opacity: 0,
+    //   scale: 0,
+    //   duration: 0.6,
+    //   ease: "power1.out"
+    // });
 
   eyesFollowCursor();
 }

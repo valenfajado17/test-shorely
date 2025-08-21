@@ -1,66 +1,58 @@
-const nodemailer = requird('nodemailer');
+// /api/contact.js
+const nodemailer = require('nodemailer');
 
 module.exports = async (req, res) => {
-    if (req.method != 'POST'){
-        res.status(405).json({ ok: false, error: 'Method not allowed'});
-        return;
+  if (req.method !== 'POST') return 
+  res.status(405).json({ ok:false, error:'Method not allowed' });
+
+  try {
+    const { name, email, message, _honey } = JSON.parse(req.body || '{}');
+    if (_honey) return res.status(200).json({ ok:true }); // honeypot
+    if (!name || !email || !message) {
+      return res.status(400).json({ ok:false, error:'Missing fields' });
     }
 
-    try {
-        const { name, email, message, _honey } = JSON.parse(req.body || '{}');
+    const transporter = nodemailer.createTransport({
+      host: process.env.MAILTRAP_HOST,
+      port: Number(process.env.MAILTRAP_PORT || 2525),
+      secure: false, // 2525 uses STARTTLS; keep false
+      auth: { user: process.env.MAILTRAP_USER, pass: process.env.MAILTRAP_PASS }
+    });
 
-        if (_honey) { return res.status(200).json({ ok: true});}
+    // 1) Owner mail (lands in Mailtrap inbox when using Email Testing)
+    await transporter.sendMail({
+      from: '"Shorely Website" <no-reply@shorely.com>',
+      to: process.env.CONTACT_TO,
+      subject: 'Shorely — New message from website',
+      html: `
+        <table style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:14px">
+          <tr><td><strong>Name:</strong></td><td>${escape(name)}</td></tr>
+          <tr><td><strong>Email:</strong></td><td>${escape(email)}</td></tr>
+          <tr><td style="padding-top:8px" colspan="2"><strong>Message</strong><br>${escape(message).replace(/\n/g,'<br>')}</td></tr>
+        </table>
+      `
+    });
 
-        if (!name || !email || !message) {
-            return res.status(400).json({ ok: false, error: "Missing filds"});
-        }
+    // 2) Auto‑reply to the sender (also lands in Mailtrap during testing)
+    await transporter.sendMail({
+      from: '"Shorely" <no-reply@shorely.com>',
+      to: email,
+      subject: 'Thanks for reaching out to Shorely',
+      text:
+`Thanks for reaching out to Shorely!
 
-        const transporter = nodemailer.createTransport({
-            host: process.env.MAILTRAP_HOST,
-            port: Number(port.env.MAILTRAP_PORT || 2525),
-            auth: {
-                user: process.env.MAILTRAP_USER,
-                pass: process.env.MAILTRAP_PASS
-            }
-        });
+We’ve received your message and will get back to you soon.
+If you’d like to add anything, just reply to this email.
 
-        // onwer email
-        await transporter.sendMail({
-            from: '"Shorely Website" <no-reply@shorely.com>',
-            to: process.env.CONTACT_TO, 
-            subject: "Shorely - New message form website",
-            html: `
-                <table style="font-family:Inter,Segoe UI,Arial,sans-serif;font-size:14px">
-                <tr><td><strong>Name:</strong></td><td>${escapeHtml(name)}</td></tr>
-                <tr><td><strong>Email:</strong></td><td>${escapeHtml(email)}</td></tr>
-                <tr><td style="padding-top:8px" colspan="2"><strong>Message</strong><br>${escapeHtml(message).replace(/\n/g,'<br>')}</td></tr>
-                </table> `
-        });
+— Shorely 🌊`
+    });
 
-        // Auto-reply to sender (user)
-        await transporter.sendMail({
-            from: '"Shorely" <no-reply@shorely.com>',
-            to: email, 
-            subject: "Thanks for reaching out to Shorely ",
-            text: `
-                Thanks for reaching out to Shorely  👋
-
-                We’ve received your message. Your inquiry is currently being directed to the appropriate team member. 
-                If we find your request interesting, you can expect a response within 48 to 72 hours.
-
-                We appreciate your patience and look forward to assisting you.
-                — Shorely 🌊 `
-        });
-
-        res.status(200).json({ ok: true});
-    } catch (err) {
-        console.error('Mail error', err);
-        res.status(500).json({ ok: false, error: "Email failed" });
-    }
+    res.status(200).json({ ok:true });
+  } catch (err) {
+    console.error('Mail error:', err);
+    res.status(500).json({ ok:false, error:'Email failed' });
+  }
 };
 
-function escapeHtml(s = ''){
-    return s.replace(/[&<>"']/g, m => (
-        { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[m]
-    ));
-}
+function escape(s=''){ return s.replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;' }[m])); }
+a

@@ -1312,14 +1312,22 @@ textarea{
     transform-origin: center;
     /* eyes are decorative; hide on small screens */
   }
-  .sea-creatures-form .eye-form{ display:none !important; }
 
-  /* Place the little icons like in the mock
-     (tweak the numbers slightly if your assets differ) */
   .shell-form{ left: -11px;  bottom: 41px; transform: scale(.70); }
   .snail-form{ right: 33vh; bottom: 83vh; transform: scale(.70); }
   .star-form{  right: 28px; bottom: -6px;  transform: scale(.78); }
   .octopus-form{ left: 33vh; bottom: 81vh; transform: scale(.60); }
+
+  .right-eye-snail-form { right: 2vh; bottom: 7vh;}
+  .left-eye-snail-form { right: 5vh; bottom: 7vh;}
+  .left-eye-shell-form { right: 5.2vh; bottom: 1vh;}
+  .right-eye-shell-form { right: 3vh; bottom: 1vh;}
+  .left-eye-star-form { right: 5.2vh; bottom: 5.3vh;}
+  .right-eye-star-form { right: 3.5vh; bottom: 5.3vh;}
+  .left-eye-octopus-form { left: 3vh; bottom: 3vh;}
+  .right-eye-octopus-form { left: 5.46vh; bottom: 3vh;}
+  .eye-mob  { width: 6px !important; height: 6px !important;}
+  
 
   /* Ensure the images themselves don't try to use old absolute rules */
   .sea-creatures-form .creature img.normal{

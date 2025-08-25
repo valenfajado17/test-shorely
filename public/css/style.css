@@ -19,6 +19,16 @@
 
   /* layout */
   --container: min(1100px, 92vw);
+
+
+  /* Sent Modal */
+  --modal-bg: rgba(17, 24, 39, .55);
+  --modal-card-bg: #fff;
+  --modal-radius: 12px;
+  --modal-elev: 0 20px 60px rgba(0,0,0,.25);
+  --modal-accent: var(--c-sea);
+  --modal-accent-ink: #fff;
+
 }
 
 * { box-sizing: border-box; }
@@ -1365,19 +1375,54 @@ textarea{
 
 /* succes moda form send */
 #sent-modal {position: fixed; inset: 0; display: none; z-index: 99999;}
-#send-modal.open {display: block !important;}
-#send-modal .backdrop {position: absolute;inset: 0;background:#0009;}
-#send-modal .dialog {
+#sent-modal[aria-hidden="false"] {display: block !important;}
+/* #send-modal.open {display: grid; justify-content: center; justify-items: center;} */
+.backdrop {
+    position: relative;
+    z-index: 1;
+    width: min(92vw, 420px);
+    margin: 12vh auto 0;
+    background: var(--modal-card-bg);
+    color: #111827;
+    border-radius: var(--modal-radius);
+    box-shadow: var(--modal-elev);
+    padding: 18px 18px 16px;
+    transform: translateY(8px) scale(.96);
+    opacity: 0;
+    transition: transform .22s ease, opacity .22s ease;
+}
+#send-modal[aria-hidden="false"] .backdrop {opacity: 1;}
+#send-modal[aria-hidden="flase"] .dialog {transform: translateY(0) scale(1); opacity: 1;}
+
+/* .dialog {
     position: relative; z-index: 1;width: min(92vw, 420px);
     margin: 12vh auto 0;background: #fff; color: #111;
     border-radius: 14px; padding: 18px 16px;text-align: center;
     box-shadow: 0 12px 40px rgba(0,0,0,.25);
+} */
+.dialog h3 {
+    margin: 2px 0 8px;
+    font-weight: 800;
+    font-size: 1.1rem;
 }
-#send-modal .dialog h3 {margin: 0 0 6px;}
+.dialog p{
+    margin: 0 0 14px;
+    font-size: .95rem;
+    line-height: 1.45;
+    color: #374151;
+}
+
+.close-btn:hover { filter: brightness(1.05);}
+.close-btn:active { transform: translateY(1px);}
+
+@media (prefers-reduced-motion: reduce){
+    .backdrop, .dialog {transition: none !important;}
+}
+/* 
 #send-modal .close {
-    margin-top: 12px;padding: 10px 16px;border-radius: 999px;border: 0;
+    margin-top: 12px;padding: 10px 16px;border-radius: 999px;border: 1px;
     background: var(--c-sea);color: var(--c-sand);font-weight: 700;cursor: pointer;
 }
 #send-modal[aria-hidden="false"] {
     display:  block !important;
-}
+} */

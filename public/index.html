@@ -215,11 +215,12 @@
 			</form>
 			<!-- Lightweight modal -->
 			<div id="sent-modal" class="sent-modal" aria-hidden="true">
-				<div class="backdrop"></div>
-				<div class="dialog" role="dialog" aria-modal="true" aria-labelledby="sent-title">
+				<div class="backdrop" data-close="1"></div>
+				<div class="dialog" role="dialog" aria-modal="true" 
+					aria-labelledby="sent-title" aria-describedby="sent-desc" tabindex="-1">
 					<h3 id="sent-title">Sent — thanks!</h3>
-					<p>We’ve received your message and will reach out soon.</p>
-					<button class="close" aria-label="Close">Close</button>
+					<p class="sent-desc">We’ve received your message and will reach out soon.</p>
+					<button class="close-btn" aria-label="Close" type="button">Close</button>
 				</div>
 			</div>
 			<div class="sea-creatures-form ">

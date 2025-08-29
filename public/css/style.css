@@ -1310,12 +1310,6 @@ textarea{
     border-radius: 999px;
   }
 
-  .error {
-    display: block;
-    font-size: 0.9rem;
-    color: #b00020;
-    margin-top: 4px;
-  }
 
   /* Sea creatures: anchor decor safely inside the section */
   .sea-creatures-form{
@@ -1380,55 +1374,26 @@ textarea{
     background-color: black;
 }
 
-/* succes moda form send */
-#sent-modal {position: fixed; inset: 0; display: none; z-index: 99999;}
-#sent-modal[aria-hidden="false"] {display: block !important;}
-/* #send-modal.open {display: grid; justify-content: center; justify-items: center;} */
-.backdrop {
-    position: relative;
-    z-index: 1;
-    width: min(92vw, 420px);
-    margin: 12vh auto 0;
-    background: var(--modal-card-bg);
-    color: #111827;
-    border-radius: var(--modal-radius);
-    box-shadow: var(--modal-elev);
-    padding: 18px 18px 16px;
-    transform: translateY(8px) scale(.96);
-    opacity: 0;
-    transition: transform .22s ease, opacity .22s ease;
-}
-#send-modal[aria-hidden="false"] .backdrop {opacity: 1;}
-#send-modal[aria-hidden="flase"] .dialog {transform: translateY(0) scale(1); opacity: 1;}
 
-.dialog {
-    justify-items: center;
-    background: #fff;
-} 
-.dialog h3 {
-    margin: 2px 0 8px;
-    font-weight: 800;
-    font-size: 1.1rem;
-}
-.dialog p{
-    margin: 0 0 14px;
-    font-size: .95rem;
-    line-height: 1.45;
-    color: #374151;
+.error {
+display: block;
+font-size: 0.9rem;
+color: #b00020;
+margin-top: 1px;
 }
 
-.close-btn { justify-items: center;}
-.close-btn:hover { filter: brightness(1.05);}
-.close-btn:active { transform: translateY(1px);}
+.input-error {
+border: 2px solid #d32f2f !important;
+outline: none;
+box-shadow: 0 0 0 3px rgba(211, 47, 47, .12);
+}
 
-@media (prefers-reduced-motion: reduce){
-    .backdrop, .dialog {transition: none !important;}
+.input-ok {
+order: 2px solid #2e7d32 !important;
+outline: none;
+box-shadow: 0 0 0 3px rgba(46, 125, 50, .12);
 }
-/* 
-#send-modal .close {
-    margin-top: 12px;padding: 10px 16px;border-radius: 999px;border: 1px;
-    background: var(--c-sea);color: var(--c-sand);font-weight: 700;cursor: pointer;
-}
-#send-modal[aria-hidden="false"] {
-    display:  block !important;
-} */
+
+input-error::placeholder { color: #c06b6b;}
+
+

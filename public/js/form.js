@@ -8,49 +8,82 @@
   const emailInput = form.querySelector(".email");
   const messageInput = form.querySelector(".message");
 
-  function validateEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const errName = document.getElementById('error-name');
+  const errEmail = document.getElementById('error-email');
+  const errMsg  = document.getElementById('error-message');
+
+  nameInput.setAttribute('aria-describedby', 'error-name');
+  emailInput.setAttribute('aria-describedby', 'error-email');
+  messageInput.setAttribute('aria-describedby', 'error-message');
+
+  const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+  function setError(input, errEl, msg){
+    errEl.textContent = msg;
+    input.classList.remove('input-ok');
+    input.classList.add('input-error');
+    input.setAttribute('aria-invalid', 'true');
   }
 
-  function clearForm() {
-    document.querySelectorAll('.error').forEach(e => (e.textContent = ""));
+  function clearError(input, errEl){
+    errEl.textContent = "";
+    input.classList.remove('input-error');
+    input.removeAttribute('aria-invalid');
+    // (optional) mark as ok if non-empty & valid
+    if (input === emailInput) {
+      if (emailRx.test(emailInput.value.trim())) input.classList.add('input-ok');
+      else input.classList.remove('input-ok');
+    } else {
+      if (input.value.trim() !== "") input.classList.add('input-ok');
+      else input.classList.remove('input-ok');
+    }
   }
+
+  function validateField(input){
+    if (input === nameInput) {
+      if (nameInput.value.trim() === "") { setError(nameInput, errName, "Name is required"); return false; }
+      clearError(nameInput, errName); return true;
+    }
+    if (input === emailInput) {
+      const v = emailInput.value.trim();
+      if (v === "") { setError(emailInput, errEmail, "Email is required"); return false; }
+      if (!emailRx.test(v)) { setError(emailInput, errEmail, "Invalid email format"); return false; }
+      clearError(emailInput, errEmail); return true;
+    }
+    if (input === messageInput) {
+      if (messageInput.value.trim() === "") { setError(messageInput, errMsg, "Message is required"); return false; }
+      clearError(messageInput, errMsg); return true;
+    }
+    return true;
+  }
+
+  function validateAll(){
+    const a = validateField(nameInput);
+    const b = validateField(emailInput);
+    const c = validateField(messageInput);
+    return a && b && c;
+  }
+
+  [nameInput, emailInput, messageInput].forEach(inp => {
+    inp.addEventListener('input', () => validateField(inp));
+    inp.addEventListener('blur',  () => validateField(inp));
+  });
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    clearForm();
+    status.style.display = "none";
+    status.textContent= '';
 
-    // name 
-    let valid = true;
-    if(nameInput.value.trim() === "") {
-      document.getElementById('error-name').textContent = "Name is required";
-      valid = false;
-    } 
-    
-    // email
-    if (emailInput.value.trim() === ""){
-      document.getElementById('error-email').textContent = "Email is required";
-      valid = false;
-    } else if (!validateEmail(emailInput.value.trim())) {
-      document.getElementById('error-email').textContent = "Invalid email format";
-      valid = false;
-    }
-
-    // message
-    if(messageInput.value.trim() === ""){
-      document.getElementById('error-message').textContent = "Message is required";
-      valid = false;
-    }
-
-    if(!valid) return;
+    if(!validateAll) return;
 
     const btn = form.querySelector('button[type="submit"]');
     btn.disabled = true; btn.textContent = "Sending...";
 
     const payload = {
-      name: form.name.value.trim(),
-      email: form.email.value.trim(),
-      message: form.message.value.trim(),
+      name: nameInput.value.trim(),
+      email: emailInput.value.trim(),
+      message: messageInput.value.trim(),
       _honey: form.querySelector('[name="_honey"]')?.value || ''
     };
 
@@ -63,26 +96,22 @@
       const data = await res.json().catch(()=>({}));
       if (!res.ok || !data.ok) throw new Error(data.error || 'Failed');
 
-      form.reset();
 
-      if(res.ok) {
-        status.style.display = "block";
-        status.textContent = "Thanks for your message!";
-        status.style.color = "#2e7d32";
-        form.reset();
-      } else {
-        status.style.display = "block";
-        status.textContent = "Error sending form. Try again.";
-        status.style.color = "#b00020";
-      }
+      form.reset();
+      [nameInput, emailInput, messageInput].forEach(i => {
+        i.classList.remove('input-error', 'input-ok');
+        i.removeAttribute('aria-invalid');
+      });
+
+      status.style.display = "block";
+      status.textContent = "Thanks for your message!";
+      status.style.color = "#2e7d32";
+
     } catch (err) {
-      style.style.display = "block";
+      status.style.display = "block";
       status.textContent = "Network error. Try again later.";
       status.style.color = "#b00020";
       console.error(err);
-      alert('Sorry, we could not send your message. Please try again.');
-
-
     } finally {
       btn.disabled = false; btn.textContent = "Send →";
     }

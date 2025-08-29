@@ -1310,6 +1310,13 @@ textarea{
     border-radius: 999px;
   }
 
+  .error {
+    display: block;
+    font-size: 0.9rem;
+    color: #b00020;
+    margin-top: 4px;
+  }
+
   /* Sea creatures: anchor decor safely inside the section */
   .sea-creatures-form{
     position: relative;

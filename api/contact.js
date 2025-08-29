@@ -55,12 +55,11 @@ module.exports = async (req, res) => {
       subject: 'Thanks for reaching out to Shorely',
       text:
         `Thanks for reaching out to Shorely  👋
-      
-        We’ve received your message. Your inquiry is currently being directed to the appropriate team member.
-        If we find your request interesting, you can expect a response within 48 to 72 hours.
+We’ve received your message. Your inquiry is currently being directed to the appropriate team member.
+If we find your request interesting, you can expect a response within 48 to 72 hours.
 
-        We appreciate your patience and look forward to assisting you.
-        — Shorely 🌊`
+We appreciate your patience and look forward to assisting you.
+— Shorely 🌊`
     });
 
     res.status(200).json({ ok:true });

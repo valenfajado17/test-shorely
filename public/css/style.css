@@ -19,6 +19,16 @@
 
   /* layout */
   --container: min(1100px, 92vw);
+
+
+  /* Sent Modal */
+  --modal-bg: rgba(17, 24, 39, .55);
+  --modal-card-bg: #fff;
+  --modal-radius: 12px;
+  --modal-elev: 0 20px 60px rgba(0,0,0,.25);
+  --modal-accent: var(--c-sea);
+  --modal-accent-ink: #fff;
+
 }
 
 * { box-sizing: border-box; }
@@ -1300,6 +1310,7 @@ textarea{
     border-radius: 999px;
   }
 
+
   /* Sea creatures: anchor decor safely inside the section */
   .sea-creatures-form{
     position: relative;
@@ -1363,21 +1374,26 @@ textarea{
     background-color: black;
 }
 
-/* succes moda form send */
-#sent-modal {position: fixed; inset: 0; display: none; z-index: 99999;}
-#send-modal.open {display: block !important;}
-#send-modal .backdrop {position: absolute;inset: 0;background:#0009;}
-#send-modal .dialog {
-    position: relative; z-index: 1;width: min(92vw, 420px);
-    margin: 12vh auto 0;background: #fff; color: #111;
-    border-radius: 14px; padding: 18px 16px;text-align: center;
-    box-shadow: 0 12px 40px rgba(0,0,0,.25);
+
+.error {
+display: block;
+font-size: 0.9rem;
+color: #b00020;
+margin-top: 1px;
 }
-#send-modal .dialog h3 {margin: 0 0 6px;}
-#send-modal .close {
-    margin-top: 12px;padding: 10px 16px;border-radius: 999px;border: 0;
-    background: var(--c-sea);color: var(--c-sand);font-weight: 700;cursor: pointer;
+
+.input-error {
+border: 2px solid #d32f2f !important;
+outline: none;
+box-shadow: 0 0 0 3px rgba(211, 47, 47, .12);
 }
-#send-modal[aria-hidden="false"] {
-    display:  block !important;
+
+.input-ok {
+order: 2px solid #2e7d32 !important;
+outline: none;
+box-shadow: 0 0 0 3px rgba(46, 125, 50, .12);
 }
+
+input-error::placeholder { color: #c06b6b;}
+
+

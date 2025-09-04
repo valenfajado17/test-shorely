@@ -65,7 +65,7 @@ function animateSeaCreatures(){
     duration: 0.4, 
     stagger: 0.3, 
     ease: "back.out(1.7)"
-  }, "-=1");
+  });
   
   eyesFollowCursor();
   squishSeaCreature(); 

@@ -64,3 +64,21 @@ We appreciate your patience and look forward to assisting you.
 				<!-- redirect after submit | check if they want to use-->
 				<!-- <input type="hidden" name="_next" value="https://shorely.com/"> -->
 			</form>
+
+
+My html structure is like this:
+<form id="contact-form"autocomplete="off", novalidate>
+	<input type="text" name="name", placeholder="Name" required class="name">
+	<span class="error" id="error-name"></span>
+	<input type="email" name="email", placeholder="Email" required class="email">
+	<span class="error" id="error-email"></span>
+	<textarea name="message" placeholder="Message" required class="message"></textarea>
+	<span class="error" id="error-message"></span>
+	<input type="text" name="_honey" style="display: none;" tabindex="-1" autocomplete="off">
+	<button type="submit" class="send-btn">Send →</button>
+	<p id="form-status" style="margin-top: 10px;display: none;"></p>
+</form>
+
+and here is the my current js, look at the file attached.
+
+check the code and tell me if is correct, and also show me how to also change the color of the input when is empty or have the wrong format

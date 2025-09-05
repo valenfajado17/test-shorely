@@ -62,10 +62,10 @@ function animateSeaCreatures(){
   tl.to(".creature .eye", {
     opacity: 1, 
     scale: 1,
-    duration: 0.4, 
+    duration: 0.1, 
     stagger: 0.3, 
     ease: "back.out(1.7)"
-  }, "-=1");
+  }, "-=1.58");
   
   eyesFollowCursor();
   squishSeaCreature(); 
@@ -331,22 +331,26 @@ function animateFounderSection(){
       toggleActions: "play none none reverse"
     }
   });
-
-    // gsap.fromTo(crab, {
-    //   opacity: 1, scale: 1
-    // }, {
-    //   opacity: 0,
-    //   scale: 0,
-    //   duration: 0.6,
-    //   ease: "power1.out"
-    // });
-
   eyesFollowCursor();
 }
 
 function formSectionAnimations() {
+  const crab = document.querySelector('crab-container');
+
   eyesFollowCursor();
   seaCreaturesFormSquish();
+
+  gsap.to('.wave-black-bg', {
+    backgroundPositionX: '-50vw',
+    ease: 'none',
+    ScrollTrigger: {
+      trigger: ".founder-section", 
+      start: 'bottom bottom',
+      end: '+=100%',
+      scrub: true,
+      onEnter: () => crab.style.display = 'none'
+    }
+  });
 }
 
 function seaCreaturesFormSquish(){ 

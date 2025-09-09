@@ -128,7 +128,7 @@
     });
 
   function trackFormStart(field) {
-    gtap('event', 'form_start', {
+    gtag('event', 'form_start', {
       form_id: 'contact-form',
       form_name: 'Contact',
       field: field
@@ -136,21 +136,21 @@
   }
 
   function trackFormSubmit(){
-     gtap('event', 'form_submit', {
+     gtag('event', 'form_submit', {
       form_id: 'contact-form',
       form_name: 'Contact'
      });
   }
 
   function trackFormSuccess() {
-    gtap('event', 'form_success', {
+    gtag('event', 'form_success', {
       form_id: 'contact-form',
       form_name: 'Contact'
     });
   }
 
   function trackFormError(errorCode = 'network_error') {
-    gtap('event', 'form_error', {
+    gtag('event', 'form_error', {
       form_id: 'contact-form',
       form_name: 'Contact',
       error_code: String(errorCode)

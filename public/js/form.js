@@ -74,6 +74,7 @@
     e.preventDefault();
     status.style.display = "none";
     status.textContent= '';
+    trackFormSubmit();
 
     if(!validateAll) return;
 
@@ -87,33 +88,72 @@
       _honey: form.querySelector('[name="_honey"]')?.value || ''
     };
 
-   try{
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify(payload)
-      });
-      const data = await res.json().catch(()=>({}));
-      if (!res.ok || !data.ok) throw new Error(data.error || 'Failed');
+    try{
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json().catch(()=>({}));
+        if (!res.ok || !data.ok) throw new Error(data.error || 'Failed');
 
 
-      form.reset();
-      [nameInput, emailInput, messageInput].forEach(i => {
-        i.classList.remove('input-error', 'input-ok');
-        i.removeAttribute('aria-invalid');
-      });
+        form.reset();
+        [nameInput, emailInput, messageInput].forEach(i => {
+          i.classList.remove('input-error', 'input-ok');
+          i.removeAttribute('aria-invalid');
+        });
 
-      status.style.display = "block";
-      status.textContent = "Thanks for your message!";
-      status.style.color = "#2e7d32";
+        status.style.display = "block";
+        status.textContent = "Thanks for your message!";
+        status.style.color = "#2e7d32";
+        trackFormSuccess();
 
-    } catch (err) {
-      status.style.display = "block";
-      status.textContent = "Network error. Try again later.";
-      status.style.color = "#b00020";
-      console.error(err);
-    } finally {
-      btn.disabled = false; btn.textContent = "Send →";
-    }
-});
+      } catch (err) {
+        status.style.display = "block";
+        status.textContent = "Network error. Try again later.";
+        status.style.color = "#b00020";
+        trackFormError(err.message || 'unknown_error');
+
+        console.error(err);
+      } finally {
+        btn.disabled = false; btn.textContent = "Send →";
+      }
+  });
+
+  [nameInput, emailInput, messageInput].forEach(inp => 
+    {
+      inp.addEventListener('focus', () =>
+         trackFormStart(inp.name), { once: true });
+    });
+
+  function trackFormStart(field) {
+    gtap('event', 'form_start', {
+      form_id: 'contact-form',
+      form_name: 'Contact',
+      field: field
+    });
+  }
+
+  function trackFormSubmit(){
+     gtap('event', 'form_submit', {
+      form_id: 'contact-form',
+      form_name: 'Contact'
+     });
+  }
+
+  function trackFormSuccess() {
+    gtap('event', 'form_success', {
+      form_id: 'contact-form',
+      form_name: 'Contact'
+    });
+  }
+
+  function trackFormError(errorCode = 'network_error') {
+    gtap('event', 'form_error', {
+      form_id: 'contact-form',
+      form_name: 'Contact',
+      error_code: String(errorCode)
+    });
+  }
 })();

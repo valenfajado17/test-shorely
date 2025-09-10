@@ -18,8 +18,6 @@ window.addEventListener("DOMContentLoaded", () => {
   // FormSection
   formSectionAnimations();
 
-  
-
 });
 
 
@@ -506,4 +504,13 @@ function initBoatCarousel(){
     startX = null;
   }, { passive: true });
 
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a.company-link, .name-pill');
+    if (!a) return;
+    gtag('event', 'cta_cick', {
+      cta_id: a.classList('name-pill') ? 'boat_name_pill' : 'boat-visit',
+      destitation: a.href
+    });
+  }, { passive: true});
 }
+

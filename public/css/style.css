@@ -400,7 +400,7 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 .af {
     opacity: 0;
     z-index: 3;
-    left: 0%; 
+    left: 0%;
 }
 
 .bubble-container:hover .bf{

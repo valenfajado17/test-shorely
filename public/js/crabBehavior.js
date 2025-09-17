@@ -45,7 +45,7 @@ function hideCrabSpeech() {
 function showCrabSpeechBR() {
   gsap.fromTo(".bubble-container .af",
     { opacity: 0, scale: 0.6 },
-    { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.7)" }
+    { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.7)", left: "42%" }
   );
 }
 
@@ -224,16 +224,7 @@ function attachCrabFounderSection() {
       showCrabRespectingState();
       crabHiddenByFounder = false;
     }
-  };  
-  //   const isOverlapping = crabRect.bottom >= waveTop; // crab touches black area
-
-  //   if (isOverlapping && !crabHiddenByFounder) {
-  //     hideCrabContainer();
-  //     crabHiddenByFounder = true;
-  //   } else if (!isOverlapping && crabHiddenByFounder) {
-  //     showCrabRespectingState();
-  //     crabHiddenByFounder = false;
-  //   }
+  }; 
 
   ScrollTrigger.create({
     trigger: wave,

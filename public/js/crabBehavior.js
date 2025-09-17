@@ -1,9 +1,11 @@
-// ---- CRAB LOGIC - CLEAN VERSION ----
 let crabLegsAnimations = [];
 let crabIsWalking = false;
 let crabPinned = false; // whether it's at bottom-right
 let crab, speechBF;
 const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
+let crabHiddenByFounder = false; // hide crab once it reach the balck-wave
+let cachedCrabHeight = 120;
 
 function startCrabLegs() {
   if (crabIsWalking) return;
@@ -43,7 +45,7 @@ function hideCrabSpeech() {
 function showCrabSpeechBR() {
   gsap.fromTo(".bubble-container .af",
     { opacity: 0, scale: 0.6 },
-    { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.7)" }
+    { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.7)", left: "42%" }
   );
 }
 
@@ -108,7 +110,7 @@ function moveCrabToBottomRight(onComplete) {
 }
 
 function moveCrabBackToCenter() {
-  gsap.set(crab, { position: "absolute", bottom: 0, left: "50%" }); //bottom: 72.84 check if is for mobile or destok
+  gsap.set(crab, { position: "absolute", bottom: 72.84, left: "50%" });  // when desktop
   startCrabLegs();
   gsap.to(crab, {
     x: 0,
@@ -116,6 +118,7 @@ function moveCrabBackToCenter() {
     ease: "power2.out",
     onComplete: () => {
       stopCrabLegs();
+      showCrabSpeech();
       crabPinned = false;
     }
   });
@@ -149,16 +152,14 @@ function pinCrabBottomRight(){
 
     gsap.set(crab, {
         position: "fixed",
-        bottom: 0, //check 
+        bottom: 0, 
         left: "auto",
         right: currentRight,
-        // x: 0, //check
         clearProps: "transform"
     });
 
     startCrabLegs();
     gsap.to(crab, {
-        // right: 0, //check
         duration: 0.8, 
         ease: "power2.out",
         onComplete: () => { stopCrabLegs (); crabPinned = true;}
@@ -166,7 +167,78 @@ function pinCrabBottomRight(){
     });
 }
 
+function hideCrabContainer() {
+  if (!crab) return;
+  if(typeof stopCrabLegs === 'function') stopCrabLegs();
+  if(typeof hideCrabSpeech === 'function') hideCrabSpeech();
+  if(typeof hideCrabSpeechBR === 'function') hideCrabSpeechBR();
 
+  gsap.killTweensOf(crab);
+  crab.style.pointerEvents = 'none';
+  gsap.set( crab, { display: 'none', clearProps: 'opacity,visibility' });
+}
+
+function showCrabRespectingState() {
+  if (!crab) return;
+  gsap.set( crab, { display: 'block'});
+  crab.style.pointerEvents = 'auto';
+
+  if(crabPinned) {
+    gsap.set(crab, { position: 'fixed', bottom: 0, left: '50%'});
+    if (typeof handleResizeForCrab === 'function') handleResizeForCrab();
+  } else {
+    gsap.set(crab, { position: 'absolute', bottom: 72.84, left: '50%', x:0 })
+  }
+
+  gsap.set( crab, { autoAlpha: 0 });
+  gsap.to( crab, {autoAlpha: 1, duration: 0.22, ease: 'power1.out', overwrite: true})
+  
+}
+
+function attachCrabFounderSection() {
+  crab = crab || document.querySelector('.crab-container');
+  const wave = document.querySelector('.wave-black-bg') || document.querySelector('.founder-section');
+
+  if (!crab || !wave) return;
+
+  const HYST = 12; // hysteresis -> avoid flicker
+
+  const evaluateOverload = () => {
+    const waveTop = wave.getBoundingClientRect().top;
+    const vis = crab.style.display !== 'none';
+
+    if (vis) {
+      const crabRect = crab.getBoundingClientRect();
+      if (crabRect.height > 0) cachedCrabHeight = crabRect.height;
+    }
+
+
+    const touchY = window.innerHeight - cachedCrabHeight * 0.45;
+    const shouldHide = !crabHiddenByFounder && (waveTop <= (touchY - HYST));
+    const shouldShow = crabHiddenByFounder && (waveTop > (touchY + HYST));
+
+    if (shouldHide) {
+      hideCrabContainer();
+      crabHiddenByFounder = true;
+    } else if (shouldShow) {
+      showCrabRespectingState();
+      crabHiddenByFounder = false;
+    }
+  }; 
+
+  ScrollTrigger.create({
+    trigger: wave,
+    start: 'top bottom',
+    end: 'bottom top',
+    onUpdate: evaluateOverload,
+    onEnter: evaluateOverload,
+    onEnterBack: evaluateOverload,
+    onLeaveBack: evaluateOverload 
+  });
+  
+  window.addEventListener('resize', () => requestAnimationFrame(evaluateOverload), { passive: true });
+  requestAnimationFrame(evaluateOverload);
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   crab = document.querySelector(".crab-container");
@@ -177,6 +249,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // scroll behavior
   attachCrabScrollTrigger();
+  attachCrabFounderSection(); // When enter founder-section hide crab-container
+
 
   // Show the bubble when the mouse is over the crab
   crab.addEventListener("mouseenter", () => { if(crabPinned) showCrabSpeechBR(); });

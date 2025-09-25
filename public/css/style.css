@@ -111,6 +111,33 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
   font-size: var(--fs-200);
   padding-inline: var(--sp-3);
 }
+
+/* Phone aboutUs-section*/
+@media (max-width: 375) {
+    .about-us {
+        padding-top: clamp(16px, 5vw, 28px);
+        padding-bottom: clamp(100px, 26vh, 160px);
+    }
+
+    .about-us .tagline {
+        margin-top: clamp(24px, 10vw, 40px);
+    }
+
+    .about-us .description {
+        max-width: absolute;
+        left: 0; right: 0;
+        bottom: 0;
+        top: auto !important;
+        height: clamp(110px, 24vh, 180px);
+        z-index: 1;
+        background-size: cover;
+        opacity: 1;
+    }
+
+    .logo, .tagline, .description{ position: relative; z-index: 2;}
+
+    .tagline h2 { font-size: clamp(1.3rem, 5vw, 1.6rem); line-height: 1.15;}
+}
 /* Table devices */
 @media (max-width: 900px) {
     .about-us{ padding: 3vh 2vw;}
@@ -124,7 +151,7 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 
     .tagline {
         font-size: 1.25rem;
-        padding: 0 1rem;
+        /* padding: 0 1rem; */
         max-width: 90vw;
     }
 
@@ -250,7 +277,7 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 .crab-container {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%); /* center baseline inside about-us */
+    transform: translateX(-50%); /* center baseline inside about-us just for desktop */
     opacity: 0;
     z-index: 10;
     bottom: 12vh;
@@ -340,9 +367,9 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     }
 
     .crab-container{
-        position: fixed;
-        right: 183px;
-        bottom: 122vw;
+        /* position: fixed; */
+        /* right: 183px; */
+        /* bottom: 122vw; */
     }
 
     .left-eye-octopus {
@@ -364,10 +391,30 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
         bottom: 27vh;
         right: 10.5vh;
     }
-
+/* 
     .crab-container{
         visibility:  hidden;
+    } */
+}
+    
+    /* crab-container - mobile */
+@media (max-width: 480px) {
+    .crab-container{
+        /* width: clamp(90px, 18vw, 120px); */
+        bottom: -4px;
+        transform: translateX(50%);
     }
+
+    .bubble-container{
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: calc(14vh + 100px);
+        z-index: 50;
+        pointer-events: none;
+    }
+
+    .bubble-container .bf {pointer-events: auto;}
 }
 /* END CREATURES SECTION */
 
@@ -604,6 +651,10 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 .boat-section {
     position: relative;
     background-color:var(--c-sea);
+
+    /* to remove the line between sections */
+    margin-top: -1px;
+    z-index: 1;
 }
 
 .wave-darkblue-bg{
@@ -1403,3 +1454,40 @@ box-shadow: 0 0 0 3px rgba(46, 125, 50, .12);
 input-error::placeholder { color: #c06b6b;}
 
 
+/* Industry shapes - text centering & mobile stack */
+/* .industry-shape{ position: relative;} */
+/* .industry-shape img { display: block;  width: 100%; height: auto;}
+.industry-text{
+    position: absolute; inset: 0; display: grid; place-items: center;
+    text-align: center; padding: 10% 12%;
+}
+
+@media (max-width: 768px) {
+    .industry-grid { display: grid; gap: 16px;}
+    .industry-shape { position: relative;}
+} */
+/* 
+.eye{
+    position: absolute; width: 10px; height: 10px; background: #000; border-radius: 50%;
+    transform: var(--base, translate(-50%, -50%)) translate(var(--dx,0), var(--dy,0));
+    transform-origin: center; will-change: transform;
+} */
+/* check this */
+/* .left-eye-founder, .right-eye-founder{ --base: translate(-50%, -50%); }
+
+
+.boat-section { padding-block: clamp(48px, 8vw, 120px);position: relative;}
+.boat-content img.boat-img {display: block; max-width: 100%; height: auto;}
+.arrow-icons {display: flex; gap: 12px; align-items: center; margin-top: 12px;}
+.company-info .name-company { min-height: 40px;}
+
+/* section{ overflow: clip;}  */
+
+
+/* .founder-section{ position: relative; padding-block: clamp(48px, 8vw, 128px);}
+.wave-black-bg{ position: absolute; left: 0; right: 0;bottom: 0;height: 140px;
+    z-index: 6; background: url(../assets/images/waves/waves-black.png) repeat-x center/cover;}
+ 
+.founder-visual{ position: relative; z-index: 4;}  */
+/* .dialog-content{ max-width: 640px; background: #fff; border-radius: 24px; padding: 18px 22px;
+box-shadow: 0 12px 36px rgb(0 0 0 / 20%);} 

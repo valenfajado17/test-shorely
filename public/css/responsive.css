@@ -1,0 +1,11 @@
+.about-us{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60vh;
+    padding: var(--space-12) var(--glutter);
+    max-width: var(--content-max);
+    margin: 0 auto;
+    position: relative;
+}

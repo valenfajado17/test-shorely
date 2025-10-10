@@ -1,0 +1,151 @@
+.boat-content { 
+  position: relative; 
+  z-index: 2; display: grid; 
+  place-items: center;
+  transform: translate(-68px, 40px);
+}
+
+.boat-wrap{
+  --boat-w: min(92vw, 1280px);
+  --boat-ar: 16/6.9; 
+  --cabin: clamp(60px, 7vw, 100px);
+  --gap: clamp(3px, 2.2vw, 2px);
+  --pill-h: clamp(56px, 9.5vw, 100px);
+  --pill-px: clamp(10px, 1.4vw, 14px);
+  --deck-pad-x: clamp(12px, 2.2vw, 24px);
+  --deck-pad-y: clamp(8px, 1.5vw, 16px);
+
+  width: var(--boat-w);
+  aspect-ratio: var(--boat-ar);
+  position: relative;
+}
+
+/* Make a simple CSS-grid boat canvas (3 rows) */
+.boat{
+  position: absolute; inset: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+  row-gap: 0; /* default gap*/
+}
+
+/* ===== Cabins row: two rounded cabins + name pill ======================= */
+.cabins{
+  grid-row: 1; display: grid; align-items: end;
+  grid-template-columns: var(--cabin) var(--cabin) 1fr;
+  align-items: end; column-gap: var(--gap);
+  padding: 0;
+  align-self: end;
+  transform: translateY(clamp(102px, 2vw, 120px)); 
+  position: relative; z-index: 3;
+}
+
+
+.cabin{
+  width: var(--cabin);
+  height: calc(var(--cabin) * 0.98);
+  background: #F8F8FF;
+  border-bottom-left-radius: 2%;
+  border-bottom-right-radius: 2%;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+#company-logo, #company-logo img {
+  width: calc(var(--cabin) * 0.48);
+  height: calc(var(--cabin) * 0.48);
+  object-fit: contain; display: block;
+}
+
+.name-pill{
+  height: calc(var(--cabin) * 0.98);
+  min-width: clamp(218px, 23vw, 339px);
+  /* align-self: end; */
+  justify-self: start;
+  display: inline-flex; align-items:center; gap:10px;
+  padding: 0 var(--pill-px);
+  background:#F8F8FF;
+  border-radius: 3px;
+  color: var(--c-deep); font-weight:600;
+  text-decoration:none;
+  font-size: clamp(18px, 1.6vw, 22px);
+  justify-content: space-around;
+}
+#company-name { line-height: 1;}
+.name-pill .open-icon { flex: 0 0 auto; opacity: .9;}
+
+.company-info {
+    grid-row: 2;
+    position: relative;
+    display: grid;
+    align-content: center;
+    justify-content: space-around;
+    padding: var(--deck-pad-y) var(--deck-pad-x);
+}
+
+.boat-img{
+    width: 100%;
+    height: 100%;
+    max-width: 80%;
+    position: absolute;
+    inset: 0;
+    object-fit: contain;
+    z-index: 0;
+}
+
+.project-blurb,
+.project-badge{
+  position: relative;
+  z-index: 1;
+  max-width: 46ch;
+  color: #1B4C82;
+}
+#company--desc {
+  font-size: calc(14px, 1.1vw, 18px);
+  line-height: 1.35;
+  margin-top: clamp(8px, 1.6vw, 16px);
+}
+
+.project-badge{ display:inline-flex; align-items:center; gap:8px; font-weight:700; 
+  margin-top: clamp(8px, 1.2vw, 12px); }
+.project-badge img{ width:16px; height:16px; }
+
+
+
+@media (min-width:1536px){
+  .boat-wrap{ --boat-w: min(88vw, 1400px); }
+  .cabins { transform: translateY(clamp(102px, 2vw, 120px));}
+  .boat-content { transform: translate(clamp(-194px, 40px));}
+} 
+
+@media (max-width: 1440px) {
+  .cabins {transform: translateY(clamp(111px, 2vw, 120px));} 
+ }
+
+@media (min-width: 1440px) {
+  .boat-content { transform: translate(-139px, 40px) !important;}
+}
+@media (max-width: 1280px) {
+  .cabins { transform: translateY(clamp(102px, 2vw, 120px));} 
+}
+
+@media (max-width: 1024px) {
+  .cabins { transform: translateY(clamp(82px, 2vw, 120px));} 
+}
+
+@media (max-width:991px){
+  .boat-wrap{ --boat-w: 94vw; --boat-ar: 16/8.2; --cabin: clamp(56px, 10vw, 90px); 
+    /* --pill-h: clamp(56px, 12vw, 92px);  */
+  }
+}
+
+@media (max-width:575px){
+  .boat-wrap{ --boat-w: 96vw; --boat-ar: 16/10; 
+    --cabin: clamp(60px, 15vw, 100px); 
+    --gap: clamp(8px, 4vw, 16);
+  }
+  .name-pill{ font-size: clamp(16px, 4.6vw, 19px); }
+  #company-desc{ font-size: clamp(14px, 3.9vw, 16px); }
+}

@@ -148,8 +148,7 @@ function industriesSection(){
 
 function animateBoatSection(){
   gsap.registerPlugin(ScrollTrigger);
-
-  gsap.set(".boat-content", {x: '-100vw', opacity: 0});
+  const mm = gsap.matchMedia();
 
   gsap.to(".boat-title", {
     opacity:  1,
@@ -162,26 +161,39 @@ function animateBoatSection(){
       scrub: true
     }
   });
-  
-  let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".boat-section",
-      start: "top 85%",
-      end: "top 60%",
-      scrub: false
-    }
-  });
 
-  //Boat enter floting
-  tl.to(".boat-content", {
-    x: -330,
-    opacity: 1,
-    duration: 4.2,
-    ease: "power2.out",
-    onComplete: () => {initBoatCarousel()}
-  }, "-=0.7");
-  
-  initBoatCarousel();
+   gsap.set(".boat-content", { clearProps: "transform,opacity" });
+
+   const runBoatIn = (from, dur) => {
+    ScrollTrigger.getAll().forEach(st => {
+      if(st.vars && st.vars.id === "boatIn") st.kill();
+    });
+
+    gsap.set(".boat-content", { xPercent: from, opacity: 0 });
+    
+    gsap.to(".boat-content", {
+      xPercent: 0,
+      opacity: 1,
+      duration: dur,
+      ease: "power2.out",
+      onComplete: initBoatCarousel,
+      scrollTrigger: {
+        id: "boatIn",
+        trigger: ".boat-section",
+        start: "top 80%",
+        end: "top 60%",
+        // scrub: false,
+        once: true,
+        // invalidateOnRefresh: true
+      }
+    });
+   };
+
+    mm.add("(max-width: 575px)", () => runBoatIn(-120, 1.2));                        //Phone
+    mm.add("(min-width: 576px) and (max-width: 991px)", () => runBoatIn(-110, 1.1)); //Tablet
+    mm.add("(min-width: 992px)", () => runBoatIn(-60, 1.0));                         //Desktop
+
+    // initBoatCarousel();
 }
 
 function scrollFromBoat(){
@@ -405,9 +417,9 @@ function initBoatCarousel(){
   if (!boatContent) return;
 
   const info = boatContent.querySelector(".company-info");
-  const logoEl = document.getElementById("logo-company");
-  const nameEl = document.getElementById("name-company");
-  const descEl = document.getElementById("description-company");
+  const logoEl = document.getElementById("company-logo");
+  const nameEl = document.getElementById("company-name");
+  const descEl = document.getElementById("company-desc");
 
   const prevBtn = document.getElementById("arrow-left");
   const nextBtn = document.getElementById("arrow-right");
@@ -435,10 +447,6 @@ function initBoatCarousel(){
     nameEl.innerHTML = `
       <a class="name-pill" href="${p.url}" target="_blank" rel="noopener">
         <span>${p.name}</span>
-        <svg class="open-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"></path>
-          <path fill="currentColor" d="M5 5h6v2H7v10h10v-4h2v6H5V5z"></path>
-        </svg>
       </a>
     `;
 
@@ -490,7 +498,7 @@ function initBoatCarousel(){
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") prevBtn?.click();
-    if (e.key === "ArrowRigth") nextBtn?.click();
+    if (e.key === "ArrowRight") nextBtn?.click();
   });
 
   let startX = null;
@@ -505,11 +513,11 @@ function initBoatCarousel(){
   }, { passive: true });
 
   document.addEventListener('click', (e) => {
-    const a = e.target.closest('a.company-link, .name-pill');
-    if (!a) return;
-    gtag('event', 'cta_cick', {
-      cta_id: a.classList('name-pill') ? 'boat_name_pill' : 'boat-visit',
-      destitation: a.href
+    const a = e.target.closest("a.name-pill, a.company-link");
+    if(!a ||  typeof gtag !== 'function') return;
+    gtag('event', 'cta_click', {
+      cta_id: a.classList.contais('name-pill') ? 'boat_name_pill' : 'boat_visit',
+      destination: a.href
     });
   }, { passive: true});
 }

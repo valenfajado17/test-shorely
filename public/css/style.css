@@ -1,6 +1,6 @@
 :root{
   /* brand */
-  --c-sand: #FFF0BA; 
+  --c-sand: hsl(47, 100%, 86%); 
   --c-sea:  #2B66BD;
   --c-deep: #19417B;
   --c-ink:  #000;
@@ -56,14 +56,10 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 /* ABOUT-US SECTION */
 .about-us{
     display: flex;   
-    flex-direction: column; /*column*/
+    flex-direction: column; 
     align-items: center;
-    justify-content: center; /*center*/
-    min-height: 100vh; /*100vh*/
-    /* padding: var(--space-12) var(--gutter);
-    max-width: var(--content-max);
-    margin: 0; */
-
+    justify-content: center;
+    min-height: 100vh; 
     position: relative;
     text-align: center;
     background-color: var(--c-sand);
@@ -87,7 +83,6 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 /* new add */
 .about-us .logo .h1{
     font-size: var(--step-2);
-    /* font-family: 'Literata', serif; */
     margin-bottom: var(--space-4);
 }
 
@@ -97,7 +92,6 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     transform: translateY(80px);
     opacity: 0;
     z-index: 2;
-    /* new */
     max-width: 600px;
 }
 
@@ -114,7 +108,6 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     transition: transform 0.3s ease;
 }
 
-/* .tagline h2{font-size: 2rem !important;} */
 .tagline h2{ font-size: var(--fs-500) !important; 
 }
 
@@ -380,11 +373,11 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
         width: 75px;
     }
 
-    .crab-container{
-        /* position: fixed; */
-        /* right: 183px; */
-        /* bottom: 122vw; */
-    }
+    /* .crab-container{
+        position: fixed; 
+        right: 183px;
+        bottom: 122vw;
+    } */
 
     .left-eye-octopus {
         bottom: 98.7vh;
@@ -405,10 +398,6 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
         bottom: 27vh;
         right: 10.5vh;
     }
-/* 
-    .crab-container{
-        visibility:  hidden;
-    } */
 }
     
     /* crab-container - mobile */
@@ -507,7 +496,6 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 
 .industry-container {
    padding-top: 7rem;
-    /* max-width: 921px; */
 }
 
 /* Shapes */
@@ -711,245 +699,94 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     position: relative;
     background-color:var(--c-sea);
     padding: clamp(24px, 5vw,56px) 0 clamp(40px, 6vw, 80px);
-    /* margin-top: -1px; */
     z-index: 1;
+    overflow: hidden; 
 }
 
 .boat-section .wave-darkblue-bg{
     position: absolute;
     width: 100%;
-    height: clamp(72px, 3vw, 14px);/* height: 76%; */
-    left: 0; bottom: 0; top: 0; /* top: 98vh;*/ 
-    background-image: url('../assets/images/waves/waves-darkblue.png');
-    background-repeat: repeat-x;
-    background-size: cover;
+    height: clamp(80px, 10vw, 160px);/* height: 76%; */
+    left: 0; bottom: 0; /* top: 98vh;*/ 
+    background: url('../assets/images/waves/waves-darkblue.png') repeat-x;
+    background-size: 1025px auto;
     z-index: 3; 
     transition: transform 0.3s ease;
 }
 
-.boat-content, .boat-title, .arrow-icons{
-    position: relative;
-
-}
-
-/* .boat-title {
-    padding: 20vh 0 30vh 0;
+.boat-title {
+    padding: 20vh 0 5vh 0;
     z-index: 3;
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.4s, transform 0.4s;
     text-align: center;
-} */
-
-.boat-title .eyebrow{
-    color: var(--c-sand);
-    margin: 0 0 .25rem;
-    opacity: 0.85;
-    font-weight: 600;
-    letter-spacing: .3px;
-    font-size: clamp(.9rem, 5vw + .8rem, 1.05rem);
-    line-height: 1.2;
-
 }
+
 .boat-title h1 {
     color: var(--c-sand);
     margin: 0 auto clamp(16px, 3vw, 32px);
-    max-width: 22ch;
-    font-weight: 800px;
+    max-width: 28ch;
     line-height: 1.15;
     font-size: clamp(1.5rem, 1.2vw + 1.4rem, 2.4rem);
-    /* padding: 0 5vw;  */
 }
 .boat-title p {
     color: var(--c-sand);
     font-size: 1.5rem;
 }
 
-.boat-content {
-    position: relative;
-    margin: 0 auto;
-    bottom: auto;
-    right: auto;
-    max-width: 939px;
+/* .boat-content {
+    width: 100%;
+    max-width: none;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 2;
-    opacity: 0;
-    transform: translate(-28vw, -99px);
-    transition: none;
+    opacity: 1;
+    transition: none;} */
+
+.arrows-stack{
+    position: relative;
+    margin-top: clamp(16px, 3vw, 24px);
+    z-index: 2;
+    gap: 12px;
 }
 
-.boat-img{
-    width: 100%;
-    display: block;
-    height: auto;
-}
-
-.company-info{
-  position: absolute;
-  inset: 0;
-  display: block;
-  align-content: center;
-  justify-items: center;
-  /* gap: 6px; */
-  padding: clamp(8px, 2vw, 16px) clamp(12px, 3vw, 24px);
-  color: var(--c-deep);
-  pointer-events: auto;
-  align-content: center;
-}
-
-.logo-company img{ height: 32px; width: auto; display: block; }
-.name-company{ font-weight: 700; font-size: clamp(18px, 1.4vw, 22px); }
-.description-company{ font-size: clamp(14px, 1.05vw, 16px); opacity: .9; max-width: 42ch; }
-
-/* left circular chip (24–40px in your mock) */
-.logo-chip{
-  width: 45px; height: 45px; border-radius: 999px;
-  position: relative; left: -208px; bottom: 36px;
-}
-.logo-chip img{ max-width: 70%; height: auto; display:block; }
-
-/* name pill */
-.name-pill{
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 10px 14px; border-radius: 10px;
-  color: var(--c-deep); font-weight: 700;
-  text-decoration: none;
-  position: relative;
-  font-size: 20px;
-  left: -20px;
-  bottom: 92px;
-}
-.name-pill .open-icon{ color: var(--c-deep); opacity: .8; }
-
-/* blurb on deck */
-.project-blurb{
-  margin-top: 16px;
-  color: var(--c-deep);
-  font-weight: 700;
-  max-width: 42ch;
-  position: relative;
-  left: 32px;
-  bottom: 20px;
-}
-
-/* badge row (star + label) */
-.project-badge{
-  display: inline-flex; align-items: center; gap: 8px;
-  margin-top: 10px;
-  color: var(--c-sea);
-  font-weight: 700;
-}
-.project-badge img{
-  width: 16px; height: 16px; display:block;
-}
 
 .arrow-icons {
-  display: grid; gap: 12px;
-  position: absolute; 
-  right: 6vw; top: 50%;
+  position: relative; 
+  gap: 16px;
+  flex-direction: row;
+  margin-top: clamp(16px, 3vw, 24px); 
   transform: translateY(-50%);
-  margin-right: 270px;
 }
-
-.arrow {
-  position: relative;
-  background: none; /*transparent*/
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  width: 48px;
-  height: 48px;
+.arrow{
+  background: transparent;
+  border: 0;
+  width: clamp(44px, 3.4vw, 56px);
+  height: clamp(44px, 3.4vw, 56px);
   border-radius: 999px;
-} 
-
-.arrow-base {
-  display: block;
-  width: 100%;
-  height: 100%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  position: relative;
 }
-
-.arrow-base-mobile {
-    display: inline-table;
-    width: 100%;
-    height: 100%;
-}
-
-.arrow-hover {
-  width: 48px;
-  height: 48px;
-}
-
-.arrow-hover{
-    opacity: 0; position: absolute;
-    inset: 0;
-    transition: opacity .15s ease;
-}
-.arrow:hover .arrow-base  { opacity: 0;; }
-.arrow:hover .arrow-hover  { opacity: 1; }
+.arrow img{ width: 100%; height: 100%; object-fit: contain; display:block; }
+.arrow .arrow-hover{ position:absolute; inset:0; opacity:0; transition:opacity .2s; }
+.arrow:hover .arrow-hover{ opacity:1; }
+.arrow:hover .arrow-base{ opacity:0; }
 
 .arrow-base-mobile { opacity: 0;}
 
 /* Responsive */
 @media (max-width: 768px) {
-  .boat-section {
-    height: 500px;
-  }
-  .boat-title {
-        padding: 39px 6vw !important;
-        opacity: 1 !important;
-        transform: none !important;
-        line-height: 1.2 !important;
-    }
-
-    .boat-title h1 {
-        font-size: 1.7rem;
-         padding: 0;
-    }
-    
-    .boat-content{
-        bottom: -26vh;
-        right: -44vh;
-        max-width: 427vw !important;
-    }
-    
-    .wave-darkblue-bg{
-        top: 70vh;
-    }
-
-    .company-info{
-        justify-items: center;
-        text-align: center;
-        gap: 8px;
-    }
-    .boat-img{
-        width: 104%; /*122%*/
-    }
-
-    .project-blurb {
-        left: 22px;
-        bottom: 44px;
-        max-width: 29ch;
-        text-align: justify;
-    }
-    
-    .name-pill {
-        font-size: 16px;
-        left: -4px;
-        bottom: 52px;
-    }
-
-    .name-pill .open-icon  {
-        opacity: 0;
-    }
 
     .arrow-icons { 
         z-index: 6;
         top: 100%;
         display: flex;
         right: 0;
-        transform: translateX(112%);
+        transform: translate(-20%);
     }
 
     .arrow-hover{ transform: translateY(103%)}
@@ -959,21 +796,119 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     .arrow:hover .arrow-base-mobile { opacity: 0; } 
     .arrow:hover .arrow-hover { opacity: 1; } 
 
-    .logo-chip {left: -148px;bottom: 7px;}
+}
+
+@media (min-width: 992px){ 
+  .arrows-stack{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(12px, 1.6vw, 20px);
+  }
+}
+
+@media (min-width: 1536px){
+    .container-xxl {max-width: 1440px;}
+    /* .boat-wrap{
+        max-width: 1280px; 
+        aspect-ratio: 16 / 6.6;
+        --deck-left: 14%;
+        --deck-top: 42%;    
+        --deck-w: 52%;
+        --deck-ty: -6%;
+    } */
+    /* .company-info{ left:6%; top: 2%; width: 46%} */
+}
+
+@media (min-width: 992px) and (max-width: 1535px){
+  /* .boat-wrap{
+    --deck-left: 13%;
+    --deck-top:  43%;
+    --deck-w:    55%;
+    --deck-ty:   -8%;
+  } */
+}
+
+@media (min-width: 576px) and (max-width: 991px){
+  /* .boat-wrap{
+    --deck-left: 10%;
+    --deck-top:  45%;
+    --deck-w:    62%;
+    --deck-ty:   -10%;
+  } */
+}
+
+@media (min-width:1280px) and (max-width:1535px){
+  .arrows-stack{ margin-top: clamp(8px, 6vh, 48px); }
+}
+
+/* Tablet & down */
+@media (max-width: 991px){
+  .boat-wrap{ aspect-ratio: 16 / 8; }
+  /* .company-info{ left: 5%; top: 3%; width: 60%; } */
+  .boat-section .wave-darkblue-bg { height: clamp(266px, 10vw, 165px);}
+
+}
+
+@media (max-width: 768px) { .boat-section .wave-darkblue-bg {height: clamp(191px, 10vw, 165px); }}
+
+@media (max-width: 575px){
+  .boat-title h1{ max-width: 18ch; }
+  /* .company-info{ width: 68%; left: 6%; top: 4%; } */
+  .boat-section .wave-darkblue-bg{ background-size: 640px; height: clamp(173px, 10vw, 160px);} 
+  .arrow { display: inline-block; z-index: 4;}
+
+   .arrow-base { opacity: 0;}
+    
+   .arrow-base-mobile { opacity: 1; }
+   .arrow:hover .arrow-base-mobile { opacity: 0; } 
+   .arrow:hover .arrow-hover { opacity: 1; }
+   
+   /* .name-pill{
+     font-size: 14px;
+     left: clamp(0px, 10vw, 40px);
+     bottom: clamp(11px, 8vw, 24px);
+   }
+
+   .boat-wrap { 
+        max-width:  92vw; 
+        aspect-ratio: 16 / 9.5;
+        --deck-left: 8%;
+        --deck-top: 46%;
+        --deck-w: 78%;
+        --deck-ty: -12%;
+    }  */
+/* 
+    #company-name { font-size: clamp(18px, 4.6vw, 20px); }
+    #company-desc { font-size: clamp(14px, 3.8vw, 16px); }
+    #company-logo img { height: clamp(26px, 7vw, 32px); }  */
+}
+
+/* 161px */
+@media (max-width:425px){
+  .boat-section .wave-darkblue-bg{ height: clamp(161px, 10vw, 160px);} 
+}
+
+@media (max-width:360px){
+  .boat-wrap{ max-width: 113vw; aspect-ratio: 16/10; }
+  /* .company-info{ width:70%; left:5%; top:5%; } */
+  .boat-section .wave-darkblue-bg{height: clamp(160px, 10vw, 160px);} 
 }
 
 /* PORTFOLIO SECTION */
+.portfolio-section {
+    background-color: var(--c-deep);
+}
 
 .portfolio-title {
     color: var(--c-sand);
     position: relative;
     text-align: center;
-    bottom: 35vh;
+    /* bottom: 20vh; */
     z-index: 3;
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.4s, transform 0.4s;
-    margin-top: 150px;
+    background-color: var(--c-deep);
 }
 
 .domain-marquee {
@@ -1525,26 +1460,3 @@ textarea{
 
 input-error::placeholder { color: #c06b6b;}
 
-/* Sea creatures of Main Section */
-/* .sea-creatures {position: relative;overflow: hidden;}
-
-.sea-creatures .creatures-row { position: absolute; inset: 0; pointer-events: none; z-index: 3;}
-
-.sea-creatures .creature { 
-    position: absolute;
-    left: 50%; top: 50%;
-    transform: translate(-50%, -50%) scale(var(--s, 1));
-    transform-origin: center;
-    will-change: transform;
-}
-
-.sea-creatures .creature > img, .sea-creatures .creature > svg  {
-    display: block;
-    width: auto;
-    height: auto;
-    max-width: none;
-}
-
-:root{ --creature-base: 120px;}
-@media (min-width: 768px) { :root { --creature-base: 160px}}
-@media (min-width: 1280px) { :root { --creature-base: 200px}}  */

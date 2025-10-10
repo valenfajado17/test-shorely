@@ -1,11 +1,93 @@
 let crabLegsAnimations = [];
 let crabIsWalking = false;
-let crabPinned = false; // whether it's at bottom-right
+let crabPinned = false; // (desktop only)
 let crab, speechBF;
-const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+let currentMode = null;
+
+const isMobile = () => window.matchMedia('(max-width: 480px)').matches;
 
 let crabHiddenByFounder = false; // hide crab once it reach the balck-wave
 let cachedCrabHeight = 120;
+
+function killCrabTriggers() {
+  ScrollTrigger.getAll().forEach( st => {
+    const id = st.vars?.id || "";
+    if(id.startsWith("crab-") || st.vars?.crab === true) st.kill();
+  });
+  gsap.killTweensOf(crab);
+}
+
+function initCrabMobile() {
+  killCrabTriggers();
+
+  crabPinned = false;
+  gsap.set(crab, {
+    clearProps: "all",
+    position: "fixed",
+    left: "50%",
+    bottom: "14vh",
+    x: 0, y:0,
+    transform: "translateX(-50%)",
+    zIndex: 50, 
+    pointerEvents: "auto",
+    opacity: 0
+  });
+
+  startCrabLegs();
+  gsap.to(crab, {
+    opacity: 1,
+    duration: 0.6,
+    ease: "power2.out",
+    onComplete: () => {
+      stopCrabLegs();
+      showCrabSpeech();
+    }
+  });
+  gsap.to(".eye-crab", {
+    opacity: 1,
+    scale: 1,
+    duration: 0.2,
+    ease: "black-out(0.6)"
+  })
+  crab.addEventListener("click", onCrabTapToggleBubble);
+}
+
+function initCrabDesktop() {
+  killCrabTriggers();
+
+  gsap.set(crab, { 
+    clearProps: "all",
+    position: "absolute", 
+    bottom: 72.84,
+    left: "50%",
+    x: 0,
+    transform: "translateX(-50%)",
+    zIndex: 30,
+    opacity: 0
+  });
+
+  entranceCrab();
+  attachCrabScrollTrigger();
+  attachCrabFounderSection();
+}
+
+function onCrabTapToggleBubble(){
+  const cOpacity = gsap.getProperty(".bubble-container .bf", "opacity");
+  if ((cOpacity ?? 0) < 0.5) showCrabSpeech();
+  else hideCrabSpeech();
+}
+
+function initCrabByMode(){
+  const next = isMobile() ? "mobile" : "desktop";
+  if (next === currentMode) return;
+
+  crab?.removeEventListener?.("click", onCrabTapToggleBubble);
+
+  if (next === "mobile") initCrabMobile();
+  else initCrabDesktop();
+
+  currentMode = next;
+}
 
 function startCrabLegs() {
   if (crabIsWalking) return;
@@ -82,8 +164,6 @@ function entranceCrab() {
         }
     });
 }
-
-
 
 function moveCrabToBottomRight(onComplete) {
     const margin = 16; 
@@ -244,12 +324,19 @@ document.addEventListener("DOMContentLoaded", () => {
   crab = document.querySelector(".crab-container");
   speechBF = document.querySelector(".bubble-container .bf");
 
+  if(!crab) return;
+  initCrabByMode();
+  
+  window.addEventListener("resize", () => {
+    clearTimeout(window.__crabResizeT);
+    window.__crabResizeT = setTimeout(initCrabByMode, 120);
+  })
   // entrance when the page loads
-  entranceCrab();
+  // entranceCrab();
 
   // scroll behavior
-  attachCrabScrollTrigger();
-  attachCrabFounderSection(); // When enter founder-section hide crab-container
+  // attachCrabScrollTrigger();
+  // attachCrabFounderSection(); // When enter founder-section hide crab-container
 
 
   // Show the bubble when the mouse is over the crab
@@ -267,5 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //   window.addEventListener("resize", () => {
 //     if(isMobile() && crabPinned) { gsap.set(crab, { right: 8, bottom: 8 });}
 //   });
-    window.addEventListener("resize", handleResizeForCrab)
+
+// chekc is un-comment
+    // window.addEventListener("resize", handleResizeForCrab)
 });

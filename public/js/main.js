@@ -11,15 +11,35 @@ window.addEventListener("DOMContentLoaded", () => {
   // BoatSection
   animateBoatSection();  
   scrollFromBoat();
-  // document.addEventListener("DOMContentLoaded", initBoatCarousel);
+  
   // FounderSection
   animateFounderSection();
-
+  
   // FormSection
   formSectionAnimations();
 
+  // test 
+  getDistanceBetweenEle();
+
 });
 
+
+  // chech distance 
+  function getDistanceBetweenEle(){
+    const silhouette = document.querySelector(".silhouette");
+    const dilog = document.querySelector(".dialog-text");
+    const polygon = document.querySelector(".dialog-form");
+
+    const s =  silhouette.getBoundingClientRect();
+    const d = dilog.getBoundingClientRect();
+
+   
+    const rightPosition = (d.left + d.width /2) - (s.right + s.width /2);
+    // polygon.style.setAttribute("right", `${rightPosition}px`); 
+    // debugging 
+    // const setPositionPolygon = document.getElementById("dialog-form");
+    polygon.style.right(rightPosition);
+  };
 
 function animateAboutUsSection(){
   const tl = gsap.timeline();
@@ -112,7 +132,6 @@ function scrollFromHome(){
 function industriesSection(){
   gsap.registerPlugin(ScrollTrigger);
 
-  //Title fades-in as the user scroll 
   gsap.to(".industries-title h1", {
     opacity:  1,
     y: -30,
@@ -286,46 +305,66 @@ function eyesFollowCursor() {
 // Fade in secuencial con GSAP
 function animateFounderSection(){
   gsap.registerPlugin(ScrollTrigger);
-  const crab = document.querySelector('.crab-container');
 
-  gsap.to(".founder-title h3", {
-    duration: 1.2,
-    scale: 1,
+  // gsap.from(".founder-title h1", { opacity:0, y:50});
+  gsap.to(".founder-title h1", {
     opacity: 1,
-    ease: "back.out(1.7)"
-  });
-
-  gsap.fromTo('.dialog-founder', {
-    opacity: 0,
-    scale: 0.7
-  },{
-    opacity: 1,
-    scale: 1,
-    duration: 1,
-    ease: "back.out(1.7)",
+    y: -30,
     scrollTrigger: {
-      trigger: ".founder-section",
-      start: "top 80%",
-      end: "top 50%",
-      toggleActions: "play none none reverse"
+      trigger: ".founder-section", 
+      start: "top center",
+      end: "center center",
+      scrub: true
     }
   });
 
-  gsap.fromTo('.dialog-text', {
-    opacity: 0,
-    scale: 0.7
-  },{
-    opacity: 1,
-    scale: 1,
-    duration: 1.2,
-    ease: "back.out(1.7)",
-    scrollTrigger: {
-      trigger: ".founder-section",
-      start: "top 80%",
-      end: "top 50%",
-      toggleActions: "play none none reverse"
+  gsap.to(".dialog-wrap", 
+    // {opacity: 0, y:24},
+    {
+      opacity:1,
+      y: 0,
+      duration: .7,
+      ease: "power2.out",
+      delay: .1,
+      scrollTrigger: {
+        trigger: ".founder-section",
+        start: "top 65%", 
+        once: true
+      }
     }
-  },"-=0.7");
+  );
+
+  // gsap.fromTo('.dialog-founder', {
+  //   opacity: 0,
+  //   scale: 0.7
+  // },{
+  //   opacity: 1,
+  //   scale: 1,
+  //   duration: 1,
+  //   ease: "back.out(1.7)",
+  //   scrollTrigger: {
+  //     trigger: ".founder-section",
+  //     start: "top 80%",
+  //     end: "top 50%",
+  //     toggleActions: "play none none reverse"
+  //   }
+  // });
+
+  // gsap.fromTo('.dialog-text', {
+  //   opacity: 0,
+  //   scale: 0.7
+  // },{
+  //   opacity: 1,
+  //   scale: 1,
+  //   duration: 1.2,
+  //   ease: "back.out(1.7)",
+  //   scrollTrigger: {
+  //     trigger: ".founder-section",
+  //     start: "top 80%",
+  //     end: "top 50%",
+  //     toggleActions: "play none none reverse"
+  //   }
+  // },"-=0.7");
 
 
   gsap.fromTo('.silhouette', {
@@ -353,12 +392,12 @@ function formSectionAnimations() {
   gsap.to('.wave-black-bg', {
     backgroundPositionX: '-50vw',
     ease: 'none',
-    ScrollTrigger: {
+    scrollTrigger: {
       trigger: ".founder-section", 
       start: 'bottom bottom',
       end: '+=100%',
-      scrub: true,
-      onEnter: () => crab.style.display = 'none'
+      scrub: true
+      // onEnter: () => crab.style.display = 'none'
     }
   });
 }

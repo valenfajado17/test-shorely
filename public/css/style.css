@@ -700,7 +700,7 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     background-color:var(--c-sea);
     padding: clamp(24px, 5vw,56px) 0 clamp(40px, 6vw, 80px);
     z-index: 1;
-    overflow: hidden; 
+    /* overflow: hidden;  */
 }
 
 .boat-section .wave-darkblue-bg{
@@ -735,16 +735,6 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     font-size: 1.5rem;
 }
 
-/* .boat-content {
-    width: 100%;
-    max-width: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    opacity: 1;
-    transition: none;} */
-
 .arrows-stack{
     position: relative;
     margin-top: clamp(16px, 3vw, 24px);
@@ -778,15 +768,14 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 
 .arrow-base-mobile { opacity: 0;}
 
-/* Responsive */
-@media (max-width: 768px) {
+ @media (max-width: 768px) {
 
     .arrow-icons { 
         z-index: 6;
         top: 100%;
         display: flex;
         right: 0;
-        transform: translate(-20%);
+        /* transform: translate(-20%); */
     }
 
     .arrow-hover{ transform: translateY(103%)}
@@ -806,81 +795,22 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
   }
 }
 
-@media (min-width: 1536px){
-    .container-xxl {max-width: 1440px;}
-    /* .boat-wrap{
-        max-width: 1280px; 
-        aspect-ratio: 16 / 6.6;
-        --deck-left: 14%;
-        --deck-top: 42%;    
-        --deck-w: 52%;
-        --deck-ty: -6%;
-    } */
-    /* .company-info{ left:6%; top: 2%; width: 46%} */
-}
-
-@media (min-width: 992px) and (max-width: 1535px){
-  /* .boat-wrap{
-    --deck-left: 13%;
-    --deck-top:  43%;
-    --deck-w:    55%;
-    --deck-ty:   -8%;
-  } */
-}
-
-@media (min-width: 576px) and (max-width: 991px){
-  /* .boat-wrap{
-    --deck-left: 10%;
-    --deck-top:  45%;
-    --deck-w:    62%;
-    --deck-ty:   -10%;
-  } */
-}
-
 @media (min-width:1280px) and (max-width:1535px){
-  .arrows-stack{ margin-top: clamp(8px, 6vh, 48px); }
-}
-
-/* Tablet & down */
-@media (max-width: 991px){
-  .boat-wrap{ aspect-ratio: 16 / 8; }
-  /* .company-info{ left: 5%; top: 3%; width: 60%; } */
-  .boat-section .wave-darkblue-bg { height: clamp(266px, 10vw, 165px);}
-
+  .arrows-stack{ margin-top: clamp(8px, 6vh, 48px); } 
 }
 
 @media (max-width: 768px) { .boat-section .wave-darkblue-bg {height: clamp(191px, 10vw, 165px); }}
 
 @media (max-width: 575px){
   .boat-title h1{ max-width: 18ch; }
-  /* .company-info{ width: 68%; left: 6%; top: 4%; } */
   .boat-section .wave-darkblue-bg{ background-size: 640px; height: clamp(173px, 10vw, 160px);} 
-  .arrow { display: inline-block; z-index: 4;}
 
    .arrow-base { opacity: 0;}
     
    .arrow-base-mobile { opacity: 1; }
    .arrow:hover .arrow-base-mobile { opacity: 0; } 
    .arrow:hover .arrow-hover { opacity: 1; }
-   
-   /* .name-pill{
-     font-size: 14px;
-     left: clamp(0px, 10vw, 40px);
-     bottom: clamp(11px, 8vw, 24px);
-   }
 
-   .boat-wrap { 
-        max-width:  92vw; 
-        aspect-ratio: 16 / 9.5;
-        --deck-left: 8%;
-        --deck-top: 46%;
-        --deck-w: 78%;
-        --deck-ty: -12%;
-    }  */
-/* 
-    #company-name { font-size: clamp(18px, 4.6vw, 20px); }
-    #company-desc { font-size: clamp(14px, 3.8vw, 16px); }
-    #company-logo img { height: clamp(26px, 7vw, 32px); }  */
 }
 
 /* 161px */
@@ -890,7 +820,6 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 
 @media (max-width:360px){
   .boat-wrap{ max-width: 113vw; aspect-ratio: 16/10; }
-  /* .company-info{ width:70%; left:5%; top:5%; } */
   .boat-section .wave-darkblue-bg{height: clamp(160px, 10vw, 160px);} 
 }
 
@@ -903,7 +832,6 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     color: var(--c-sand);
     position: relative;
     text-align: center;
-    /* bottom: 20vh; */
     z-index: 3;
     opacity: 0;
     transform: translateY(50px);
@@ -914,10 +842,8 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 .domain-marquee {
   position: relative;
   z-index: 3;
-  width: 100vw;
-  overflow: hidden;
   padding: 24px 0 24px 0;
-  bottom: 8vh;
+  bottom: -5rem;
 } 
 
 .domain-bar {
@@ -962,212 +888,6 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 }
 
 /* END PORTFOLIO SECTION */
-
-/* FOUNDER SECTION */
-
-/* ===== Founder — Desktop FIX ===== */
-.founder-section{
-  position: relative;
-  background: var(--c-deep);
-  padding: clamp(20px, 30vw, 36px) 0;
-}
-
-/* wave sits at the bottom of the section */
-.wave-black-bg{
-  position: absolute; left: 0; right: 0; bottom: 0;
-  height: 120px;                       /* adjust to your art if needed */
-  background: url('../assets/images/waves/waves-black.png') repeat-x; 
-  background-size: cover;
-  z-index: 4; transition: transform .3s ease;
-  opacity: 1;
-  width: 100%;
-}
-
-.founder-title h3{
-  position: relative; z-index: 3;
-  text-align: center; color: var(--c-sand);
-  transform: 1; opacity: 1;
-  line-height: 1.22; 
-  margin: 0 0 26px; 
-  padding: 0 16px;
-  font-size: clamp(1.2rem, 0.9rem + 0.6vw, 1.6rem);
-}
-
-/* two columns: [silhouette] | [bubble] */
-.founder-visual{
-  position: relative;
-  z-index: 3;
-  width: min(1200px, 92vw);
-  margin: 20px 0 0 197px;
-  display: grid;
-  grid-template-columns: minmax(142px, 0) minmax(1300px, 560px);
-  align-items: center;                 /* vertical alignment like Figma */
-  column-gap: clamp(18px, 3vw, 44px);
-  left: 0 !important; bottom: 0 !important; height: auto;
-  padding-top: 24px;
-}
-
-.silhouette{ width: 100%; height: auto; display: block; align-self: end; }
-
-/* eyes: percentages relative to the silhouette column (nudge if needed) */
-.eyes{
-  position: absolute; width: 7px; height: 7px; background:#000; border-radius:50%;
-  box-shadow: 0 2px 8px #0002; z-index: 4;
-}
-.left-eye-founder  { left: 70px; top: 10.4%; }
-.right-eye-founder { left: 87px; top: 10.4%; }
-
-/* bubble container (right column) */
-.dialog-content{
-  position: relative;
-  width: 100%;
-  max-width: 850px;                    /* hard cap bubble width */
-  justify-self: start;                 /* keep near silhouette */
-  transform: translate(-71px, -81px);         /* small lift to align to face */
-}
-
-/* show desktop bubble only */
-.dialog-founder{ display:block; width: 100%; height: auto;
-  filter: drop-shadow(0 8px 26px rgba(0,0,0,.18));
-}
-.dialog-founder-mobile{ display:none; }
-
-/* text INSIDE bubble */
-.dialog-text{
-  position: absolute; inset: 0; margin: 0;
-  color:#000; font-weight:600; text-align:justify;
-  line-height:1.42;
-  font-size: clamp(.95rem, .8rem + .25vw, 1.05rem);
-  padding: 2% 7% 18% 24%;
-  max-width: 100%;
-  max-height: 74%;
-}
-.dialog-text p{ margin:0; }
-
-/* ---------- Founder: mobile layout ---------- */
-@media (max-width: 768px) {
-  /* Section padding so the title/bubble/silhouette breathe */
-  .founder-section {
-    background-color: var(--c-deep);
-    padding: 24px 0 24px;
-  }
-
-  /* Title: visible, readable */
-  .founder-title h3 {
-    transform: none !important;
-    opacity: 1 !important;
-    font-size: clamp(1.11rem, 2.8vw, 1.25rem);
-    line-height: 1.25;
-    padding: 0 16px;
-    margin: 0 0 16px;
-    text-align: center;
-    color: var(--c-sand);
-    bottom: 98px;
-  }
-
-  /* Wave divider must sit at the bottom on mobile (no overlap) */
-  .wave-black-bg {
-    position: relative !important;
-    top: auto !important;
-    bottom: -196vh !important;
-    height: 283px; /* adjust to match your art */
-    margin-top: 8px;
-  }
-
-  /* Visual stack: bubble (with text) above silhouette */
-  .founder-visual {
-    position: relative;
-    z-index: 3;
-    width: 100%;
-    max-width: 420px;
-    margin: 0 auto;
-    left: 0;      /* undo desktop left:35vh */
-    bottom: 0;    /* undo desktop bottom:-4vh */
-    height: auto; /* let content define height */
-    display: grid;
-    grid-template-rows: auto auto;
-    grid-template-columns: auto !important;
-    row-gap: 12px;
-    justify-items: center;
-    padding: 81px 87px 0 79px;
-  }
-
-  /* Bubble container turns into a positioned wrapper */
-  .dialog-content {
-    position: relative;
-    width: 100%;
-    height: auto;
-    bottom: 53vh;
-  }
-
-  /* Desktop bubble hidden on mobile */
-  .dialog-founder {
-    display: none !important;
-    visibility: hidden !important;
-  }
-
-  /* Show the mobile bubble image */
-  .dialog-founder-mobile {
-    display: block !important;
-    width: 100%;
-    max-width: 360px !important;
-    height: 592px !important;
-    margin: 0 auto;
-    bottom: 246px;
-    position: relative;
-  }
-
-  /* Text sits inside the mobile bubble art */
-  .dialog-text {
-    position: absolute !important;
-    inset: 0;                 /* fill bubble area */
-    display: block;
-    padding: 6% 3.2% 22% 3.2%;
-    color: #000;
-    text-align: justify;
-    font-weight: 600;
-    font-size: 0.95rem;
-    line-height: 1.25;
-    margin: 0;
-    width: auto !important;
-    max-width: none !important;
-    left: auto !important;
-  }
-
-  .dialog-text p {
-    position: relative;
-    bottom: 31vh;
-  }
-
-  /* Silhouette centered & scaled */
-  .silhouette {
-    width: min(38%, 260px) !important;
-    max-width: 260px;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-    position: relative;
-    top: 77vh;
-    margin-right: 171px;
-    align-self: auto;
-  }
-
-  /* Founder visual */
-  .eyes { display: block !important; }
-  .left-eye-founder, .right-eye-founder {
-    position: absolute;
-    /* Place relative to founder-visual box; tune these */
-    top: 52.5%;
-    left: 53%;
-    width: 7px; height: 7px;
-  }
-  .right-eye-founder { left: 57%; }
-
-  /* Clean up any stray desktop offsets */
-  .founder-visual img { max-width: 100%; width: auto; }
-}
-/* END FOUNDER SECTION */
-
 
 /* CONTACT-FORM SECTION */
 .contact-form {
@@ -1232,10 +952,6 @@ textarea{
     height: 51px;
     width: 135px;
     position: static;
-    /* bottom: 15vh;
-    left: 80vh; */
-    /* left: auto;
-    bottom: auto; */
 }
 
 .send-btn:hover, .send-btn:focus{

@@ -2,22 +2,24 @@
   position: relative; 
   z-index: 2; display: grid; 
   place-items: center;
-  transform: translate(-68px, 40px);
+  /* transform: translate(-68px, 40px); */
 }
 
 .boat-wrap{
-  --boat-w: min(92vw, 1280px);
-  --boat-ar: 16/6.9; 
+  --boat-w: min(91vw, 1280px);
+  --boat-ar: 16/6.9;
   --cabin: clamp(60px, 7vw, 100px);
   --gap: clamp(3px, 2.2vw, 2px);
-  --pill-h: clamp(56px, 9.5vw, 100px);
+  --pill-h: calc(var(--cabin) * 0.98);
   --pill-px: clamp(10px, 1.4vw, 14px);
+  --deckTop: 30%;
   --deck-pad-x: clamp(12px, 2.2vw, 24px);
   --deck-pad-y: clamp(8px, 1.5vw, 16px);
-
   width: var(--boat-w);
   aspect-ratio: var(--boat-ar);
   position: relative;
+  top: 16%;
+  right: 10%;
 }
 
 /* Make a simple CSS-grid boat canvas (3 rows) */
@@ -26,7 +28,7 @@
   display: grid;
   grid-template-rows: auto 1fr;
   grid-template-columns: 1fr;
-  row-gap: 0; /* default gap*/
+  row-gap: 0;
 }
 
 /* ===== Cabins row: two rounded cabins + name pill ======================= */
@@ -36,8 +38,10 @@
   align-items: end; column-gap: var(--gap);
   padding: 0;
   align-self: end;
-  transform: translateY(clamp(102px, 2vw, 120px)); 
-  position: relative; z-index: 3;
+  /* transform: translateY(clamp(102px, 2vw, 120px));  */
+  position: absolute; z-index: 3;
+  left: 0; right: 0;
+  top: calc(var(--deckTop) - var(--cabin));
 }
 
 
@@ -54,21 +58,26 @@
 }
 
 #company-logo, #company-logo img {
-  width: calc(var(--cabin) * 0.48);
-  height: calc(var(--cabin) * 0.48);
-  object-fit: contain; display: block;
+  width: calc(var(--cabin) * 0.39);
+  height: calc(var(--cabin) * 0.39);
+  object-fit: contain;
+  display: block;
 }
 
 .name-pill{
-  height: calc(var(--cabin) * 0.98);
-  min-width: clamp(218px, 23vw, 339px);
+  /* height: calc(var(--cabin) * 0.98); */
+  height: var(--pill-h);
+  min-width: clamp(125px, 23vw, 339px);
   /* align-self: end; */
   justify-self: start;
-  display: inline-flex; align-items:center; gap:10px;
-  padding: 0 var(--pill-px);
+  display: inline-flex;
+  align-items:center;
+  gap:10px;
+  padding: var(--pill-px); /*add 0 at the beggining */
   background:#F8F8FF;
   border-radius: 3px;
-  color: var(--c-deep); font-weight:600;
+  color: var(--c-deep);
+  font-weight:600;
   text-decoration:none;
   font-size: clamp(18px, 1.6vw, 22px);
   justify-content: space-around;
@@ -116,36 +125,45 @@
 
 @media (min-width:1536px){
   .boat-wrap{ --boat-w: min(88vw, 1400px); }
-  .cabins { transform: translateY(clamp(102px, 2vw, 120px));}
-  .boat-content { transform: translate(clamp(-194px, 40px));}
 } 
 
-@media (max-width: 1440px) {
-  .cabins {transform: translateY(clamp(111px, 2vw, 120px));} 
- }
-
-@media (min-width: 1440px) {
-  .boat-content { transform: translate(-139px, 40px) !important;}
-}
-@media (max-width: 1280px) {
-  .cabins { transform: translateY(clamp(102px, 2vw, 120px));} 
-}
-
-@media (max-width: 1024px) {
-  .cabins { transform: translateY(clamp(82px, 2vw, 120px));} 
-}
-
 @media (max-width:991px){
-  .boat-wrap{ --boat-w: 94vw; --boat-ar: 16/8.2; --cabin: clamp(56px, 10vw, 90px); 
-    /* --pill-h: clamp(56px, 12vw, 92px);  */
-  }
+  .boat-wrap{ --boat-w: 115vw; --boat-ar: 16/7; --cabin: clamp(56px, 10vw, 90px);} 
+  .boat-section .wave-darkblue-bg { height: clamp(224px, 10vw, 165px);}
+}
+
+@media (max-width: 770px) {
+  .boat-section .wave-darkblue-bg { height: clamp(180px, 10vw, 165px);}
+}
+
+@media (max-width: 624px) {
+  .boat-wrap{ --boat-w: 124vw; } 
 }
 
 @media (max-width:575px){
-  .boat-wrap{ --boat-w: 96vw; --boat-ar: 16/10; 
-    --cabin: clamp(60px, 15vw, 100px); 
-    --gap: clamp(8px, 4vw, 16);
+  .boat-section .wave-darkblue-bg { height: clamp(195px, 10vw, 165px);}
+  .boat-wrap {--boat-ar: 10 / 7;--boat-w: clamp(685px, 2vw, 739px);--deckTop: 37%; margin-right: 5%;}
+  #company-desc { padding-right: 20%;}
+  .cabins { left: 35px;}
+}
+
+@media (max-width: 400px) {
+  #company-desc { padding: 24px 90px 0;}
+  .boat-wrap {
+    --boat-ar: 10/6.8;--boat-w: clamp(619px, 2vw, 739px);
+    margin-right: 12% !important;--deckTop: 37%;
   }
-  .name-pill{ font-size: clamp(16px, 4.6vw, 19px); }
-  #company-desc{ font-size: clamp(14px, 3.9vw, 16px); }
+  .name-pill {min-width: clamp(153px, 23vw, 339px) !important;}
+  .cabins {left: 67px;}
+}
+
+@media(max-width: 375px) {
+  #company-desc { padding: 24px 90px 0;}
+  .boat-wrap {--boat-ar: 10/6.8;--boat-w: clamp(674px,2vw,739px);margin-right: 30%;}
+  .name-pill {min-width: clamp(125px, 23vw, 339px);}
+  .cabins {left: 83px;}
+}
+
+@media (maxpp-width: 360px) {
+  
 }

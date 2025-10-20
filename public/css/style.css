@@ -762,7 +762,7 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
   position: relative;
 }
 .arrow img{ width: 100%; height: 100%; object-fit: contain; display:block; }
-.arrow .arrow-hover{ position:absolute; inset:0; opacity:0; transition:opacity .2s; }
+.arrow .arrow-hover{position:absolute;inset:0;opacity:0;transition:opacity .2s;}
 .arrow:hover .arrow-hover{ opacity:1; }
 .arrow:hover .arrow-base{ opacity:0; }
 
@@ -778,7 +778,7 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
         /* transform: translate(-20%); */
     }
 
-    .arrow-hover{ transform: translateY(103%)}
+    .arrow-hover{transform: translateY(64%);}
     .arrow-base { opacity: 0;}
     
     .arrow-base-mobile { opacity: 1; }

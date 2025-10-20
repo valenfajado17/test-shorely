@@ -18,29 +18,10 @@ window.addEventListener("DOMContentLoaded", () => {
   // FormSection
   formSectionAnimations();
 
-  // test 
-  getDistanceBetweenEle();
-
 });
 
 
-  // chech distance 
-  function getDistanceBetweenEle(){
-    const silhouette = document.querySelector(".silhouette");
-    const dilog = document.querySelector(".dialog-text");
-    const polygon = document.querySelector(".dialog-form");
-
-    const s =  silhouette.getBoundingClientRect();
-    const d = dilog.getBoundingClientRect();
-
-   
-    const rightPosition = (d.left + d.width /2) - (s.right + s.width /2);
-    // polygon.style.setAttribute("right", `${rightPosition}px`); 
-    // debugging 
-    // const setPositionPolygon = document.getElementById("dialog-form");
-    polygon.style.right(rightPosition);
-  };
-
+ 
 function animateAboutUsSection(){
   const tl = gsap.timeline();
   

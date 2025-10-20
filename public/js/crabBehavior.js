@@ -66,6 +66,13 @@ function initCrabDesktop() {
     opacity: 0
   });
 
+  gsap.set(".eye-crab", {
+    opacity: 1,
+    scale: 1,
+    duration: 0.2,
+    ease: "black-out(0.6)"
+  });
+  
   entranceCrab();
   attachCrabScrollTrigger();
   attachCrabFounderSection();

@@ -1,0 +1,161 @@
+/* SEA CREATURES MAIN */
+.sea-creatures { position: relative;} 
+
+.creatures-row{
+    position: relative;
+    min-height: clamp(260px, 42vh, 560px);
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.creature{
+    position: absolute;
+    left: calc(var(--x, 50) * 1%);
+    top: calc(var(--y, 50) * 1%);
+    transform: translate(-50%, -50%);
+    width: clamp(96px, var(--w, 16) * 1vw, 280px);
+    aspect-ratio: 1 / 1;
+    z-index: var(--z, 1);
+    will-change: transform;
+}
+
+.creature .normal {
+    position: absolute;
+    inset: 0;
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+} 
+
+.creature .floating { animation: floatY 6s ease-in-out infinite;}
+@keyframes floatY {
+    0%, 100% { transform: translate(-50%, -50%) translateY(0);}
+    50%      { transform: translate(-50%, -50%) translateY(-6%);}
+}
+
+.creature .squish {
+    position: relative;
+    left: 50%;
+    bottom: -4%;
+    width: 56%;
+    transform: translateX(-50%);
+    display: none;
+    pointer-events: none;
+}
+/* 
+.floating {
+    animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+    0%, 100% {transform: translateY(0);}
+    50% {transform: translateY(-10px);}
+} */
+
+.eye {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    transform: translate(-50%, -50%);
+    width: clamp(25px, 1.4vw, 30px);
+    height: clamp(25px, 1.4vw, 30px);
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 0 3px #000;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.eye .pupil {
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 45%; height: 45%;
+    border-radius: 50%;
+    background: #000;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+} 
+
+.pupil 
+{ all: unset;} 
+
+@media (min-width: 992px) {
+  .creature {width: 169px;}
+  .shell   {--x: 16;--y: -185;--w: 14;--z: 2;}
+  .octopus {--x: 90;--y: -106;--w: 16;--z: 2;}
+
+
+   /* .sea-creatures-form  */
+   .sil-eye {
+    width: clamp(22px, 1.1vw, 30px) !important;
+    height: clamp(22px, 1.1vw, 30px) !important;
+  }
+}
+
+/* Tablet (576–991px) */
+@media (min-width: 576px) and (max-width: 991px) {
+  .creature {width: 150px;}
+  .shell   {--x: 28;--y: -62;--w: 16;}
+  .octopus {--x: 76;--y: -184;--w: 15;}
+}
+
+/* Mobile (≤ 575px): stack higher to avoid the wave; keep centered spacing */
+@media (max-width: 575px) {
+  .creatures-row {min-height: clamp(300px, 52vh, 600px);}
+  .shell   {--x: 30;--y: -35;--w: 28;}
+  .octopus {--x: 78;--y: -167;--w: 28;}
+}
+
+@media (max-width: 375px) {
+  .creatures-row { min-height: clamp(300px, 52vh, 600px); }
+  .shell   {--x: 30;--y: -35;--w: 37;}
+  .octopus {--x: 78;--y: -163;--w: 38;}
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------ */
+/* SEA CREATURES FROM */
+.sea-creatures-form { position: relative;}
+.creature-form {width: 120px;}
+.star-form {width: 152px  !important;}
+
+@media (min-width: 992px) {
+  
+  .shell-form   {--x: -16;top: -610px;--w: 14;--z: 2;}
+  .octopus-form {--x: 122;top: -495px;--w: 16;--z: 2;}
+  .snail-form   {--x: -29;top: -114px;--w: 14;--z: 2;}
+  .star-form    {--x: 105;top: -157px;--w: 16;--z: 2;}
+}
+
+/* Tablet (576–991px) */
+@media (min-width: 576px) and (max-width: 991px) {
+  /* .creature {width: 150px;} */
+  .shell-form   {--x: 15;top: -577px;--w: 14;--z: 2;}
+  .octopus-form {--x: 92;top: -575px;--w: 16;--z: 2;}
+  .snail-form   {--x: 0;top: -114px;--w: 14;--z: 2;}
+  .star-form    {--x: 105;top: -157px;--w: 16;--z: 2;}
+  .contact-title { padding-top: 56px;}
+}
+
+@media (min-width: 769px) {
+  .contact-title { padding-top: 56px;}
+  .shell-form   {--x: 15;top:-671px;--w: 14;--z: 2;}
+  .octopus-form {--x: 92;top:-657px;--w: 16;--z: 2;}
+}
+
+/* Mobile (≤ 575px): stack higher to avoid the wave; keep centered spacing */
+@media (max-width: 575px) {
+  .shell-form   {--x: 15;top: -577px;--w: 14;--z: 2;}
+  .octopus-form {display: none;}
+  .snail-form   {display: none;}
+  .star-form    {--x: 105;top: -157px;--w: 16;--z: 2;}
+  .contact-title { padding-top: 56px;}
+}
+
+@media (max-width: 375px) {
+  /* .creatures-row { min-height: clamp(300px, 52vh, 600px); } */
+  .shell-form   {--x: 22;top: -603px;--w: 14;--z: 2;}
+  .octopus-form {--x: 122;top: -495px;--w: 16;--z: 2;}
+  .snail-form   {--x: -29;top: -114px;--w: 14;--z: 2;}
+  .star-form    {--x: 94;top: -157px;--w: 16;--z: 2;}
+}

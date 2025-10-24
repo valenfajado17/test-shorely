@@ -244,14 +244,14 @@ function domiansCarousel(){
 // Eyes follow cursor
 function eyesFollowCursor() {
   const eyes = [
-    document.querySelector('.left-eye-shell'),
-    document.querySelector('.right-eye-shell'),
+    // document.querySelector('.left-eye-shell'),
+    // document.querySelector('.right-eye-shell'),
 
     document.querySelector('.left-eye-octopus'),
     document.querySelector('.right-eye-octopus'),
 
-    document.querySelector('.left-eye-founder'),
-    document.querySelector('.right-eye-founder'),
+    // document.querySelector('.left-eye-founder'),
+    // document.querySelector('.right-eye-founder'),
 
     document.querySelector('.left-eye-shell-form'),
     document.querySelector('.right-eye-shell-form'),
@@ -269,18 +269,18 @@ function eyesFollowCursor() {
     document.querySelector('.right-eye-crab')
   ];
 
-  document.addEventListener("mousemove", e => {
-    eyes.forEach(eye => {
-      const rect = eye.getBoundingClientRect();
-      const eyeX = rect.left + rect.width / 2;
-      const eyeY = rect.top + rect.height / 2;
-      const angle = Math.atan2(e.clientY - eyeY, e.clientX - eyeX);
-      const offset = 5; // Tamaño del movimiento de la pupila
-      const x = Math.cos(angle) * offset;
-      const y = Math.sin(angle) * offset;
-      eye.style.transform = `translate(${x}px, ${y}px)`;
-    });
-  });
+  // document.addEventListener("mousemove", e => {
+  //   eyes.forEach(eye => {
+  //     const rect = eye.getBoundingClientRect();
+  //     const eyeX = rect.left + rect.width / 2;
+  //     const eyeY = rect.top + rect.height / 2;
+  //     const angle = Math.atan2(e.clientY - eyeY, e.clientX - eyeX);
+  //     const offset = 5; // Tamaño del movimiento de la pupila
+  //     const x = Math.cos(angle) * offset;
+  //     const y = Math.sin(angle) * offset;
+  //     eye.style.transform = `translate(${x}px, ${y}px)`;
+  //   });
+  // });
 }
 
 // Fade in secuencial con GSAP

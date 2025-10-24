@@ -15,10 +15,12 @@
 	<!-- Google analitycs |  Google tag (gtag.js)  -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8D4V7K5H3"></script>
 	<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-M8D4V7K5H3');</script>
-	
-	
+	<!-- Bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/style.css">
-	<!-- <link rel="stylesheet" href="css/layout.css">  -->
+	<link rel="stylesheet" href="css/boat_design.css">
+	<link rel="stylesheet" href="css/sea-creatures.css"> 
+	<link rel="stylesheet" href="css/founder-sec-design.css"> 
 
 	<title>Shorely</title>
 	<meta name="description" content="Investment fund focused on empowering visionary companies which shape the future. We strive to ensure our capital meets those building the digital assets of tomorrow." />
@@ -30,7 +32,10 @@
 	<meta property="og:site_name" content="Shorely" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta property="og:image:type" content="image/png" />
-	
+
+	<!-- <link rel="apple-touch-icon" href="https://hexagon.agency/wp-content/uploads/2023/10/cropped-android-chrome-512x512-1-180x180-optimized.png" />
+    <meta name="msapplication-TileImage" content="https://hexagon.agency/wp-content/uploads/2023/10/cropped-android-chrome-512x512-1-270x270-optimized.png" />
+	 -->
 	<link rel="icon" href="assets/images/shorely-logo.png" />
     
 	<!-- CHECK THIS GOOGLE LINKS  -->
@@ -42,15 +47,36 @@
 	})(window,document,'script','dataLayer','GTM-MN4KC89J');</script>
 	<!-- End Google Tag Manager -->
 </head>
-
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MN4KC89J"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
-
-<body class="bg-th tc-d"  data-barba="wrapper">
-	<div class="main-section"> 
+<body data-barba="wrapper"> <!-- class="bg-th tc-d"  -->
+	<div class="main-section" > 
+		<!-- add a nav bar that add the article separate page -->
+		<!-- <section class="nav-bar">
+			<header class="si-fw z-4 -fxd m-hdr tc-d">
+				<div class="bg bg-th si-awh hi"></div>
+				<div class="
+				c-lg z-1">
+					<div class="lt fl-y">
+						<nav class="fl-y a ce-xy te-h4 hi-t navbar">
+							<a href="#industry-section">Industries across shorely</a>
+							<br>
+							<a class="nav-about-us" href="#boat-section">Portfolio	</a>
+							<br>
+							<a href="#founder-section">Know our Founder</a>
+							<br>
+							<a class="nav-about-us" href="#">Articles	</a>
+							<br>
+							<a href="#form-section">Contact</a>
+						</nav>
+						<button class="hi-sc brg-btn ml-a"><span></span><span></span><span></span></button>
+					</div>
+				</div>
+				<div class="ln r z-1 hi"></div>
+			</header>
+		</section> -->
 		<section class="about-us">
 			<div class="logo"><h1>Shorely</h1></div>
 			<div class="tagline">
@@ -61,28 +87,28 @@
 			</div>
 			<div class="wave-bg"> </div>
 		</section>
-		<section class="sea-creatures">
+		<section class="sea-creatures" id="main-section">
 			<div class="creatures-row">
-				<div class="creature shell floating delay-0" id="sc">
+				<div class="creature shell floating delay-0" data-size="md">
 					<img src="assets/images/sea-creatures/shell.svg" alt="Shell" class="normal"/>
-					<div class="eye left-eye-shell eye-left"></div>
-					<div class="eye right-eye-shell eye-right"></div>
+					<div class="eye" data-r="6" style="--x:35%; --y:80%"><span class="pupil"></span></div>
+					<div class="eye" data-r="6" style="--x:55%; --y:80%"><span class="pupil"></span></div>
 					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
 				</div>
-				<div class="creature octopus floating delay-1" id="sc">
+				<div class="creature octopus floating delay-1" data-size="md">
 					<img src="assets/images/sea-creatures/octopus.svg" alt="Baby octopus" class="normal"/>
-					<div class="eye left-eye-octopus eye-left"></div>
-					<div class="eye right-eye-octopus eye-right"></div>
+					 <div class="eye" data-r="6" style="--x:35%; --y:42%"><span class="pupil"></span></div>
+					 <div class="eye" data-r="6" style="--x:55%; --y:42%"><span class="pupil"></span></div>
 					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
 				</div>
 			</div>
 			<!-- Crab container -->
-			<div class="crab-container delay-2">
+			<div class="crab-container crab delay-2">
 				<img src="assets/images/crab/crab-leg-left.svg" class="leg leg-left ll-1">
 				<img src="assets/images/crab/crab-leg-left.svg" class="leg leg-left ll-2">
 				<img src="assets/images/crab/crab-body.svg" class="crab-body">
-				<div class="eye left-eye-crab eye-crab"></div>
-				<div class="eye right-eye-crab eye-crab"></div>
+				<div class="eye" data-r="6" style="--x:35%; --y:42%"><span class="pupil"></span></div>
+				<div class="eye" data-r="6" style="--x:62%; --y:42%"><span class="pupil"></span></div>
 				<img src="assets/images/crab/crab-leg-right.svg" class="leg leg-right lr-1">
 				<img src="assets/images/crab/crab-leg-right.svg" class="leg leg-right lr-2"> 
 			
@@ -94,69 +120,104 @@
 			</div>
 		</section>
 	</div>
-	<section class="industries-section">
+	<section class="industries-section" id="industry-section">
 		<div class="industries-title">
 			<h1 class="text-vanish">We believe great ideas emerge like creatures from the deep—ready to evolve and make waves across industries.</h1>
 		</div>
-		<!-- Industries options -->
-		<div class="industry-container">
-			<div class="industry-shape snail">
-				<img src="assets/images/shapes/snail.svg" alt="snail">
-				<div class="industry-text maclea">
-					<h3><sup>1. </sup> Machine Learning</h3>
-					<p>From tools to infrastructure, we back applied intelligence</p>
+		<div class="industry-container container-xxl px-4"><!-- test: change container -->
+			<div class="row justify-content-between align-items-start">
+				<div class="col-12 col-md-4 d-flex flex-column align-items-center">
+					<!-- 1. Machine Learning -->
+					<div class="industry-shape snail mb-4">
+						<img src="assets/images/shapes/snail.svg" alt="Machine Learning shape">
+						<div class="industry-text maclea">
+							<h3><sup>1. </sup> Machine Learning</h3>
+							<p>From tools to infrastructure, we back applied intelligence</p>
+						</div>
+					</div>
+
+					<!-- 2. Software -->
+					<div class="industry-shape circle mt-md-5">
+						<img src="assets/images/shapes/circle.svg" alt="Software shape"> 
+						<div class="industry-text software">
+							<h3><sup>2. </sup> Software</h3>
+							<p>Simple products solving complex problems.</p>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="industry-shape circle">
-				<img src="assets/images/shapes/circle.svg" alt="circle"> 
-				<div class="industry-text software">
-					<h3><sup>2. </sup> Software</h3>
-					<p>Simple products solving complex problems.</p>
+
+				<div class="col-12 col-md-4 d-flex flex-column align-items-center juustify-content-center">
+					<!-- 3. Fintech -->
+					<div class="industry-shape seashell col">
+						<img src="assets/images/shapes/seashell.svg" alt="Fintech shape">
+						<div class="industry-text fintech">
+							<h3><sup>3. </sup> Fintech</h3>
+							<p>Redesigning the future of money and transactions.</p>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="industry-shape seashell">
-				<img src="assets/images/shapes/seashell.svg" alt="seashell">
-				<div class="industry-text fintech">
-					<h3><sup>3. </sup> Fintech</h3>
-					<p>Redesigning the future of money and transactions.</p>
-				</div>
-			</div>
-			<div class="industry-shape jellyfish">
-				<img src="assets/images/shapes/jellyfish.svg" alt="jellyfish">
-				<div class="industry-text domains">
-					<h3><sup>4. </sup> Domains</h3>
-					<p>Digital land that appreciates in value.</p>
-				</div>
-			</div>
-			<div class="industry-shape starfish">
-				<img src="assets/images/shapes/starfish.svg" alt="starfish">
-				<div class="industry-text soccer">
-					<h3><sup>5. </sup>Soccer Ventures</h3>
-					<p>Niche investments in <br> the world's biggest <br> sport.</p>
+
+				<div class="col-12 col-md-4 d-flex flex-column align-items-center">
+					<!-- 4. Domains -->
+					<div class="industry-shape jellyfish mb-4">
+						<img src="assets/images/shapes/jellyfish.svg" alt="Domains shape">
+						<div class="industry-text domains">
+							<h3><sup>4. </sup> Domains</h3>
+							<p>Digital land that appreciates in value.</p>
+						</div>
+					</div>
+
+					<!-- 5. Soccer Ventures -->
+					<div class="industry-shape starfish mt-md-5">
+						<img src="assets/images/shapes/starfish.svg" alt="Soccer Ventures shaape">
+						<div class="industry-text soccer">
+							<h3><sup>5. </sup>Soccer Ventures</h3>
+							<p>Niche investments in the <br> world's biggest sport.</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<section class="boat-section">
+	<section class="boat-section" id="boat-section">
 		<div class="wave-darkblue-bg"></div>
-		<!-- <div class="container-wide"> -->
-			<div class="boat-title"> <!--  prose-->
-				<p>The Shorely Collective</p>
-				<h1 class="text-vanish">We empower companies to grow and make their mark on the world</h1>
+		<div class="container-xxl px-3 px-md-4">
+			<div class="row" style="height: 223px;">
+				<div class="col-12 text-center">
+					<div class="boat-title"> 
+						<p class="eyebrow">The Shorely Collective</p>
+						<h1 class="text-vanish">We empower companies to grow and make their mark on the world</h1>
+					</div>
+				</div>
 			</div>
-			<!-- <div class="row" style="align-items: center;"> -->
-				<!-- <div class="col-8 md-col-12"> -->
-					<div class="boat-content">
-						<img src="assets/images/boat/boat-structure.svg" alt="Boat structure" class="boat-img">
-						<div class="company-info">
-							<div id="logo-company"> </div>
-							<div id="name-company"></div>
-							<div id="description-company"></div>
+			<div class="row align-items-center g-0 position-relative">
+				<div class="col-12 col-lg-9">
+					<div class="boat-content" >
+						<div class="boat-wrap">
+							<div class="boat" role="img" aria-label="Boat">
+								<div class="cabins">
+									<div class="cabin"></div>
+									<div class="cabin">
+										<div id="company-logo"></div>
+									</div>
+									<a class="name-pill" href="#" target="_blank" rel="noopener">
+										<div id="company-name"></div>
+										<svg class="open-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+											<path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"/>
+              								<path fill="currentColor" d="M5 5h6v2H7v10h10v-4h2v6H5V5z"/>
+										</svg>
+									</a>
+								</div>
+								<div class="company-info"> <!--deck-->
+									<img class="boat-img" src="assets/images/boat/boat-deck.svg" alt="Boat deck">
+									<div id="company-desc" class="project-blurb"></div>
+								</div>
+							</div>
 						</div>
 					</div>
-				<!-- </div> -->
-				<!-- <div class="col-4 md-col-12">  -->
-					<div class="arrow-icons">
+				</div>
+				<div class="col-12 col-lg-3 d-flex justify-content-center justify-content-lg-start">
+					<div class="arrow-icons arrows-stack">
 						<button id="arrow-left" class=" arrow previous" aria-label="Previous company">
 							<img src="assets/images/boat/arrow/arrow-left-dark-blue.svg" class="arrow-base" alt="Left arrow">
 							<!-- Mobile prev-arrow -->
@@ -170,11 +231,11 @@
 							<img src="assets/images/boat/arrow/arrow-rigth-black.svg" class="arrow-hover" alt="Right arrow hover">
 						</button>
 					</div>
-				<!-- </div> -->
-			<!-- </div> -->
-		<!-- </div> -->
-	</section>
-	<section class="portfolio-section">
+				</div>
+			</div>
+		</div>
+	</section> 
+	<section class="portfolio-section" id="portfolio-section">
 		<div class="portfolio-title">
 			<h1 class="text-vanish">As well as securing the Anchor</h1>
 			<p>We acquire cool domains, you can get one <br> if you're on the same wavelength</p>
@@ -188,40 +249,48 @@
 			</div>
 		</div>
 	</section>
-	<section class="founder-section">
+	<section class="founder-section position-relative" id="founder-section">
 		<div class="wave-black-bg"></div>
-		<!-- <div class="container"> -->
-			<!-- <div class="row"> -->
-				<!-- <div class="col-12"> -->
+		<div class="container-xxl py-5 py-lg-6 position-relative">
+			<div class="row justify-content-center text-center mb-4 mb-lg-5">
+				<div class="col-12 col-lg-10">
 					<div class="founder-title">
-						<h3 class="prose">Shorely is a solo fund. No layers. No noise. <br>
+						<h1 class="text-vanish">Shorely is a solo fund. No layers. No noise.
 							Just one person who sees potential clearly and acts with conviction.
-						</h3>
+						</h1>
 					</div>
-				<!-- </div> -->
-				<!-- <div class="col-6 md-col-12"> -->
-					<div class="founder-visual">
-						<img src="assets/images/founder/silhouette-man.svg" alt="Silhouette Man" class="silhouette">
-						<div class="eyes left-eye-founder eye-left" ></div>
-						<div class="eyes right-eye-founder eye-right"></div>
-					
-				<!-- </div> -->
-				<!-- <div class="col-6 md-col-12"> -->
-					<div class="dialog-content prose">
-						<img src="assets/images/founder/dilaog.svg" alt="dialog form" class="dialog-founder">
-						<img src="assets/images/founder/dialog-mobile.png" alt="dialog form" class="dialog-founder-mobile">
-						<div class="dialog-text">
+				</div>
+			</div>
+
+			<div class="row align-items-center gx-lg-5">
+				<div class="col-12 col-lg-4 order-2 order-lg-1">
+					<div class="silhouette-wrap position-relative mx-auto">
+						<img src="assets/images/founder/silhouette-man.svg" alt="Silhouette Man" class="silhouette img-fluid">
+
+						<!-- eyes -->
+						<div class="eye sil-eye" data-r="6" style="--x:49%; --y:6.8%"><span class="pupil"></span></div>
+						<div class="eye sil-eye" data-r="6" style="--x:62%; --y:6.8%"><span class="pupil"></span></div>
+					</div>
+				</div>
+			
+				<div class="col-12 col-lg-6 order-1 order-lg-2">
+					<div class="dialog-wrap position-relative mx-lg-0 mx-auto">
+						<div class="dialog-text prose">
 							<p> I'm Felix Römer — the founder behind Shorely. With over a decade spent building and backing digital ventures, I’ve watched ideas drift, collide, and break through. I’ve learned that what matters most is execution — and the right support at the right time.
 								<br> My journey began in the online video game marketplace, starting with RuneScape, where I built tools and tracked real-time item prices to optimize trades. What began as trading virtual assets evolved into a deep sense for strategy — and marked the start of my investing path.
 								<br>Over the years, I also spent a significant amount of time pioneering products in the iGaming space — building platforms, scaling teams, and navigating a fast-paced, highly regulated environment. That experience sharpened my ability to move quickly and execute under pressure, and it laid the groundwork for expanding into other industries.
 								<br>Since then, I’ve backed multiple companies, always staying close to the action and stepping in when it matters most. I believe the best ideas grow when you’re close enough to get your hands dirty.
 							</p>
 						</div>
+						<!-- Desktop bubble -->
+						<img src="assets/images/founder/polygon-desktop.svg" alt="dialog form" class="dialog-form d-none d-md-block">
+						<!-- mobile bubble -->
+						<img src="assets/images/founder/polygon-mobile.png" alt="dialog form" class="dialog-form-mobile d-block d-md-none">	
+
 					</div>
-				<!-- </div> -->
 				</div>
-			<!-- </div> -->
-		<!-- </div> -->
+			</div>
+		</div>
 	</section>
 	<section class="contact-form" id="form-section">
 		<div class="contact-content">
@@ -239,40 +308,41 @@
 				<button type="submit" class="send-btn">Send →</button>
 				<p id="form-status" style="margin-top: 10px;display: none;"></p>
 			</form>
-			<!-- Lightweight modal -->
-			<!-- <div id="sent-modal" class="sent-modal" aria-hidden="true">
-				<div class="backdrop" data-close="1"></div>
-				<div class="dialog" role="dialog" aria-modal="true" 
-					aria-labelledby="sent-title" aria-describedby="sent-desc" tabindex="-1">
-					<h3 id="sent-title">Sent — thanks!</h3>
-					<p class="sent-desc">We’ve received your message and will reach out soon.</p>
-					<button class="close-btn" aria-label="Close" type="button">Close</button>
-				</div>
-			</div> -->
+			
 			<div class="sea-creatures-form ">
-				<div class="creature shell-form floating" id="sc">
-					<img src="assets/images/sea-creatures/shell.svg" alt="Shell" class="normal"/>
-					<div class="eye left-eye-shell-form eye-form eye-left"></div>
-					<div class="eye right-eye-shell-form eye-form eye-right"></div>
-					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
-				</div>
-				<div class="creature snail-form floating" id="sc">
-					<img src="assets/images/sea-creatures/snail.svg" alt="Snail" class="normal"/>
-					<div class="eye left-eye-snail-form eye-form eye-left"></div>
-					<div class="eye right-eye-snail-form eye-form eye-right"></div>
-					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
-				</div>
-				<div class="creature star-form floating" id="sc">
-					<img src="assets/images/sea-creatures/star.svg" alt="Start" class="normal"/>
-					<div class="eye left-eye-star-form eye-form eye-left eye-mob"></div>
-					<div class="eye right-eye-star-form eye-form eye-right eye-mob"></div>
-					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
-				</div>
-				<div class="creature octopus-form floating" id="sc">
-					<img src="assets/images/sea-creatures/octopus.svg" alt="Baby octopus"  class="normal"/>
-					<div class="eye left-eye-octopus-form eye-form eye-left eye-mob"></div>
-					<div class="eye right-eye-octopus-form eye-form eye-right eye-mob"></div>
-					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
+				<div class="creatures-row-form">
+					<div class="creature shell-form floating creature-form" data-size="md">
+						<img src="assets/images/sea-creatures/shell.svg" alt="Shell" class="normal"/>
+						<!-- eyes -->
+						<div class="eye eye-from" data-r="6" style="--x: 30%; --y:79%"><span class="pupil"></span></div>
+						<div class="eye eye-from" data-r="6" style="--x: 54%; --y:79%"><span class="pupil"></span></div>
+
+						<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
+					</div>
+					<div class="creature snail-form floating creature-form" data-size="md">
+						<img src="assets/images/sea-creatures/snail.svg" alt="Snail" class="normal"/>
+						<!-- eye -->
+						<div class="eye eye-from" data-r="6" style="--x: 37%; --y:13%"><span class="pupil"></span></div>
+						<div class="eye eye-from" data-r="6" style="--x: 63%; --y:13%"><span class="pupil"></span></div>
+
+						<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
+					</div>
+					<div class="creature star-form floating creature-form" data-size="md">
+						<img src="assets/images/sea-creatures/star.svg" alt="Start" class="normal"/>
+						<!-- eye -->
+						<div class="eye eye-from" data-r="6" style="--x: 33%; --y:34%"><span class="pupil"></span></div>
+						<div class="eye eye-from" data-r="6" style="--x: 52%; --y:34%"><span class="pupil"></span></div>
+
+						<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
+					</div>
+					<div class="creature octopus-form floating creature-form" data-size="md">
+						<img src="assets/images/sea-creatures/octopus.svg" alt="Baby octopus"  class="normal"/>
+						<!-- eye -->
+						<div class="eye eye-from" data-r="6" style="--x: 35%; --y:44%"><span class="pupil"></span></div>
+						<div class="eye eye-from" data-r="6" style="--x: 58%; --y:44%"><span class="pupil"></span></div>
+
+						<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
+					</div>
 				</div>
 			</div>
 		</div>
@@ -287,17 +357,22 @@
 <script type="speculationrules">
 	{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/hx6n\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
+<!-- Import Material Web components (in your HTML <head>) -->
+<script type="module" src="https://unpkg.com/@material/web/all.js"></script>
 
 <script src="js/gsap.min.js"></script>
 <script src="js/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 <script>gsap.registerPlugin(ScrollTrigger);</script>
 
 <script src="js/main.js"></script>
+<!-- <script src="js/creatureLayout.js"></script> -->
 <script src="js/form.js"></script>
 <script src="js/crabBehavior.js"></script>
-<!-- <script src="js/eyes.js"></script> -->
+<script src="js/eyes.js"></script>
+<!-- <script src="js/creatures-gsap.js"></script> -->
 
 <script type="text/javascript">
 	(function() {

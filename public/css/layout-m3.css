@@ -1,0 +1,41 @@
+:root{
+  /* fluid type */
+  --step--1: clamp(0.84rem, 0.78rem + 0.25vw, 0.95rem);
+  --step-0: clamp(1.00rem, 0.95rem + 0.35vw, 1.125rem);
+  --step-1: clamp(1.25rem, 1.10rem + 0.70vw, 1.60rem);
+  --step-2: clamp(1.60rem, 1.35rem + 1.20vw, 2.20rem);
+
+  /* content widths & spacing */
+  --content-max: 1200px;
+  --content-wide: 1440px;
+  
+  --space-0: 0px; --space-1: 4px; --space-2: 8px; --space-3: 12px;
+  --space-4: 16px; --space-6: 24px; --space-8: 32px; --space-12: 48px; --space-16: 64px;
+
+  --container-compact: 680px;
+  --container-medium: 1040px;
+  --container-expanded: 1320px;
+  --gutter: clamp(16px, 2.4vw, 28px);
+}
+
+.container       { width: min(100% - 2*var(--gutter), var(--container-medium));  margin-inline:auto; }
+.container-wide  { width: min(100% - 2*var(--gutter), var(--container-expanded));margin-inline:auto; }
+.container-narrow{ width: min(100% - 2*var(--gutter), var(--container-compact)); margin-inline:auto; }
+
+.grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter);}
+.col-12 { grid-column: span 12;} .col-8{grid-column: span 8;} .col-6 {grid-column: span 6;} .col-4{grid-column: span 4;}
+
+@media (max-width: 840px){ .md-col-12{ grid-column: span 12 } .md-col-6{ grid-column:span 6 } }
+@media (max-width: 600px){ .sm-col-12{ grid-column: span 12 } }
+/* 
+::-webkit-search-results-button
+, ::-webkit-search-results-decoration {
+  display: none;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, .12); 
+
+} */
+

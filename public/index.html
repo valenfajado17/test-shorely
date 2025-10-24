@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/boat_design.css">
 	<link rel="stylesheet" href="css/founder-sec-design.css">
-	<!-- <link rel="stylesheet" href="css/layout.css">  -->
+	<link rel="stylesheet" href="css/sea-creatures.css"> 
 
 	<title>Shorely</title>
 	<meta name="description" content="Investment fund focused on empowering visionary companies which shape the future. We strive to ensure our capital meets those building the digital assets of tomorrow." />
@@ -47,11 +47,10 @@
 	})(window,document,'script','dataLayer','GTM-MN4KC89J');</script>
 	<!-- End Google Tag Manager -->
 </head>
-
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MN4KC89J"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+
 <body data-barba="wrapper"> <!-- class="bg-th tc-d"  -->
 	<div class="main-section" > 
 		<!-- add a nav bar that add the article separate page -->
@@ -92,19 +91,19 @@
 			<div class="creatures-row">
 				<div class="creature shell floating delay-0" data-size="md">
 					<img src="assets/images/sea-creatures/shell.svg" alt="Shell" class="normal"/>
-					<div class="eye left-eye-shell eye-left"></div>
-					<div class="eye right-eye-shell eye-right"></div>
+					<div class="eye" data-r="6" style="--x:35%; --y:80%"><span class="pupil"></span></div>
+					<div class="eye" data-r="6" style="--x:55%; --y:80%"><span class="pupil"></span></div>
 					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
 				</div>
 				<div class="creature octopus floating delay-1" data-size="md">
 					<img src="assets/images/sea-creatures/octopus.svg" alt="Baby octopus" class="normal"/>
-					<div class="eye left-eye-octopus eye-left"></div>
-					<div class="eye right-eye-octopus eye-right"></div>
+					 <div class="eye" data-r="6" style="--x:35%; --y:42%"><span class="pupil"></span></div>
+					 <div class="eye" data-r="6" style="--x:55%; --y:42%"><span class="pupil"></span></div>
 					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
 				</div>
 			</div>
 			<!-- Crab container -->
-			 <div class="crab-container delay-2">
+			<div class="crab-container crab delay-2">
 				<img src="assets/images/crab/crab-leg-left.svg" class="leg leg-left ll-1">
 				<img src="assets/images/crab/crab-leg-left.svg" class="leg leg-left ll-2">
 				<img src="assets/images/crab/crab-body.svg" class="crab-body">
@@ -120,8 +119,6 @@
 				</div>
 			</div>
 		</section>
-		<!-- Crab container -->
-		
 	</div>
 	<section class="industries-section" id="industry-section">
 		<div class="industries-title">
@@ -214,10 +211,6 @@
 								<div class="company-info"> <!--deck-->
 									<img class="boat-img" src="assets/images/boat/boat-deck.svg" alt="Boat deck">
 									<div id="company-desc" class="project-blurb"></div>
-									<!-- <div class="project-badge">
-										<img id="company-badge-icon" alt="" aria-hidden="true">
-            							<span id="company-badge-text"></span>
-									</div> -->
 								</div>
 							</div>
 						</div>
@@ -275,8 +268,8 @@
 						<img src="assets/images/founder/silhouette-man.svg" alt="Silhouette Man" class="silhouette img-fluid">
 
 						<!-- eyes -->
-						<div class="eyes left-eye-founder eye-left" ></div>
-						<div class="eyes right-eye-founder eye-right"></div>
+						<div class="eye sil-eye" data-r="6" style="--x:49%; --y:6.8%"><span class="pupil"></span></div>
+						<div class="eye sil-eye" data-r="6" style="--x:62%; --y:6.8%"><span class="pupil"></span></div>
 					</div>
 				</div>
 			
@@ -317,29 +310,39 @@
 			</form>
 			
 			<div class="sea-creatures-form ">
-				<div class="creature shell-form floating" id="sc">
-					<img src="assets/images/sea-creatures/shell.svg" alt="Shell" class="normal"/>
-					<div class="eye left-eye-shell-form eye-form eye-left"></div>
-					<div class="eye right-eye-shell-form eye-form eye-right"></div>
-					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
-				</div>
-				<div class="creature snail-form floating" id="sc">
-					<img src="assets/images/sea-creatures/snail.svg" alt="Snail" class="normal"/>
-					<div class="eye left-eye-snail-form eye-form eye-left"></div>
-					<div class="eye right-eye-snail-form eye-form eye-right"></div>
-					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
-				</div>
-				<div class="creature star-form floating" id="sc">
-					<img src="assets/images/sea-creatures/star.svg" alt="Start" class="normal"/>
-					<div class="eye left-eye-star-form eye-form eye-left eye-mob"></div>
-					<div class="eye right-eye-star-form eye-form eye-right eye-mob"></div>
-					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
-				</div>
-				<div class="creature octopus-form floating" id="sc">
-					<img src="assets/images/sea-creatures/octopus.svg" alt="Baby octopus"  class="normal"/>
-					<div class="eye left-eye-octopus-form eye-form eye-left eye-mob"></div>
-					<div class="eye right-eye-octopus-form eye-form eye-right eye-mob"></div>
-					<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
+				<div class="creatures-row">
+					<div class="creature shell-form floating creature-form" data-size="md">
+						<img src="assets/images/sea-creatures/shell.svg" alt="Shell" class="normal"/>
+						<!-- eyes -->
+						<div class="eye eye-from" data-r="6" style="--x: 30%; --y:79%"><span class="pupil"></span></div>
+						<div class="eye eye-from" data-r="6" style="--x: 54%; --y:79%"><span class="pupil"></span></div>
+
+						<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
+					</div>
+					<div class="creature snail-form floating creature-form" data-size="md">
+						<img src="assets/images/sea-creatures/snail.svg" alt="Snail" class="normal"/>
+						<!-- eye -->
+						<div class="eye eye-from" data-r="6" style="--x: 37%; --y:13%"><span class="pupil"></span></div>
+						<div class="eye eye-from" data-r="6" style="--x: 63%; --y:13%"><span class="pupil"></span></div>
+
+						<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
+					</div>
+					<div class="creature star-form floating creature-form" data-size="md">
+						<img src="assets/images/sea-creatures/star.svg" alt="Start" class="normal"/>
+						<!-- eye -->
+						<div class="eye eye-from" data-r="6" style="--x: 33%; --y:34%"><span class="pupil"></span></div>
+						<div class="eye eye-from" data-r="6" style="--x: 52%; --y:34%"><span class="pupil"></span></div>
+
+						<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
+					</div>
+					<div class="creature octopus-form floating creature-form" data-size="md">
+						<img src="assets/images/sea-creatures/octopus.svg" alt="Baby octopus"  class="normal"/>
+						<!-- eye -->
+						<div class="eye eye-from" data-r="6" style="--x: 35%; --y:44%"><span class="pupil"></span></div>
+						<div class="eye eye-from" data-r="6" style="--x: 58%; --y:44%"><span class="pupil"></span></div>
+
+						<img src="assets/images/shapes/squish.svg" alt="squish/splat" class="squish">
+					</div>
 				</div>
 			</div>
 		</div>
@@ -368,7 +371,7 @@
 <!-- <script src="js/creatureLayout.js"></script> -->
 <script src="js/form.js"></script>
 <script src="js/crabBehavior.js"></script>
-<!-- <script src="js/eyes.js"></script> -->
+<script src="js/eyes.js"></script>
 <!-- <script src="js/creatures-gsap.js"></script> -->
 
 <script type="text/javascript">

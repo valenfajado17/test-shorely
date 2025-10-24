@@ -179,62 +179,7 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 /* END ABOUT-US SECTION  */
 
 /* CREATURES SECTION */
-
-.sea-creatures {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    width: 100%;
-}
-
-.creatures-row{
-    display: flex;
-    flex-direction: row;
-    gap: 6vw;
-    justify-content: center;
-    width: 100%;
-}
-
-.creature{
-    position: relative; 
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-}
-
-.creature img {
-    position: relative; /*it was absolute, lets try*/
-    width: clamp(50px, 20vw, 100px);
-    transition: transform 0.3s ease;
-
-}
-
-.normal {
-    opacity: 0;
-    transform: scale(0);
-}
-
-.squish {
-    display: none;
-    pointer-events: none;
-}
-
-
-@keyframes popIn {
-  0% { transform: scale(0.5); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-.floating {
-    animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% {transform: translateY(0);}
-    50% {transform: translateY(-10px);}
-}
-
+/* 
 .shell img {
     bottom: 79vh;
     right: 44vh;
@@ -245,40 +190,13 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     bottom: 75vh;
     left: 66vh;
     width: 94px;
-}   
-/* eyes creatures */
-.eye{
-    width: 8px;
-    height: 8px;
-    background: black;
-    border-radius: 50%;
-    position: absolute;
-    z-index: 2;
-    transition: transform  0.1s ease;
-    opacity: 0;
-    transform: scale(0);
-    pointer-events: none;
-}
+}    */
 
-.left-eye-shell{
-    bottom: 80vh;
-    right: 52vh;
-}
+/* .shell   {left: -267%;top: -219%;}
+.octopus { right: 10%; top: 10%; } */
 
-.right-eye-shell {
-    bottom: 80vh;
-    right: 48vh;
-}
-
-.left-eye-octopus{
-    bottom: 83vh;
-    left: 71.3vh;
-}
-
-.right-eye-octopus{
-    bottom: 83vh;
-    left: 74.8vh;
-}
+/* .shell img{bottom: 72vh;right: 27vh;}
+.octopus img{ bottom:75vh; left:66vh; } */
 
 /* Carab */
 .crab-container {
@@ -287,7 +205,7 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     transform: translateX(-50%); /* center baseline inside about-us just for desktop */
     opacity: 0;
     z-index: 10;
-    bottom: 12vh;
+    /* bottom: 12vh; */
 }
 
 .crab-container img {display: block;}
@@ -295,28 +213,6 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 .crab-body {
     width: 112px;
 }
-
-.left-eye-crab, .right-eye-crab {
-  position: absolute;
-  z-index: 11;
-  opacity: 1 !important;
-}
-
-/* crab's eyes should be bigger than the other*/
-.eye-crab {
-    width: 10px;
-    height: 10px;
-}
-
-.left-eye-crab{
-    bottom: 7vh;
-    right: 11vh;
-}
-.right-eye-crab{
-    bottom: 7vh;
-    right: 6vh;
-}
-
 .leg {
     width: 20px;
     position: absolute;
@@ -343,25 +239,15 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 
 /* Table devices */
 @media (max-width: 900px) {
-    .octopus img {
+    /* .octopus img {
         bottom: 82vh;
         left: 37vh;
-    }
-
-     .left-eye-octopus {
-        bottom: 90.8vh;
-        left: 42vh;
-    }
-
-    .right-eye-octopus{
-        bottom: 90.8vh;
-        left: 47.3vh;
-    }
+    } */
 
 }
 
 @media (max-width: 768px) {
-    .octopus img {
+    /* .octopus img {
         bottom: 92vh;
         left: 11vh;
         width: 80px;
@@ -371,33 +257,14 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
         bottom: 26vh;
         right: 7vh;
         width: 75px;
-    }
+    } */
 
-    /* .crab-container{
+    .crab-container{
         position: fixed; 
         right: 183px;
         bottom: 122vw;
-    } */
-
-    .left-eye-octopus {
-        bottom: 98.7vh;
-        left: 15vh;
     }
 
-    .right-eye-octopus{
-        bottom: 98.7vh;
-        left: 18vh;
-    }
-
-    .left-eye-shell {
-        bottom: 27vh;
-        right: 13.5vh;
-    }
-
-    .right-eye-shell {
-        bottom: 27vh;
-        right: 10.5vh;
-    }
 }
     
     /* crab-container - mobile */
@@ -959,88 +826,43 @@ textarea{
     color: white;
     transform: scale(1.07);
 }
-
+ /* 
 .sea-creatures-form {
     position: relative;
     display: flex;
-    justify-content: space-between; /*center*/
+    justify-content: space-between;
     align-items: flex-end;
     z-index: 5;
 }
 
-.eye-form{
-    width: 8px;
-    height: 8px;
-}
 .shell-form img{
     bottom: 64vh;
     right: 12vh;
     width: 15vh;
 }
-
-.left-eye-shell-form{
-    bottom: 65.5vh;
-    right: 21vh;
-}
-
-.right-eye-shell-form{
-    bottom: 65.5vh;
-    right: 17vh;
-}
-
 .snail-form img{
     bottom: 31vh;
     width: 15vh;
     right: 64vh;
 }
 
-.left-eye-snail-form {
-    right: 73vh;
-    bottom: 41vh;
-}
-
-.right-eye-snail-form {
-    right: 69vh;
-    bottom: 41vh;
-}
-
-.star-form img{
+.start-form img{
     width: 16vh;
     bottom: 74vh;
     left: 49vh;
-}
-
-.left-eye-star-form {
-    bottom: 84vh;
-    right: -40vh;
-}
-
-.right-eye-star-form {
-    bottom: 84vh;
-    right: -43vh;
 }
 
 .octopus-form img {
     bottom: 36vh;
     width: 15vh;
     left: -4vh;
-}
-
-.right-eye-octopus-form {
-    bottom: 40.3vh;
-    left: 1.5vh;
-}
-
-.left-eye-octopus-form {
-    bottom: 40.3vh;
-    left: 4.7vh;
-}
+} */
 
 /* ---------------- Contact form — Mobile only ---------------- */
 @media (max-width: 768px){
   .contact-form{
     background:#000;
-    padding: 16px 0 24px;
+    padding: 16px 0 0;
   }
 
   .contact-content{
@@ -1090,50 +912,9 @@ textarea{
     border-radius: 999px;
   }
 
-
-  /* Sea creatures: anchor decor safely inside the section */
-  .sea-creatures-form{
-    position: relative;
-    width: 100%;
-    height: 0;               /* let them sit over the form/footer area */
-    pointer-events: none;
-  }
-  .sea-creatures-form .creature{
-    position: absolute;
-    transform-origin: center;
-    /* eyes are decorative; hide on small screens */
-  }
-
-  .shell-form{ left: -11px;  bottom: 41px; transform: scale(.70); }
-  .snail-form{ right: 33vh; bottom: 83vh; transform: scale(.70); }
-  .star-form{  right: 28px; bottom: -6px;  transform: scale(.78); }
-  .octopus-form{ left: 33vh; bottom: 81vh; transform: scale(.60); }
-
-  .right-eye-snail-form { right: 2vh; bottom: 7vh;}
-  .left-eye-snail-form { right: 5vh; bottom: 7vh;}
-  .left-eye-shell-form { right: 5.2vh; bottom: 1vh;}
-  .right-eye-shell-form { right: 3vh; bottom: 1vh;}
-  .left-eye-star-form { right: 5.2vh; bottom: 5.3vh;}
-  .right-eye-star-form { right: 3.5vh; bottom: 5.3vh;}
-  .left-eye-octopus-form { left: 3vh; bottom: 3vh;}
-  .right-eye-octopus-form { left: 5.46vh; bottom: 3vh;}
-  .eye-mob  { width: 6px !important; height: 6px !important;}
-  
-
-  /* Ensure the images themselves don't try to use old absolute rules */
-  .sea-creatures-form .creature img.normal{
-    position: static !important;
-    transform: none !important;
-    opacity: 1 !important;
-    display: block;
-    width: auto;
-    height: auto;
-    max-width: 64px;         /* keeps them small & cute */
-  }
-
   /* Footer spacing under the form */
   .footer{
-    padding: 18px 0 26px;
+    padding: 0 0 26px;
   }
   .footer p{
     font-size: .9rem;
@@ -1175,4 +956,9 @@ textarea{
 }
 
 input-error::placeholder { color: #c06b6b;}
+
+.silhouette-wrap, .shell, .octopus, .crab,
+.shell-form, .snail-form, .octopus-form, .start-form {
+    position: relative;
+}
 

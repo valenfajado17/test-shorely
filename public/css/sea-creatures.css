@@ -6,8 +6,6 @@
     min-height: clamp(260px, 42vh, 560px);
     max-width: 1280px;
     margin: 0 auto;
-    /* height: 0 !important; */
-    /* width: 0; */
 }
 
 .creature{
@@ -85,6 +83,13 @@
   .creature {width: 169px;}
   .shell   {--x: 16;--y: -185;--w: 14;--z: 2;}
   .octopus {--x: 90;--y: -106;--w: 16;--z: 2;}
+
+
+   /* .sea-creatures-form  */
+   .sil-eye {
+    width: clamp(22px, 1.1vw, 30px) !important;
+    height: clamp(22px, 1.1vw, 30px) !important;
+  }
 }
 
 /* Tablet (576–991px) */
@@ -114,45 +119,43 @@
 .creature-form {width: 120px;}
 .star-form {width: 152px  !important;}
 
-@media (min-width: 1221px) {
-  
-  .shell-form   {--x: -29;--y: -192;--w: 14;--z: 2;}
-  .octopus-form {--x: 122;--y: -163;--w: 16;--z: 2;}
-  .snail-form   {--x: -12;--y: -68;--w: 14;--z: 2;}
-  .star-form    {--x: 136;--y: -49;--w: 16;--z: 2;}
-  /* .creature-form .star-form {min-width: 131px;} */
-}
 @media (min-width: 992px) {
   
-  .shell-form   {--x: -10;--y: -192;--w: 14;--z: 2;}
-  .octopus-form {--x: 122;--y: -163;--w: 16;--z: 2;}
-  .snail-form   {--x: -12;--y: -68;--w: 14;--z: 2;}
-  .star-form    {--x: 105;--y: -49;--w: 16;--z: 2;}
-  /* .creature-form .star-form {min-width: 131px;} */
+  .shell-form   {--x: -16;top: -610px;--w: 14;--z: 2;}
+  .octopus-form {--x: 122;top: -495px;--w: 16;--z: 2;}
+  .snail-form   {--x: -29;top: -114px;--w: 14;--z: 2;}
+  .star-form    {--x: 105;top: -157px;--w: 16;--z: 2;}
 }
 
 /* Tablet (576–991px) */
 @media (min-width: 576px) and (max-width: 991px) {
   /* .creature {width: 150px;} */
-  .shell-form   {--x: -9;--y: -187;--w: 14;--z: 2;}
-  .octopus-form {--x: 111;--y: -170;--w: 16;--z: 2;}
-  .snail-form   {--x: -7;--y: -68;--w: 14;--z: 2;}
-  .star-form    {--x: 105;--y: -49;--w: 16;--z: 2;}
+  .shell-form   {--x: 15;top: -577px;--w: 14;--z: 2;}
+  .octopus-form {--x: 92;top: -575px;--w: 16;--z: 2;}
+  .snail-form   {--x: 0;top: -114px;--w: 14;--z: 2;}
+  .star-form    {--x: 105;top: -157px;--w: 16;--z: 2;}
+  .contact-title { padding-top: 56px;}
+}
+
+@media (min-width: 769px) {
+  .contact-title { padding-top: 56px;}
+  .shell-form   {--x: 15;top:-671px;--w: 14;--z: 2;}
+  .octopus-form {--x: 92;top:-657px;--w: 16;--z: 2;}
 }
 
 /* Mobile (≤ 575px): stack higher to avoid the wave; keep centered spacing */
 @media (max-width: 575px) {
-  /* .creatures-row { min-height: clamp(300px, 52vh, 600px); } */
-  .shell-form   {--x: -9;--y: -187;--w: 14;--z: 2;}
-  .octopus-form {--x: 111;--y: -170;--w: 16;--z: 2;}
-  .snail-form   {--x: -7;--y: -68;--w: 14;--z: 2;}
-  .star-form    {--x: 105;--y: -49;--w: 16;--z: 2;}
+  .shell-form   {--x: 15;top: -577px;--w: 14;--z: 2;}
+  .octopus-form {display: none;}
+  .snail-form   {display: none;}
+  .star-form    {--x: 105;top: -157px;--w: 16;--z: 2;}
+  .contact-title { padding-top: 56px;}
 }
 
 @media (max-width: 375px) {
   /* .creatures-row { min-height: clamp(300px, 52vh, 600px); } */
-  .shell-form   {--x: -9;--y: -187;--w: 14;--z: 2;}
-  .octopus-form {--x: 111;--y: -170;--w: 16;--z: 2;}
-  .snail-form   {--x: -7;--y: -68;--w: 14;--z: 2;}
-  .star-form    {--x: 105;--y: -49;--w: 16;--z: 2;}
+  .shell-form   {--x: 22;top: -603px;--w: 14;--z: 2;}
+  .octopus-form {--x: 122;top: -495px;--w: 16;--z: 2;}
+  .snail-form   {--x: -29;top: -114px;--w: 14;--z: 2;}
+  .star-form    {--x: 94;top: -157px;--w: 16;--z: 2;}
 }

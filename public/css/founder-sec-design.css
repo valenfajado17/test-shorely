@@ -34,17 +34,6 @@
 .silhouette{width: 100%;height: auto;display: block;}
 .silhouette-wrap { width: min(260px, 38%) !important; max-width: 260px;}
 /* change the porcenta of the silhouette from 38% to 56% */
-
-/* .eye{
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  background:#000;
-  border-radius:50%;
-  box-shadow: 0 2px 8px #0002;
-  z-index: 4;
-  /* transform: translate(-50%, -50%); */
-/* } */
 .left-eye-founder  { top: 18%; left: 29% } */
 .right-eye-founder { top: 18%; left: 36%; }
 
@@ -104,9 +93,9 @@
 
 @media (max-width: 1160px) {
   .silhouette-wrap{ width: min(260px, 56%) !important};
-  .eye .sil-eye { 
-    width: clamp(18px, 1.1vw, 30px);
-    height: clamp(18px, 1.1vw, 30px);
+  .sil-eye { 
+    width: clamp(18px, 1.1vw, 30px) !important; 
+    height: clamp(18px, 1.1vw, 30px) !important;
   }
 }
 
@@ -124,9 +113,9 @@
     margin-top: 82px;
   }
 
-  .eye .sil-eye {
-    width: clamp(22px, 1.1vw, 30px);
-    height: clamp(22px, 1.1vw, 30px);
+  .sea-creatures-form .sil-eye {
+    width: clamp(22px, 1.1vw, 30px) !important;
+    height: clamp(22px, 1.1vw, 30px) !important;
   }
 
   /* .eye {
@@ -166,3 +155,9 @@
   }
 }
 
+@media (max-width: 375px) {
+  .sil-eye{
+    width: clamp(23px, 1.4vw, 30px) !important;
+    height: clamp(23px, 1.4vw, 30px) !important;
+  }
+}

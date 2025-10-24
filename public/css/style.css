@@ -260,8 +260,8 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     } */
 
     .crab-container{
-        position: fixed; 
-        right: 183px;
+        position: fixed;
+        /* right: 183px; */
         bottom: 122vw;
     }
 
@@ -270,8 +270,8 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
     /* crab-container - mobile */
 @media (max-width: 480px) {
     .crab-container{
-        /* width: clamp(90px, 18vw, 120px); */
-        bottom: -4px;
+        width: clamp(112px, 18vw, 120px);
+        bottom: 128px;
         transform: translateX(50%);
     }
 
@@ -795,7 +795,6 @@ input, textarea{
     outline: none;
     resize: none;
     transition: box-shadow .2s;
-
 }
 
 input:focus, text:focus{

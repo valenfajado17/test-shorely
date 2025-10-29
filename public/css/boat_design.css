@@ -159,7 +159,7 @@
 
 @media(max-width: 375px) {
   #company-desc { padding: 24px 90px 0;}
-  .boat-wrap {--boat-ar: 10/6.8;--boat-w: clamp(662px,0vw,732px);margin-right: 30%;}
+  .boat-wrap {--boat-ar: 10/6.8;--boat-w: clamp(662px,0vw,732px);margin-right: 30% !important;}
   .name-pill {min-width: clamp(125px, 23vw, 339px);}
   .cabins {left: 46px;}
 }

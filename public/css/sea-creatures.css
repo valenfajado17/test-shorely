@@ -87,8 +87,8 @@
 
    /* .sea-creatures-form  */
    .sil-eye {
-    width: clamp(22px, 1.1vw, 30px) !important;
-    height: clamp(22px, 1.1vw, 30px) !important;
+    width: clamp(18px, 1.1vw, 30px) !important;
+    height: clamp(18px, 1.1vw, 30px) !important;
   }
 }
 

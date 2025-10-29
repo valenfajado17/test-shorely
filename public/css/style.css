@@ -322,6 +322,7 @@ body{ line-height: 1.45;margin: 0;overflow-x: hidden;overflow-y: auto;}
 
 .bubble-container:hover .bf{
     opacity: 0;
+    transform: scale(0);
 }
  
 .bubble-container:hover .af{
@@ -933,7 +934,6 @@ textarea{
 .footer{
     background-color: black;
 }
-
 
 .error {
     display: block;
